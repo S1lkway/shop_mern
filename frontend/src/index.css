@@ -9,8 +9,62 @@
 
 body {
   margin: 0;
-  padding: 0;
-  padding-top: 5px;
-  height: 100vh;
+  padding: 0 20px;
   font-family: Roboto, arial, sans-serif;
+}
+
+ul {
+  list-style: none;
+}
+
+/** HELP DEFAULT CLASSES           */
+/** ****************************** */
+/** ****************************** */
+
+.between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.flex_end {
+  justify-content: flex-end;
+}
+
+/** HEADER                         */
+/** ****************************** */
+/** ****************************** */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* border-bottom: 1px solid #e6e6e6; */
+  /* margin-bottom: 40px; */
+}
+
+.header ul {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header ul li {
+  margin: 0 10px;
+}
+
+.header ul li a {
+  display: flex;
+  align-items: center;
+}
+
+.header ul li a:hover {
+  color: #777;
+}
+
+.header ul li a svg {
+  margin-right: 5px;
+}
+
+.logo>a {
+  margin-right: 15px;
 }
