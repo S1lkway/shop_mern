@@ -13,8 +13,17 @@ body {
   font-family: Roboto, arial, sans-serif;
 }
 
-ul {
-  list-style: none;
+a {
+  color: rgb(var(--colour-text-and-icon-1, 17, 17, 17));
+  text-decoration: none;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  margin: 1.25rem 0;
+  font-weight: 700;
 }
 
 /** HELP DEFAULT CLASSES           */
@@ -38,33 +47,84 @@ ul {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  /* border-bottom: 1px solid #e6e6e6; */
+
+  .left_part {
+    .logo {
+      display: flex;
+      align-items: center;
+      margin-right: 15px;
+
+      /* background-color: aqua; */
+      >a {
+        .header_logo {
+          width: 130px;
+          height: 70px;
+        }
+      }
+    }
+
+
+
+    .search_bar {
+      margin-right: 15px;
+
+      >form {
+        >input {
+          display: block;
+          width: 100%;
+          height: 2.5rem;
+          padding: 0.1rem;
+          padding-inline-start: 3.25rem;
+          padding-inline-end: 3.375rem;
+          margin: 0 auto;
+          font-size: 1rem;
+          line-height: 1.5;
+          color: inherit;
+          background-color: rgb(var(--colour-neutral-2));
+          border: 1px solid rgb(215, 215, 215);
+          border-radius: 50em;
+          outline: 0;
+          box-shadow: none;
+          transition: background-color .2s;
+          -webkit-appearance: none;
+          -moz-appearance: none;
+          appearance: none;
+        }
+      }
+    }
+  }
+
+
+
   /* margin-bottom: 40px; */
+  .header_links {
+    >a {
+      margin: 0 10px;
+
+      :hover {
+        color: #cdcdcd;
+      }
+    }
+  }
 }
 
-.header ul {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
 
-.header ul li {
-  margin: 0 10px;
-}
 
-.header ul li a {
-  display: flex;
-  align-items: center;
-}
+/** NAVBAR                         */
+/** ****************************** */
+/** ****************************** */
+.navbar {
+  border-bottom: 1px solid #e6e6e6;
 
-.header ul li a:hover {
-  color: #777;
-}
+  .navigation_links {
+    >a {
+      margin-right: 10px;
+    }
+  }
 
-.header ul li a svg {
-  margin-right: 5px;
-}
-
-.logo>a {
-  margin-right: 15px;
+  .location_links {
+    >a {
+      margin: 0 10px;
+    }
+  }
 }

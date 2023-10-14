@@ -19,48 +19,40 @@ function Header() {
   // }
   return (
     <header className='header'>
-      <div className='logo between'>
-        <Link to='/'>
-          <h4><i> Shop picture </i></h4>
-        </Link>
-        <div>
+      <div className='left_part between'>
+        <div className="logo">
+          <Link to='/' title='Shop MERN'>
+            <img className="header_logo" src="\images\furniture_logo.jpg" alt="Logo"></img>
+          </Link>
+        </div>
+        <div className='search_bar'>
           <form>
-            <div>
-              <input
-                type="text"
-                id="search"
-                name='search'
-                // value={email}
-                placeholder='What are you looking for?'
-              // onChange={onChange}
-              />
-            </div>
+            <input
+              type="text"
+              id="search"
+              name='search'
+              // value={email}
+              placeholder='What are you looking for?'
+            // onChange={onChange}
+            />
           </form>
         </div>
       </div>
 
-      <ul>
-        <li>
-          <Link to='/login'>
-            <AccountCircleOutlinedIcon />
-          </Link>
-        </li>
-        <li>
-          <Link to='/login'>
-            <LocalShippingOutlinedIcon />
-          </Link>
-        </li>
-        <li>
-          <Link to='/register'>
-            <FavoriteBorderIcon />
-          </Link>
-        </li>
-        <li>
-          <Link to='/register'>
-            <ShoppingBasketOutlinedIcon />
-          </Link>
-        </li>
-      </ul >
+      <div className="header_links">
+        <Link to='/login'>
+          <AccountCircleOutlinedIcon />
+        </Link>
+        <Link to='/login'>
+          <LocalShippingOutlinedIcon />
+        </Link>
+        <Link to='/register'>
+          <FavoriteBorderIcon />
+        </Link>
+        <Link to='/register'>
+          <ShoppingBasketOutlinedIcon />
+        </Link>
+      </div>
     </header >
   )
 }
