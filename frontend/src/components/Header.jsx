@@ -39,19 +39,27 @@ function Header() {
         </div>
       </div>
 
-      <div className="header_links">
-        <Link to='/login'>
-          <AccountCircleOutlinedIcon />
-        </Link>
-        <Link to='/login'>
-          <LocalShippingOutlinedIcon />
-        </Link>
-        <Link to='/register'>
-          <FavoriteBorderIcon />
-        </Link>
-        <Link to='/register'>
-          <ShoppingBasketOutlinedIcon />
-        </Link>
+      <div className="header_links between">
+        <div>
+          <Link to='/user'>
+            <AccountCircleOutlinedIcon />
+          </Link>
+        </div>
+        <div>
+          <Link to='/tracking'>
+            <LocalShippingOutlinedIcon />
+          </Link>
+        </div>
+        <div>
+          <Link to='/favorites'>
+            <FavoriteBorderIcon />
+          </Link>
+        </div>
+        <div>
+          <Link to='/basket'>
+            <ShoppingBasketOutlinedIcon />
+          </Link>
+        </div>
       </div>
     </header >
   )
