@@ -8,7 +8,8 @@ function ModalRight(props) {
       <div className='modalButtons'>
         <button className='btn'>Yes</button>
         <button onClick={closeModal}>No</button>
-      </div></>
+      </div>
+    </>
   )
 }
 

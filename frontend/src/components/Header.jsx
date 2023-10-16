@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom'
 import ReactModal from 'react-modal';
 //-Components
-import UserModal from './UserModal'
+import UserModal from './userModal/UserModal'
 //-MUI icons
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import ShoppingBasketOutlinedIcon from '@mui/icons-material/ShoppingBasketOutlined';

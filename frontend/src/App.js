@@ -11,14 +11,12 @@ function App() {
   return (
     <>
       <Router>
-        <div className='container'>
 
-          <Header />
-          <Navbar />
+        <Header />
+        <Navbar />
 
-          <Footer />
+        <Footer />
 
-        </div>
       </Router>
       <ToastContainer autoClose={1500} />
     </>
