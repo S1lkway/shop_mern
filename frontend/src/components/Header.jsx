@@ -1,6 +1,8 @@
+import { useState } from 'react';
 import { Link } from 'react-router-dom'
-// import { useSelector, useDispatch } from 'react-redux'
-// import { logout, reset } from '../features/auth/authSlice'
+import ReactModal from 'react-modal';
+//-Components
+import UserModal from './UserModal'
 //-MUI icons
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import ShoppingBasketOutlinedIcon from '@mui/icons-material/ShoppingBasketOutlined';
@@ -8,15 +10,18 @@ import AccountCircleOutlinedIcon from '@mui/icons-material/AccountCircleOutlined
 import LocalShippingOutlinedIcon from '@mui/icons-material/LocalShippingOutlined';
 
 function Header() {
-  // const navigate = useNavigate()
-  // const dispatch = useDispatch()
-  // const { user } = useSelector((state) => state.auth)
 
-  // const onLogout = () => {
-  //   dispatch(logout())
-  //   dispatch(reset())
-  //   navigate('/')
-  // }
+  const [modalIsOpen, setModalIsOpen] = useState(false);
+
+  //* MODAL
+  const openModal = () => {
+    setModalIsOpen(true);
+  };
+  const closeModal = () => {
+    setModalIsOpen(false);
+  };
+
+
   return (
     <header className='header'>
       <div className='left_part between'>
@@ -41,7 +46,7 @@ function Header() {
 
       <div className="header_links between">
         <div>
-          <Link to='/user'>
+          <Link onClick={openModal}>
             <AccountCircleOutlinedIcon />
           </Link>
         </div>
@@ -61,6 +66,15 @@ function Header() {
           </Link>
         </div>
       </div>
+      <ReactModal
+        isOpen={modalIsOpen}
+        onRequestClose={closeModal}
+        className="userModal"
+        overlayClassName="userOverlay"
+      >
+        <UserModal />
+      </ReactModal>
+
     </header >
   )
 }

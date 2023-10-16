@@ -40,6 +40,35 @@ h4 {
   justify-content: flex-end;
 }
 
+/** REACTMODAL WINDOWS             */
+/** ****************************** */
+/** ****************************** */
+/*/// User MODAL */
+.userModal {
+  position: fixed;
+  min-width: 15%;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  /* border: 1px solid #ccc; */
+  background: #fff;
+  overflow: auto;
+  border-radius: 5px;
+  outline: none;
+  padding: 20px;
+  text-align: center;
+}
+
+.userOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(209, 205, 205, 0.75);
+}
+
+
 /** HEADER                         */
 /** ****************************** */
 /** ****************************** */
