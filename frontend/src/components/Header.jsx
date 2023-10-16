@@ -12,13 +12,18 @@ import LocalShippingOutlinedIcon from '@mui/icons-material/LocalShippingOutlined
 function Header() {
 
   const [modalIsOpen, setModalIsOpen] = useState(false);
+  const [modelClass, setModelClass] = useState('modalOpened')
 
   //* MODAL
   const openModal = () => {
+    setModelClass('modalOpened')
     setModalIsOpen(true);
   };
   const closeModal = () => {
-    setModalIsOpen(false);
+    setModelClass('modalClosed')
+    setTimeout(() => {
+      setModalIsOpen(false);
+    }, 250);
   };
 
 
@@ -69,10 +74,10 @@ function Header() {
       <ReactModal
         isOpen={modalIsOpen}
         onRequestClose={closeModal}
-        className="userModal"
+        className={"userModal " + modelClass}
         overlayClassName="userOverlay"
       >
-        <UserModal />
+        <UserModal closeModal={closeModal} />
       </ReactModal>
 
     </header >
