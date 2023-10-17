@@ -96,6 +96,36 @@ h4 {
   background-color: rgba(236, 236, 236, 0.75);
 }
 
+.userModalBody {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .userModalHeader,
+  .userModalClose {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .userModalTitle {
+      margin: 0 7px;
+
+      >svg {
+        margin-top: 3px;
+      }
+    }
+
+    .userModalTitle:hover {
+      cursor: pointer;
+      text-decoration: underline;
+
+      >svg {
+        color: rgb(201, 201, 201);
+      }
+    }
+  }
+}
+
 /** HEADER                         */
 /** ****************************** */
 /** ****************************** */

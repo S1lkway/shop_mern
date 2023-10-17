@@ -1,15 +1,22 @@
+import CloseIcon from '@mui/icons-material/Close';
 
 function ModalRight(props) {
   const closeModal = props.closeModal
 
   return (
-    <>
-      <h3>Are you sure?</h3>
-      <div className='modalButtons'>
-        <button className='btn'>Yes</button>
-        <button onClick={closeModal}>No</button>
+    <div className="userModalBody">
+      <div className="userModalHeader">
+        <h4 className="userModalTitle">Login</h4>
+        <span>/</span>
+        <h4 className="userModalTitle">Register</h4>
       </div>
-    </>
+
+      <div className='userModalClose'>
+        <h4 className="userModalTitle" onClick={closeModal}>
+          <CloseIcon />
+        </h4>
+      </div>
+    </div>
   )
 }
 
