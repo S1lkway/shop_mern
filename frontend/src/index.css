@@ -11,7 +11,9 @@ body {
   margin: 0;
   padding: 0 20px;
   font-family: Roboto, arial, sans-serif;
+  font-size: 1.1rem;
 }
+
 
 a {
   color: rgb(var(--colour-text-and-icon-1, 17, 17, 17));
@@ -46,7 +48,7 @@ h4 {
 /* Animation */
 @keyframes slideIn {
   from {
-    right: -500px;
+    right: -600px;
   }
 
   to {
@@ -60,7 +62,7 @@ h4 {
   }
 
   to {
-    right: -500px;
+    right: -600px;
   }
 }
 
@@ -77,7 +79,7 @@ h4 {
   position: fixed;
   top: 0;
   width: 100%;
-  max-width: 500px;
+  max-width: 600px;
   height: 100%;
   background: #fff;
   border: 1px solid rgba(212, 212, 212, 0.604);
@@ -93,7 +95,7 @@ h4 {
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(236, 236, 236, 0.75);
+  background-color: rgba(223, 223, 223, 0.412);
 }
 
 .userModalBody {

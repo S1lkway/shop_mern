@@ -6,9 +6,9 @@ function ModalRight(props) {
   return (
     <div className="userModalBody">
       <div className="userModalHeader">
-        <h4 className="userModalTitle">Login</h4>
+        <h3 className="userModalTitle">Login</h3>
         <span>/</span>
-        <h4 className="userModalTitle">Register</h4>
+        <h3 className="userModalTitle">Register</h3>
       </div>
 
       <div className='userModalClose'>
