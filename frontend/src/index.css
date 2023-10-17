@@ -44,7 +44,7 @@ h4 {
 /** REACT-MODAL WINDOWS            */
 /** ****************************** */
 /** ****************************** */
-/*/// User MODAL */
+/*/// Right Side MODAL */
 /* Animation */
 @keyframes slideIn {
   from {
@@ -74,7 +74,7 @@ h4 {
   animation: slideOut 0.25s forwards;
 }
 
-/* Main classes of modal */
+/*/// Main classes of right side MODAL */
 .userModal {
   position: fixed;
   top: 0;
@@ -98,22 +98,26 @@ h4 {
   background-color: rgba(223, 223, 223, 0.412);
 }
 
-.userModalBody {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+/*/// User Login/Register/Profile MODAL */
+.userModalContainer {
 
-  .userModalHeader,
-  .userModalClose {
+  .userModalHeader {
     display: flex;
     justify-content: space-between;
     align-items: center;
 
-    .userModalTitle {
-      margin: 0 7px;
+    .modalTitles,
+    .userModalClose {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
 
-      >svg {
-        margin-top: 3px;
+      .userModalTitle {
+        margin: 0 7px 0 0;
+
+        >svg {
+          margin-top: 3px;
+        }
       }
     }
 
@@ -126,7 +130,12 @@ h4 {
       }
     }
   }
+
+  .userModalBody {
+    margin-top: 3rem;
+  }
 }
+
 
 /** HEADER                         */
 /** ****************************** */
