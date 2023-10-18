@@ -43,6 +43,7 @@ function Header() {
               name='search'
               // value={email}
               placeholder='What are you looking for?'
+              title='What are you looking for?'
             // onChange={onChange}
             />
           </form>

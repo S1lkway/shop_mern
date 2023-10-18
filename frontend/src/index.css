@@ -111,6 +111,7 @@ h4 {
       display: flex;
       justify-content: space-between;
       align-items: center;
+      margin-left: 1.5rem;
 
       .userModalTitle {
         margin: 0 7px 0 0;
@@ -136,6 +137,57 @@ h4 {
   }
 }
 
+/** USERMODAL FORM                       */
+/** ****************************** */
+/** ****************************** */
+.userModalForm {
+  width: 100%;
+
+  >h5 {
+    margin: 0.7rem 1.5rem 1.5rem 1.5rem;
+    color: rgba(0, 125, 193, 0.782);
+  }
+
+  >h5:hover {
+    cursor: pointer;
+    text-decoration: underline;
+    color: rgb(0, 125, 193);
+  }
+
+  .userModalFormGroup {
+    margin-top: 2rem;
+
+    .userModalFormInput {
+      margin-left: 0;
+      width: 70%;
+      height: 2.5rem;
+      padding: 0.1rem;
+      padding-inline-start: 1.5rem;
+      padding-inline-end: 1.5rem;
+      font-size: 1rem;
+      background-color: rgb(243, 243, 243);
+      border: 1px solid rgb(243, 243, 243);
+      border-radius: 64px;
+    }
+
+    .userModalFormButton {
+      width: 40%;
+      height: 2.5rem;
+      padding: 0.1rem;
+      font-size: 1rem;
+      border-radius: 64px;
+      border: 2px solid;
+      background-color: inherit;
+      text-decoration: underline;
+      font-weight: 600;
+    }
+
+    .userModalFormButton:hover {
+      cursor: pointer;
+      border: 3px solid;
+    }
+  }
+}
 
 /** HEADER                         */
 /** ****************************** */
@@ -226,6 +278,7 @@ h4 {
     }
   }
 }
+
 
 /** @media (max-width: 600px)      */
 /** ------------------------------ */
