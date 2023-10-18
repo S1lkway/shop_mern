@@ -8,8 +8,12 @@ function Login() {
   return (
     <form className="userModalForm" onSubmit={onSubmit}>
       <div className="userModalFormGroup">
+        <label htmlFor="email" className="userModalFormLabel">
+          Email
+        </label>
         <input
           className='userModalFormInput'
+          autoComplete="on"
           type="email"
           id="email"
           name='email'
@@ -19,8 +23,12 @@ function Login() {
         />
       </div>
       <div className="userModalFormGroup">
+        <label htmlFor="password" className="userModalFormLabel">
+          Password
+        </label>
         <input
           className='userModalFormInput'
+          autoComplete="on"
           type="password"
           id="password"
           name='password'
@@ -30,7 +38,7 @@ function Login() {
         />
       </div>
 
-      <h5 title="Forgot password?">Forgot password?</h5>
+      <h5 title="Forgot password?"><span>Forgot password?</span></h5>
 
       <div className="userModalFormGroup">
         <button

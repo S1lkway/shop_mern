@@ -19,13 +19,13 @@ function ModalRight(props) {
       <div className="userModalHeader">
         <div className="modalTitles">
           <h2
-            className="userModalTitle"
+            className={bodyComponent === 'Login' ? 'userModalTitle pickedBody' : 'userModalTitle'}
             onClick={() => changeModalBody('Login')}>
             Login
           </h2>
           <h3 className='userModalTitle'>/</h3>
           <h2
-            className="userModalTitle"
+            className={bodyComponent === 'Register' ? 'userModalTitle pickedBody' : 'userModalTitle'}
             onClick={() => changeModalBody('Register')}>
             Register
           </h2>

@@ -14,7 +14,6 @@ body {
   font-size: 1.1rem;
 }
 
-
 a {
   color: rgb(var(--colour-text-and-icon-1, 17, 17, 17));
 }
@@ -87,6 +86,7 @@ h4 {
   outline: none;
   padding: 30px;
   text-align: left;
+  overflow-y: auto;
 }
 
 .userOverlay {
@@ -111,7 +111,11 @@ h4 {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-left: 1rem;
+      margin-left: 1.5rem;
+
+      .pickedBody {
+        text-decoration: underline;
+      }
 
       .userModalTitle {
         margin: 0 7px 0 0;
@@ -148,15 +152,25 @@ h4 {
     color: rgba(0, 125, 193, 0.782);
   }
 
-  >h5:hover {
+  >h5>span:hover {
     cursor: pointer;
     text-decoration: underline;
     color: rgb(0, 125, 193);
   }
 
   .userModalFormGroup {
-    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    margin-top: 1.8rem;
 
+    /* Label */
+    >label {
+      margin: 0 0 0.5rem 1.5rem;
+      font-size: 1rem;
+      font-weight: 600;
+    }
+
+    /* Input */
     .userModalFormInput {
       margin-left: 0;
       width: 70%;
@@ -170,21 +184,28 @@ h4 {
       border-radius: 64px;
     }
 
+    /* Button */
     .userModalFormButton {
+      margin-top: 2rem;
       width: 40%;
       height: 2.5rem;
       padding: 0.1rem;
       font-size: 1rem;
+      border: 1px solid hsl(0, 0%, 0%);
       border-radius: 64px;
-      border: 2px solid;
-      background-color: inherit;
-      text-decoration: underline;
+      background-color: hsl(0, 0%, 0%);
       font-weight: 600;
+      color: white;
+    }
+
+    .userModalFormButton:active {
+      border: 1px solid white;
     }
 
     .userModalFormButton:hover {
       cursor: pointer;
-      border: 3px solid;
+      background-color: rgb(35, 35, 35);
+      text-decoration: underline;
     }
   }
 }
@@ -220,7 +241,6 @@ h4 {
         text-align: center;
 
         >input {
-
           width: 100%;
           height: 2.5rem;
           padding: 0.1rem;
@@ -269,7 +289,6 @@ h4 {
 
       >a {
         text-decoration: none;
-
       }
 
       >a:hover {
