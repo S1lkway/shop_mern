@@ -32,7 +32,10 @@ function Header() {
       <div className='left_part between'>
         <div className="logo">
           <Link to='/' title='Shop MERN'>
-            <img className="header_logo" src="\images\furniture_logo.jpg" alt="Logo"></img>
+            <img
+              className="header_logo"
+              src="\images\furniture_logo.jpg"
+              alt="Logo"></img>
           </Link>
         </div>
         <div className='search_bar'>
@@ -52,22 +55,30 @@ function Header() {
 
       <div className="header_links between">
         <div>
-          <Link onClick={openModal}>
+          <Link
+            onClick={openModal}
+            title='Account'>
             <AccountCircleOutlinedIcon />
           </Link>
         </div>
         <div>
-          <Link to='/tracking'>
+          <Link
+            to='/tracking'
+            title='Track orders'>
             <LocalShippingOutlinedIcon />
           </Link>
         </div>
         <div>
-          <Link to='/favorites'>
+          <Link
+            to='/favorites'
+            title='Favorites'>
             <FavoriteBorderIcon />
           </Link>
         </div>
         <div>
-          <Link to='/basket'>
+          <Link
+            to='/basket'
+            title='Basket'>
             <ShoppingBasketOutlinedIcon />
           </Link>
         </div>

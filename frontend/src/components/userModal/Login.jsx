@@ -30,7 +30,7 @@ function Login() {
         />
       </div>
 
-      <h5>Forgot password?</h5>
+      <h5 title="Forgot password?">Forgot password?</h5>
 
       <div className="userModalFormGroup">
         <button

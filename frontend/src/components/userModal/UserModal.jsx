@@ -18,17 +18,23 @@ function ModalRight(props) {
 
       <div className="userModalHeader">
         <div className="modalTitles">
-          <h3
+          <h2
             className="userModalTitle"
-            onClick={() => changeModalBody('Login')}
-          >Login</h3>
-          <span className='userModalTitle'>/</span>
-          <h3
+            onClick={() => changeModalBody('Login')}>
+            Login
+          </h2>
+          <h3 className='userModalTitle'>/</h3>
+          <h2
             className="userModalTitle"
-            onClick={() => changeModalBody('Register')}>Register</h3>
+            onClick={() => changeModalBody('Register')}>
+            Register
+          </h2>
         </div>
         <div className='userModalClose'>
-          <h4 className="userModalTitle" onClick={closeModal}>
+          <h4
+            className="userModalTitle"
+            title="Close"
+            onClick={closeModal}>
             <CloseIcon />
           </h4>
         </div>

@@ -111,7 +111,7 @@ h4 {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-left: 1.5rem;
+      margin-left: 1rem;
 
       .userModalTitle {
         margin: 0 7px 0 0;
