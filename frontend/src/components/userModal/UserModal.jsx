@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useSelector } from 'react-redux'
 import CloseIcon from '@mui/icons-material/Close';
 import Login from './Login'
 import Register from './Register'
@@ -7,6 +8,7 @@ import Profile from './Profile'
 function ModalRight(props) {
   const closeModal = props.closeModal
   const [bodyComponent, setBodyComponents] = useState('Login')
+  const { user } = useSelector((state) => state.auth)
 
   const changeModalBody = (bodyComponent) => {
     setBodyComponents(bodyComponent)
@@ -17,22 +19,33 @@ function ModalRight(props) {
     <div className="userModalContainer">
 
       <div className="userModalHeader">
-        <div className="modalTitles">
-          <h2
-            className={bodyComponent === 'Login' ? 'userModalTitle pickedBody' : 'userModalTitle'}
-            onClick={() => changeModalBody('Login')}>
-            Login
-          </h2>
-          <h3 className='userModalTitle'>/</h3>
-          <h2
-            className={bodyComponent === 'Register' ? 'userModalTitle pickedBody' : 'userModalTitle'}
-            onClick={() => changeModalBody('Register')}>
-            Register
-          </h2>
-        </div>
+        {user ? (
+          <div className="modalTitles">
+            <h2
+              className='userModalTitle'
+            >
+              {user.name}
+            </h2>
+          </div>
+        ) : (
+          <div className="modalTitles">
+            <h2
+              className={bodyComponent === 'Login' ? 'userModalTitle userModalTitleButton pickedBody' : 'userModalTitle userModalTitleButton'}
+              onClick={() => changeModalBody('Login')}>
+              Login
+            </h2>
+            <h3 className='userModalTitle'>/</h3>
+            <h2
+              className={bodyComponent === 'Register' ? 'userModalTitle userModalTitleButton pickedBody' : 'userModalTitle userModalTitleButton'}
+              onClick={() => changeModalBody('Register')}>
+              Register
+            </h2>
+          </div>
+        )}
+
         <div className='userModalClose'>
           <h4
-            className="userModalTitle"
+            className="userModalTitle userModalTitleButton"
             title="Close"
             onClick={closeModal}>
             <CloseIcon />
@@ -41,8 +54,8 @@ function ModalRight(props) {
       </div>
 
       <div className="userModalBody">
-        {bodyComponent === 'Login' && <Login />}
-        {bodyComponent === 'Register' && <Register />}
+        {bodyComponent === 'Login' && <Login setBodyComponents={setBodyComponents} />}
+        {bodyComponent === 'Register' && <Register setBodyComponents={setBodyComponents} />}
         {bodyComponent === 'Profile' && <Profile />}
       </div>
 

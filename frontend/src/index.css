@@ -119,14 +119,16 @@ h4 {
 
       .userModalTitle {
         margin: 0 7px 0 0;
+      }
 
+      .userModalTitleButton {
         >svg {
           margin-top: 3px;
         }
       }
     }
 
-    .userModalTitle:hover {
+    .userModalTitleButton:hover {
       cursor: pointer;
       text-decoration: underline;
 

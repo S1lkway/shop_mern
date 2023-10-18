@@ -1,12 +1,11 @@
 import { useState, useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import { useNavigate } from 'react-router-dom'
 import { toast } from 'react-toastify'
 import { register, reset } from '../../features/auth/authSlice'
 
-function Register() {
-  const navigate = useNavigate()
+function Register(props) {
   const dispatch = useDispatch()
+  const setBodyComponents = props.setBodyComponents
 
   ///Data from redux store
   const { user, isError, isSuccess, message } = useSelector((state) => state.auth)
@@ -26,11 +25,12 @@ function Register() {
     }
 
     if (isSuccess || user) {
-      navigate('/')
+      setBodyComponents('Profile')
     }
 
     dispatch(reset())
-  }, [user, isError, isSuccess, message, navigate, dispatch])
+    // eslint-disable-next-line
+  }, [user, isError, isSuccess, message, dispatch])
 
   const onChange = (e) => {
     setFormData((prevState) => ({
