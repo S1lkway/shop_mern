@@ -307,4 +307,22 @@ h4 {
     padding-inline-start: 1rem;
     padding-inline-end: 1rem;
   }
+
+  /** USERMODAL FORM                 */
+  /** ****************************** */
+  /** ****************************** */
+  .userModalForm {
+    .userModalFormGroup {
+
+      /* Input */
+      .userModalFormInput {
+        width: 100% !important;
+      }
+
+      /* Button */
+      .userModalFormButton {
+        width: 100% !important;
+      }
+    }
+  }
 }
