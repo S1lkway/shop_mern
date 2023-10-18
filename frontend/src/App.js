@@ -18,8 +18,17 @@ function App() {
         <Footer />
 
       </Router>
-      <ToastContainer autoClose={1500} />
-    </>
+      <ToastContainer
+        position="top-right"
+        autoClose={1300}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="dark" /></>
   );
 }
 
