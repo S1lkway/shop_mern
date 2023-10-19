@@ -1,10 +1,13 @@
-import { BrowserRouter as Router } from 'react-router-dom'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
-//-Components
+import PrivateRoutes from './utils/PrivateRoutes'
+//-Main components
 import Header from './components/Header';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
+//-Routes
+import Main from './pages/Main'
 
 
 function App() {
@@ -15,9 +18,17 @@ function App() {
         <Header />
         <Navbar />
 
+        <Routes>
+          <Route element={<PrivateRoutes />}>
+            <Route path='/' element={<Main />} />
+          </Route>
+        </Routes>
+
         <Footer />
 
       </Router>
+
+
       <ToastContainer
         position="top-right"
         autoClose={1000}
