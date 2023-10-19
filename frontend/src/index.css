@@ -16,6 +16,7 @@ body {
 
 a {
   color: rgb(var(--colour-text-and-icon-1, 17, 17, 17));
+  text-decoration: none;
 }
 
 h1,
@@ -24,6 +25,12 @@ h3,
 h4 {
   margin: 1.25rem 0;
   font-weight: 700;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
 /** HELP DEFAULT CLASSES           */
@@ -38,6 +45,11 @@ h4 {
 
 .flex_end {
   justify-content: flex-end;
+}
+
+.flex_column {
+  display: flex;
+  flex-direction: column;
 }
 
 /** REACT-MODAL WINDOWS            */
@@ -143,7 +155,7 @@ h4 {
   }
 }
 
-/** USERMODAL FORM                       */
+/** USERMODAL FORM                 */
 /** ****************************** */
 /** ****************************** */
 .userModalForm {
@@ -210,6 +222,21 @@ h4 {
   cursor: pointer;
   background-color: rgb(35, 35, 35);
   text-decoration: underline;
+}
+
+/** USERMODAL PROFILE              */
+/** ****************************** */
+/** ****************************** */
+.userModalProfile {
+  .userModalProfileList {
+    >li {
+      margin: 0 0 2.5rem 1.5rem;
+    }
+  }
+
+  >button {
+    margin-top: 2rem;
+  }
 }
 
 /** HEADER                         */
