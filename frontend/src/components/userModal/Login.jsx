@@ -1,12 +1,9 @@
-import { useState, useEffect } from 'react'
-import { useSelector, useDispatch } from 'react-redux'
-import { useNavigate, useLocation } from 'react-router-dom'
-import { toast } from 'react-toastify'
-import { login, reset } from '../../features/auth/authSlice'
+import { useState } from 'react'
+import { useDispatch } from 'react-redux'
+
+import { login } from '../../features/auth/authSlice'
 
 function Login() {
-  const navigate = useNavigate()
-  const location = useLocation();
   const dispatch = useDispatch()
   const [formData, setFormData] = useState({
     email: '',
@@ -14,18 +11,6 @@ function Login() {
   })
 
   const { email, password } = formData
-
-  const { user, isError, isSuccess, message } = useSelector((state) => state.auth)
-
-  useEffect(() => {
-    if (isError) {
-      toast.error(message)
-    }
-    if (isSuccess || user) {
-      toast.success(`Welcome, ${user.name}`)
-    }
-    dispatch(reset())
-  }, [user, isError, isSuccess, message, navigate, dispatch, location])
 
   const onChange = (e) => {
     setFormData((prevState) => ({

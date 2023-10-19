@@ -1,4 +1,6 @@
-import { useDispatch } from 'react-redux'
+import { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { toast } from 'react-toastify'
 import { Link } from 'react-router-dom'
 //-MUI icons
 import ChairOutlinedIcon from '@mui/icons-material/ChairOutlined';
@@ -11,33 +13,44 @@ import { logout, reset } from '../../features/auth/authSlice'
 
 function Profile() {
   const dispatch = useDispatch()
+  const { user, isError, isSuccess, message } = useSelector((state) => state.auth)
+
+  useEffect(() => {
+    if (isError) {
+      toast.error(message)
+    }
+    if (isSuccess && user) {
+      toast.success(`Welcome, ${user.name}`)
+    }
+    dispatch(reset())
+  }, [user, isError, isSuccess, message, dispatch])
 
   const onLogout = () => {
+    toast.info(`Thank you for your visit, ${user.name}`)
     dispatch(logout())
     dispatch(reset())
-
   }
 
   return (
     <div className='flex_column userModalProfile'>
       <ul className='userModalProfileList'>
         <li>
-          <Link to='/profile'>
+          <Link to='/design'>
             <span><ChairOutlinedIcon /> My designs & rooms</span>
           </Link>
         </li>
         <li>
-          <Link to='/profile'>
+          <Link to='/history'>
             <span><InventoryOutlinedIcon /> Purchase history</span>
           </Link>
         </li>
         <li>
-          <Link to='/profile'>
+          <Link to='/shopping_list'>
             <span><FormatListBulletedOutlinedIcon /> Shopping list</span>
           </Link>
         </li>
         <li>
-          <Link to='/profile'>
+          <Link to='/tracking'>
             <span><LocalShippingOutlinedIcon /> Track your order</span>
           </Link>
         </li>
