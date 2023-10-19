@@ -52,6 +52,11 @@ ul {
   flex-direction: column;
 }
 
+.flex_row {
+  display: flex;
+  align-items: center;
+}
+
 /** REACT-MODAL WINDOWS            */
 /** ****************************** */
 /** ****************************** */
@@ -170,6 +175,23 @@ ul {
     cursor: pointer;
     text-decoration: underline;
     color: rgb(0, 125, 193);
+  }
+
+  .userModalFormTitle {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 70%;
+
+    >h2 {
+      margin-left: 1.5rem;
+      text-decoration: underline;
+    }
+
+    >svg:hover {
+      cursor: pointer;
+      color: rgb(201, 201, 201);
+    }
   }
 
   .userModalFormGroup {
@@ -332,15 +354,26 @@ ul {
 /** ------------------------------ */
 /** ------------------------------ */
 @media (max-width: 600px) {
+
   #search {
     padding-inline-start: 1rem;
     padding-inline-end: 1rem;
   }
 
+  /*/// Main classes of right side MODAL */
+  .userModal {
+    padding: 30px 10px;
+  }
+
   /** USERMODAL FORM                 */
   /** ****************************** */
   /** ****************************** */
+
   .userModalForm {
+    .userModalFormTitle {
+      width: 100% !important;
+    }
+
     .userModalFormGroup {
 
       /* Input */

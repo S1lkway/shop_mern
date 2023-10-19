@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux'
 import CloseIcon from '@mui/icons-material/Close';
 import Login from './Login'
 import Register from './Register'
-import Profile from './Profile'
+import Profile from './Profile/Profile'
 
 function ModalRight(props) {
   const closeModal = props.closeModal
@@ -21,25 +21,25 @@ function ModalRight(props) {
       <div className="userModalHeader">
         {user ? (
           <div className="modalTitles">
-            <h2
+            <h1
               className='userModalTitle'
             >
               {user.name}
-            </h2>
+            </h1>
           </div>
         ) : (
           <div className="modalTitles">
-            <h2
+            <h1
               className={bodyComponent === 'Login' ? 'userModalTitle userModalTitleButton pickedBody' : 'userModalTitle userModalTitleButton'}
               onClick={() => changeModalBody('Login')}>
               Login
-            </h2>
+            </h1>
             <h3 className='userModalTitle'>/</h3>
-            <h2
+            <h1
               className={bodyComponent === 'Register' ? 'userModalTitle userModalTitleButton pickedBody' : 'userModalTitle userModalTitleButton'}
               onClick={() => changeModalBody('Register')}>
               Register
-            </h2>
+            </h1>
           </div>
         )}
 
