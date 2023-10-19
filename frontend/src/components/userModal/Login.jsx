@@ -1,16 +1,24 @@
-import { useState } from 'react'
-import { useDispatch } from 'react-redux'
-
-import { login } from '../../features/auth/authSlice'
+import { useState, useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { toast } from 'react-toastify'
+import { login, reset } from '../../features/auth/authSlice'
 
 function Login() {
   const dispatch = useDispatch()
+  const { user, isError, isSuccess, message } = useSelector((state) => state.auth)
   const [formData, setFormData] = useState({
     email: '',
     password: '',
   })
 
   const { email, password } = formData
+
+  useEffect(() => {
+    if (isError) {
+      toast.error(message)
+    }
+    dispatch(reset())
+  }, [user, isError, isSuccess, message, dispatch])
 
   const onChange = (e) => {
     setFormData((prevState) => ({

@@ -45,8 +45,8 @@ function Register(props) {
     if (password !== password2) {
       toast.error('Passwords do not match')
     } else {
-      if (name.length < 5 || email.length < 5 || password.length < 5) {
-        toast.error('Fields must contain at least 5 characters')
+      if (name.length < 4 || email.length < 4 || password.length < 4) {
+        toast.error('Fields must contain at least 4 characters')
       } else {
         const userData = {
           name,

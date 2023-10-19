@@ -1,28 +1,28 @@
 import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { toast } from 'react-toastify'
-import { Link } from 'react-router-dom'
+import ProfileList from './ProfileList';
 //-MUI icons
-import ChairOutlinedIcon from '@mui/icons-material/ChairOutlined';
-import InventoryOutlinedIcon from '@mui/icons-material/InventoryOutlined';
-import FormatListBulletedOutlinedIcon from '@mui/icons-material/FormatListBulletedOutlined';
-import LocalShippingOutlinedIcon from '@mui/icons-material/LocalShippingOutlined';
-import AccountCircleOutlinedIcon from '@mui/icons-material/AccountCircleOutlined';
 import ReplyIcon from '@mui/icons-material/Reply';
 // - Redux
-import { logout, reset } from '../../../features/auth/authSlice'
+import { edit, reset } from '../../../features/auth/authSlice'
 
 function Profile() {
   const dispatch = useDispatch()
-  const { user, isError, isSuccess, message } = useSelector((state) => state.auth)
   const [editProfileForm, setEditProfileForm] = useState(false)
+  const { user, isError, isSuccess, message } = useSelector((state) => state.auth)
+
+  const [formData, setFormData] = useState({
+    name: user.name,
+    email: user.email,
+    password: '',
+    password2: ''
+  })
+  const { name, email, password, password2 } = formData
 
   useEffect(() => {
     if (isError) {
       toast.error(message)
-    }
-    if (isSuccess && user) {
-      toast.success(`Welcome, ${user.name}`)
     }
     dispatch(reset())
   }, [user, isError, isSuccess, message, dispatch])
@@ -31,14 +31,34 @@ function Profile() {
     setEditProfileForm(!editProfileForm)
   }
 
-  const onLogout = () => {
-    toast.info(`Thank you for your visit, ${user.name}`)
-    dispatch(logout())
-    dispatch(reset())
+  //*EDIT formData BY CHANGING DATA IN FORM FIELDS
+  const onChange = (e) => {
+    setFormData((prevState) => ({
+      ...prevState,
+      [e.target.name]: e.target.value,
+    }))
   }
+
 
   const onSubmit = (e) => {
     e.preventDefault()
+    ///Check passwords fields
+    if (password !== password2) {
+      toast.error('Password do not match')
+    } else {
+      if (name.length < 4 || email.length < 4 || password.length < 4) {
+        toast.error('Fields must contain at least 4 characters')
+      } else {
+        const userData = {
+          name,
+          email,
+          password,
+        }
+        ///We send data from form to authSlice to register function and there to server by authService
+        toast.success('Profile changed')
+        dispatch(edit(userData))
+      }
+    }
   }
 
   return (
@@ -51,6 +71,7 @@ function Profile() {
                 <h2><i>Edit profile</i></h2>
                 <ReplyIcon onClick={profileForm} />
               </div>
+
               <div className="userModalFormGroup">
                 <label htmlFor="name" className="userModalFormLabel">
                   Name
@@ -61,11 +82,12 @@ function Profile() {
                   type="text"
                   id="name"
                   name='name'
-                  // value={name}
+                  value={name}
                   placeholder='Enter your name'
-                // onChange={onChange}
+                  onChange={onChange}
                 />
               </div>
+
               <div className="userModalFormGroup">
                 <label htmlFor="email" className="userModalFormLabel">
                   Email
@@ -76,11 +98,12 @@ function Profile() {
                   type="email"
                   id="email"
                   name='email'
-                  // value={email}
+                  value={email}
                   placeholder='Enter your email'
-                // onChange={onChange}
+                  readOnly
                 />
               </div>
+
               <div className="userModalFormGroup">
                 <label htmlFor="password" className="userModalFormLabel">
                   Password
@@ -91,9 +114,9 @@ function Profile() {
                   type="password"
                   id="password"
                   name='password'
-                  // value={password}
+                  value={password}
                   placeholder='Enter password'
-                // onChange={onChange}
+                  onChange={onChange}
                 />
               </div>
 
@@ -107,9 +130,9 @@ function Profile() {
                   type="password"
                   id="password2"
                   name='password2'
-                  // value={password2}
+                  value={password2}
                   placeholder='Confirm password'
-                // onChange={onChange}
+                  onChange={onChange}
                 />
               </div>
 
@@ -125,44 +148,8 @@ function Profile() {
           </>
         ) :
         (
-          <>
-            <ul className='userModalProfileList'>
-              <li>
-                <Link to='/design'>
-                  <span><ChairOutlinedIcon /> My designs & rooms</span>
-                </Link>
-              </li>
-              <li>
-                <Link to='/history'>
-                  <span><InventoryOutlinedIcon /> Purchase history</span>
-                </Link>
-              </li>
-              <li>
-                <Link to='/shopping_list'>
-                  <span><FormatListBulletedOutlinedIcon /> Shopping list</span>
-                </Link>
-              </li>
-              <li>
-                <Link to='/tracking'>
-                  <span><LocalShippingOutlinedIcon /> Track your order</span>
-                </Link>
-              </li>
-              <li>
-                <Link onClick={profileForm}>
-                  <span><AccountCircleOutlinedIcon /> Manage account</span>
-                </Link>
-              </li>
-            </ul >
-            <button
-              className='userModalFormButton'
-              onClick={onLogout}
-              type='submit' >
-              Sign out
-            </button>
-          </>
+          <ProfileList profileForm={profileForm} />
         )}
-
-
     </div>
   )
 }
