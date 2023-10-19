@@ -6,8 +6,13 @@ import PrivateRoutes from './utils/PrivateRoutes'
 import Header from './components/Header';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
-//-Routes
+//-Routes-----------------------------------------------------------------
 import Main from './pages/Main'
+//-Account
+// import Basket from './pages/Account/Basket/Basket'
+// import Favorites from './pages/Account/Favorites/Favorites'
+//-Public
+
 
 
 function App() {
