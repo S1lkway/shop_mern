@@ -171,45 +171,45 @@ h4 {
       font-size: 1rem;
       font-weight: 600;
     }
-
-    /* Input */
-    .userModalFormInput {
-      margin-left: 0;
-      width: 70%;
-      height: 2.5rem;
-      padding: 0.1rem;
-      padding-inline-start: 1.5rem;
-      padding-inline-end: 1.5rem;
-      font-size: 1rem;
-      background-color: rgb(243, 243, 243);
-      border: 1px solid rgb(243, 243, 243);
-      border-radius: 64px;
-    }
-
-    /* Button */
-    .userModalFormButton {
-      margin-top: 2rem;
-      width: 40%;
-      height: 2.5rem;
-      padding: 0.1rem;
-      font-size: 1rem;
-      border: 1px solid hsl(0, 0%, 0%);
-      border-radius: 64px;
-      background-color: hsl(0, 0%, 0%);
-      font-weight: 600;
-      color: white;
-    }
-
-    .userModalFormButton:active {
-      border: 1px solid white;
-    }
-
-    .userModalFormButton:hover {
-      cursor: pointer;
-      background-color: rgb(35, 35, 35);
-      text-decoration: underline;
-    }
   }
+}
+
+/* Input */
+.userModalFormInput {
+  margin-left: 0;
+  width: 70%;
+  height: 2.5rem;
+  padding: 0.1rem;
+  padding-inline-start: 1.5rem;
+  padding-inline-end: 1.5rem;
+  font-size: 1rem;
+  background-color: rgb(243, 243, 243);
+  border: 1px solid rgb(243, 243, 243);
+  border-radius: 64px;
+}
+
+/* Button */
+.userModalFormButton {
+  margin-top: 2rem;
+  width: 40%;
+  height: 2.5rem;
+  padding: 0.1rem;
+  font-size: 1rem;
+  border: 1px solid hsl(0, 0%, 0%);
+  border-radius: 64px;
+  background-color: hsl(0, 0%, 0%);
+  font-weight: 600;
+  color: white;
+}
+
+.userModalFormButton:active {
+  border: 1px solid white;
+}
+
+.userModalFormButton:hover {
+  cursor: pointer;
+  background-color: rgb(35, 35, 35);
+  text-decoration: underline;
 }
 
 /** HEADER                         */

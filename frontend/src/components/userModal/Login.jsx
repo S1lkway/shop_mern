@@ -4,8 +4,7 @@ import { useNavigate, useLocation } from 'react-router-dom'
 import { toast } from 'react-toastify'
 import { login, reset } from '../../features/auth/authSlice'
 
-function Login(props) {
-  const setBodyComponents = props.setBodyComponents
+function Login() {
   const navigate = useNavigate()
   const location = useLocation();
   const dispatch = useDispatch()
@@ -23,17 +22,9 @@ function Login(props) {
       toast.error(message)
     }
     if (isSuccess || user) {
-      setBodyComponents('Profile')
+      toast.success(`Welcome, ${user.name}`)
     }
-    /// Message after redirect if user is not authorized
-    // const prevUrl = location.state?.prevUrl
-    // if (prevUrl) {
-    //   toast.error('User is not authorized')
-    //   const { prevUrl, ...state } = location.state;
-    //   navigate({ pathname: '/login', state });
-    // }
     dispatch(reset())
-    // eslint-disable-next-line
   }, [user, isError, isSuccess, message, navigate, dispatch, location])
 
   const onChange = (e) => {

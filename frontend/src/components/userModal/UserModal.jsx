@@ -54,9 +54,11 @@ function ModalRight(props) {
       </div>
 
       <div className="userModalBody">
-        {bodyComponent === 'Login' && <Login setBodyComponents={setBodyComponents} />}
-        {bodyComponent === 'Register' && <Register setBodyComponents={setBodyComponents} />}
-        {bodyComponent === 'Profile' && <Profile />}
+        {user ? (
+          <Profile setBodyComponents={setBodyComponents} />
+        ) : (
+          bodyComponent === 'Login' ? (<Login setBodyComponents={setBodyComponents} />) : (<Register setBodyComponents={setBodyComponents} />)
+        )}
       </div>
 
     </div>
