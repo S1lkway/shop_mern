@@ -5,7 +5,7 @@ import { register, reset } from '../../features/auth/authSlice'
 
 function Register(props) {
   const dispatch = useDispatch()
-  const setBodyComponents = props.setBodyComponents
+  const setUserConnected = props.setUserConnected
 
   ///Data from redux store
   const { user, isError, isSuccess, message } = useSelector((state) => state.auth)
@@ -22,10 +22,6 @@ function Register(props) {
   useEffect(() => {
     if (isError) {
       toast.error(message)
-    }
-
-    if (isSuccess || user) {
-      setBodyComponents('Profile')
     }
 
     dispatch(reset())
@@ -54,6 +50,7 @@ function Register(props) {
           password,
         }
         // We send data from form to authSlice to register function and there to server by authService
+        setUserConnected(true)
         dispatch(register(userData))
       }
     }

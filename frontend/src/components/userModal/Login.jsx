@@ -3,7 +3,8 @@ import { useDispatch, useSelector } from 'react-redux'
 import { toast } from 'react-toastify'
 import { login, reset } from '../../features/auth/authSlice'
 
-function Login() {
+function Login(props) {
+  const setUserConnected = props.setUserConnected
   const dispatch = useDispatch()
   const { user, isError, isSuccess, message } = useSelector((state) => state.auth)
   const [formData, setFormData] = useState({
@@ -35,7 +36,7 @@ function Login() {
       email,
       password,
     }
-
+    setUserConnected(true)
     dispatch(login(userData))
   }
 

@@ -1,6 +1,9 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux'
+import { toast } from 'react-toastify'
+//-MUI icons
 import CloseIcon from '@mui/icons-material/Close';
+//-Components
 import Login from './Login'
 import Register from './Register'
 import Profile from './Profile/Profile'
@@ -8,11 +11,20 @@ import Profile from './Profile/Profile'
 function ModalRight(props) {
   const closeModal = props.closeModal
   const [bodyComponent, setBodyComponents] = useState('Login')
+  const [userConnected, setUserConnected] = useState(false)
   const { user } = useSelector((state) => state.auth)
 
   const changeModalBody = (bodyComponent) => {
     setBodyComponents(bodyComponent)
   }
+
+  //Message after user auth
+  useEffect(() => {
+    if (user && userConnected) {
+      toast.success(`Welcome, ${user.name}`)
+      setUserConnected(false)
+    }
+  }, [user, userConnected])
 
 
   return (
@@ -55,9 +67,9 @@ function ModalRight(props) {
 
       <div className="userModalBody">
         {user ? (
-          <Profile setBodyComponents={setBodyComponents} />
+          <Profile />
         ) : (
-          bodyComponent === 'Login' ? (<Login setBodyComponents={setBodyComponents} />) : (<Register setBodyComponents={setBodyComponents} />)
+          bodyComponent === 'Login' ? (<Login setUserConnected={setUserConnected} />) : (<Register setUserConnected={setUserConnected} />)
         )}
       </div>
 

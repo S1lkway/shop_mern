@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux'
 import { toast } from 'react-toastify'
-import { Link } from 'react-router-dom'
+import { useNavigate, Link } from 'react-router-dom'
 //-MUI icons
 import ChairOutlinedIcon from '@mui/icons-material/ChairOutlined';
 import InventoryOutlinedIcon from '@mui/icons-material/InventoryOutlined';
@@ -14,10 +14,12 @@ function ProfileList(props) {
   const profileForm = props.profileForm
 
   const dispatch = useDispatch()
+  const navigate = useNavigate()
   const { user } = useSelector((state) => state.auth)
 
   const onLogout = () => {
     toast.info(`Thank you for your visit, ${user.name}`)
+    navigate('/')
     dispatch(logout())
     dispatch(reset())
   }
