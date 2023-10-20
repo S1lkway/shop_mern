@@ -1,3 +1,4 @@
+import { Outlet } from "react-router-dom"
 import { useSelector, useDispatch } from 'react-redux'
 import jwt_decode from "jwt-decode";
 // - Redux
@@ -16,6 +17,7 @@ function PrivateRoutes() {
       dispatch(reset())
     }
   }
+  return <Outlet />
 }
 
 export default PrivateRoutes
