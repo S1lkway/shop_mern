@@ -6,7 +6,7 @@ import LocationOnOutlinedIcon from '@mui/icons-material/LocationOnOutlined';
 function Navbar() {
   return (
     <div className='navbar between'>
-      <div className="navigation_links between">
+      <div className="navigationLinks between">
         <Link
           to='/products'>
           <h4>Products</h4>
@@ -20,7 +20,7 @@ function Navbar() {
           <h4>Deals</h4>
         </Link>
       </div>
-      <div className="location_links between">
+      <div className="navigationLinks between">
         <div>
           <Link
             to='/main_store'>
