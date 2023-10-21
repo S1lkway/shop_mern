@@ -2,11 +2,11 @@ import { useDispatch, useSelector } from 'react-redux'
 import { toast } from 'react-toastify'
 import { useNavigate, Link } from 'react-router-dom'
 //-MUI icons
-import ChairOutlinedIcon from '@mui/icons-material/ChairOutlined';
 import InventoryOutlinedIcon from '@mui/icons-material/InventoryOutlined';
 import FormatListBulletedOutlinedIcon from '@mui/icons-material/FormatListBulletedOutlined';
 import LocalShippingOutlinedIcon from '@mui/icons-material/LocalShippingOutlined';
 import AccountCircleOutlinedIcon from '@mui/icons-material/AccountCircleOutlined';
+import CardMembershipOutlinedIcon from '@mui/icons-material/CardMembershipOutlined';
 // - Redux
 import { logout, reset } from '../../../features/auth/authSlice'
 
@@ -26,13 +26,13 @@ function ProfileList(props) {
   return (
     <>
       <ul className='userModalProfileList'>
-        <li>
-          <Link to='/design'>
-            <span><ChairOutlinedIcon /> My designs & rooms</span>
+        <li className='membershipTitle'>
+          <Link className='membershipLink' to='/membership'>
+            <span><CardMembershipOutlinedIcon /> Membership card</span>
           </Link>
         </li>
         <li>
-          <Link to='/history'>
+          <Link to='/purchase_history'>
             <span><InventoryOutlinedIcon /> Purchase history</span>
           </Link>
         </li>

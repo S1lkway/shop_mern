@@ -33,6 +33,10 @@ ul {
   padding: 0;
 }
 
+.container {
+  margin: 1rem 0;
+}
+
 /** HELP DEFAULT CLASSES           */
 /** ****************************** */
 /** ****************************** */
@@ -250,6 +254,8 @@ ul {
 /** ****************************** */
 /** ****************************** */
 .userModalProfile {
+
+
   .userModalProfileList {
     >li {
       margin: 0 0 2.5rem 1.5rem;
@@ -257,6 +263,24 @@ ul {
 
     >li span:hover {
       text-decoration: underline;
+    }
+
+    .membershipTitle {
+
+      border-top: 1px solid rgba(0, 125, 193, 0.782);
+      border-bottom: 1px solid rgba(0, 125, 193, 0.782);
+      margin-bottom: 2.5rem;
+      margin-left: 0;
+      padding: 1.5rem;
+
+      >a {
+        color: rgba(0, 125, 193, 0.782);
+
+        >span {
+          font-weight: 600;
+          font-size: 22px;
+        }
+      }
     }
   }
 
@@ -329,24 +353,18 @@ ul {
 
   .navigationLinks {
     >a {
-      text-decoration: none;
       margin-right: 15px;
+    }
+
+    >div {
+      margin-left: 15px;
+    }
+
+    >a,
+    div {
+      text-decoration: none;
 
       :hover {
-        text-decoration: underline;
-      }
-    }
-  }
-
-  .location_links {
-    >div {
-      margin: 10px;
-
-      >a {
-        text-decoration: none;
-      }
-
-      >a:hover {
         text-decoration: underline;
       }
     }
