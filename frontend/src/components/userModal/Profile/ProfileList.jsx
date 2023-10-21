@@ -1,6 +1,8 @@
+import { useContext } from 'react';
 import { useDispatch, useSelector } from 'react-redux'
 import { toast } from 'react-toastify'
 import { useNavigate, Link } from 'react-router-dom'
+import ModalCloseContext from '../../../utils/ModalCloseContext';
 //-MUI icons
 import InventoryOutlinedIcon from '@mui/icons-material/InventoryOutlined';
 import FormatListBulletedOutlinedIcon from '@mui/icons-material/FormatListBulletedOutlined';
@@ -11,6 +13,7 @@ import CardMembershipOutlinedIcon from '@mui/icons-material/CardMembershipOutlin
 import { logout, reset } from '../../../features/auth/authSlice'
 
 function ProfileList(props) {
+  const closeModal = useContext(ModalCloseContext);
   const profileForm = props.profileForm
 
   const dispatch = useDispatch()
@@ -27,27 +30,37 @@ function ProfileList(props) {
     <>
       <ul className='userModalProfileList'>
         <li className='membershipTitle'>
-          <Link className='membershipLink' to='/membership'>
+          <Link
+            className='membershipLink'
+            to='/membership'
+            onClick={closeModal}>
             <span><CardMembershipOutlinedIcon /> Membership card</span>
           </Link>
         </li>
         <li>
-          <Link to='/purchase_history'>
+          <Link
+            to='/purchase_history'
+            onClick={closeModal}>
             <span><InventoryOutlinedIcon /> Purchase history</span>
           </Link>
         </li>
         <li>
-          <Link to='/shopping_list'>
+          <Link
+            to='/shopping_list'
+            onClick={closeModal}>
             <span><FormatListBulletedOutlinedIcon /> Shopping list</span>
           </Link>
         </li>
         <li>
-          <Link to='/tracking'>
+          <Link
+            to='/tracking'
+            onClick={closeModal}>
             <span><LocalShippingOutlinedIcon /> Track your order</span>
           </Link>
         </li>
         <li>
-          <Link onClick={profileForm}>
+          <Link
+            onClick={profileForm}>
             <span><AccountCircleOutlinedIcon /> Manage account</span>
           </Link>
         </li>

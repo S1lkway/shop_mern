@@ -1,6 +1,7 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import { useSelector } from 'react-redux'
 import { toast } from 'react-toastify'
+import ModalCloseContext from '../../utils/ModalCloseContext';
 //-MUI icons
 import CloseIcon from '@mui/icons-material/Close';
 //-Components
@@ -9,7 +10,7 @@ import Register from './Register'
 import Profile from './Profile/Profile'
 
 function ModalRight(props) {
-  const closeModal = props.closeModal
+  const closeModal = useContext(ModalCloseContext);
   const [bodyComponent, setBodyComponents] = useState('Login')
   const [userConnected, setUserConnected] = useState(false)
   const { user } = useSelector((state) => state.auth)

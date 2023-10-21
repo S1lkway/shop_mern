@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom'
 import ReactModal from 'react-modal';
+import ModalCloseContext from '../utils/ModalCloseContext';
 //-Components
 import UserModal from './userModal/UserModal'
 //-MUI icons
@@ -89,7 +90,9 @@ function Header() {
         className={"userModal " + modelClass}
         overlayClassName="userOverlay"
       >
-        <UserModal closeModal={closeModal} />
+        <ModalCloseContext.Provider value={closeModal}>
+          <UserModal closeModal={closeModal} />
+        </ModalCloseContext.Provider>
       </ReactModal>
 
     </header >
