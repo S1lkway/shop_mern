@@ -8,12 +8,8 @@ function Navbar() {
     <div className='navbar between'>
       <div className="navigationLinks between">
         <Link
-          to='/products'>
-          <h4>Products</h4>
-        </Link>
-        <Link
-          to='/design'>
-          <h4>Design</h4>
+          to='/menu'>
+          <h4>Menu</h4>
         </Link>
         <Link
           to='/deals'>

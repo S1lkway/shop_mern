@@ -18,9 +18,8 @@ import PurchaseHistory from './pages/Account/PurchaseHistory/PurchaseHistory';
 import ShoppingList from './pages/Account/ShoppingList/ShoppingList';
 import Tracking from './pages/Account/Tracking/Tracking'
 //-Public
+import Menu from './pages/Menu/Menu'
 import Deals from './pages/Deals/Deals'
-import Design from './pages/Design/Design'
-import Products from './pages/Products/Products'
 
 
 
@@ -45,9 +44,8 @@ function App() {
               <Route path='/shopping_list' element={<ShoppingList />} />
               <Route path='/tracking' element={<Tracking />} />
 
+              <Route path='/menu' element={<Menu />} />
               <Route path='/deals' element={<Deals />} />
-              <Route path='/design' element={<Design />} />
-              <Route path='/products' element={<Products />} />
             </Route>
           </Routes>
         </div>
