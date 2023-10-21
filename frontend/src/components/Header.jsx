@@ -35,7 +35,7 @@ function Header() {
           <Link to='/' title='Shop MERN'>
             <img
               className="header_logo"
-              src="\images\furniture_logo.jpg"
+              src="/images/pizza_logo3.jpg"
               alt="Logo"></img>
           </Link>
         </div>

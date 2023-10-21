@@ -305,7 +305,8 @@ ul {
 
       >a {
         .header_logo {
-          width: 120px;
+          padding-top: 5px;
+          width: 70px;
         }
       }
     }
