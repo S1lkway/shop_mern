@@ -54,7 +54,7 @@ function Header() {
         </div>
       </div>
 
-      <div className="header_links between">
+      <div className="headerLinks between">
         <div>
           <Link
             onClick={openModal}

@@ -335,7 +335,7 @@ ul {
     }
   }
 
-  .header_links {
+  .headerLinks {
     >div {
       padding: 10px;
 
@@ -383,6 +383,10 @@ ul {
     padding-inline-end: 1rem;
   }
 
+  .hideMedia600 {
+    display: none;
+  }
+
   /*/// Main classes of right side MODAL */
   .userModal {
     padding: 30px 10px;
@@ -408,6 +412,22 @@ ul {
       .userModalFormButton {
         width: 100% !important;
       }
+    }
+  }
+
+  /** HEADER                         */
+  /** ****************************** */
+  /** ****************************** */
+  .header_logo {
+    width: 50px !important;
+  }
+
+  /** NAVBAR                         */
+  /** ****************************** */
+  /** ****************************** */
+  .navigationLinks {
+    >div :hover {
+      color: rgb(201, 201, 201);
     }
   }
 }

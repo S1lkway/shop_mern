@@ -8,27 +8,31 @@ function Navbar() {
     <div className='navbar between'>
       <div className="navigationLinks between">
         <Link
-          to='/menu'>
+          to='/menu'
+          title='Menu'>
           <h4>Menu</h4>
         </Link>
         <Link
-          to='/deals'>
+          to='/deals'
+          title='Deals & Coupons'>
           <h4>Deals</h4>
         </Link>
       </div>
       <div className="navigationLinks between">
         <div>
           <Link
-            to='/restaraunt'>
+            to='/restaraunt'
+            title='Choose favorite restaraunt'>
             <StoreOutlinedIcon />
-            <span> Restaraunt</span>
+            <span className='hideMedia600'> Restaraunt</span>
           </Link>
         </div>
         <div>
           <Link
-            to='/addresses'>
+            to='/addresses'
+            title='Choose address for delivery'>
             <LocationOnOutlinedIcon />
-            <span>Address</span>
+            <span className='hideMedia600'>Address</span>
           </Link>
         </div>
       </div>
