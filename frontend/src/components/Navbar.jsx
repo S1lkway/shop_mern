@@ -19,16 +19,16 @@ function Navbar() {
       <div className="navigationLinks between">
         <div>
           <Link
-            to='/pick_store'>
+            to='/restaraunt'>
             <StoreOutlinedIcon />
-            <span> Pick store</span>
+            <span> Restaraunt</span>
           </Link>
         </div>
         <div>
           <Link
-            to='/location'>
+            to='/addresses'>
             <LocationOnOutlinedIcon />
-            <span>Location</span>
+            <span>Address</span>
           </Link>
         </div>
       </div>

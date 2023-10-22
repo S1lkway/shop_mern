@@ -5,10 +5,11 @@ import { useNavigate, Link } from 'react-router-dom'
 import ModalCloseContext from '../../../utils/ModalCloseContext';
 //-MUI icons
 import InventoryOutlinedIcon from '@mui/icons-material/InventoryOutlined';
-import FormatListBulletedOutlinedIcon from '@mui/icons-material/FormatListBulletedOutlined';
 import LocalShippingOutlinedIcon from '@mui/icons-material/LocalShippingOutlined';
 import AccountCircleOutlinedIcon from '@mui/icons-material/AccountCircleOutlined';
-import CardMembershipOutlinedIcon from '@mui/icons-material/CardMembershipOutlined';
+import WorkspacePremiumIcon from '@mui/icons-material/WorkspacePremium';
+import LocalPizzaIcon from '@mui/icons-material/LocalPizza';
+import LocationOnOutlinedIcon from '@mui/icons-material/LocationOnOutlined';
 // - Redux
 import { logout, reset } from '../../../features/auth/authSlice'
 
@@ -34,28 +35,35 @@ function ProfileList(props) {
             className='membershipLink'
             to='/membership'
             onClick={closeModal}>
-            <span><CardMembershipOutlinedIcon /> Membership card</span>
+            <span><LocalPizzaIcon /> Membership card</span>
           </Link>
         </li>
         <li>
           <Link
-            to='/purchase_history'
+            to='/order_history'
             onClick={closeModal}>
-            <span><InventoryOutlinedIcon /> Purchase history</span>
+            <span><InventoryOutlinedIcon /> Order history</span>
           </Link>
         </li>
         <li>
           <Link
-            to='/shopping_list'
+            to='/rewards'
             onClick={closeModal}>
-            <span><FormatListBulletedOutlinedIcon /> Shopping list</span>
+            <span><WorkspacePremiumIcon /> Rewards</span>
           </Link>
         </li>
         <li>
           <Link
             to='/tracking'
             onClick={closeModal}>
-            <span><LocalShippingOutlinedIcon /> Track your order</span>
+            <span><LocalShippingOutlinedIcon /> Track your orders</span>
+          </Link>
+        </li>
+        <li>
+          <Link
+            to='/addresses'
+            onClick={closeModal}>
+            <span><LocationOnOutlinedIcon /> Addresses</span>
           </Link>
         </li>
         <li>
