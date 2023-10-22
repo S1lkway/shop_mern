@@ -1,8 +1,10 @@
-import React from 'react'
+import NavbarMenu from "./NavbarMenu"
 
 function Menu() {
   return (
-    <div>Menu</div>
+    <>
+      <NavbarMenu />
+    </>
   )
 }
 

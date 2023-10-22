@@ -34,7 +34,8 @@ ul {
 }
 
 .container {
-  margin: 1rem 0;
+  margin: 1rem auto;
+  max-width: 1400px;
 }
 
 /** HELP DEFAULT CLASSES           */
@@ -59,6 +60,89 @@ ul {
 .flex_row {
   display: flex;
   align-items: center;
+}
+
+/** HEADER                         */
+/** ****************************** */
+/** ****************************** */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .left_part {
+    flex-grow: 1;
+
+    .logo {
+      margin-right: 15px;
+
+      >a {
+        .header_logo {
+          padding-top: 5px;
+          width: 70px;
+        }
+      }
+    }
+
+    .search_bar {
+      margin-right: 15px;
+      flex-grow: 1;
+      max-width: 350px;
+
+      >form {
+        width: 100%;
+        text-align: center;
+
+        >input {
+          width: 100%;
+          height: 2.5rem;
+          padding: 0.1rem;
+          padding-inline-start: 3.25rem;
+          padding-inline-end: 3.25rem;
+          font-size: 1rem;
+          background-color: rgb(243, 243, 243);
+          border: 1px solid rgb(243, 243, 243);
+          border-radius: 50em;
+        }
+      }
+    }
+  }
+
+  .headerLinks {
+    >div {
+      padding: 10px;
+
+      :hover {
+        color: rgb(201, 201, 201);
+      }
+    }
+  }
+}
+
+/** NAVBAR                         */
+/** ****************************** */
+/** ****************************** */
+.navbar {
+  border-bottom: 1px solid #e6e6e6;
+
+  .navigationLinks {
+    >a {
+      margin-right: 15px;
+    }
+
+    >div {
+      margin-left: 15px;
+    }
+
+    >a,
+    div {
+      text-decoration: none;
+
+      :hover {
+        text-decoration: underline;
+      }
+    }
+  }
 }
 
 /** REACT-MODAL WINDOWS            */
@@ -289,88 +373,50 @@ ul {
   }
 }
 
-/** HEADER                         */
+/** MENU PAGE                      */
 /** ****************************** */
 /** ****************************** */
-.header {
+/* navbarMenu */
+.navbarMenu {
+  background-color: #e4b90e;
+  padding: 1rem 1rem 0 1rem;
+  border-radius: 1rem;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  flex-wrap: wrap;
 
-  .left_part {
-    flex-grow: 1;
+  >a {
+    background-color: black;
+    border: 1px solid white;
+    border-radius: 1rem;
+    padding: 0.5rem 1.5rem;
+    margin-bottom: 1rem;
 
-    .logo {
-      margin-right: 15px;
+    .navbarMenuLink {
+      display: flex;
+      color: #e6e6e6;
 
-      >a {
-        .header_logo {
-          padding-top: 5px;
-          width: 70px;
-        }
+      >h3 {
+        margin: 0 0 0 5px;
       }
     }
 
-    .search_bar {
-      margin-right: 15px;
-      flex-grow: 1;
-      max-width: 350px;
 
-      >form {
-        width: 100%;
-        text-align: center;
-
-        >input {
-          width: 100%;
-          height: 2.5rem;
-          padding: 0.1rem;
-          padding-inline-start: 3.25rem;
-          padding-inline-end: 3.25rem;
-          font-size: 1rem;
-          background-color: rgb(243, 243, 243);
-          border: 1px solid rgb(243, 243, 243);
-          border-radius: 50em;
-        }
-      }
-    }
   }
 
-  .headerLinks {
-    >div {
-      padding: 10px;
-
-      :hover {
-        color: rgb(201, 201, 201);
-      }
-    }
-  }
-}
-
-/** NAVBAR                         */
-/** ****************************** */
-/** ****************************** */
-.navbar {
-  border-bottom: 1px solid #e6e6e6;
-
-  .navigationLinks {
-    >a {
-      margin-right: 15px;
-    }
+  >a:hover {
+    /* background-color: rgb(98, 40, 40); */
+    background-color: white;
+    border: 1px solid black;
 
     >div {
-      margin-left: 15px;
+      color: black;
     }
 
-    >a,
-    div {
-      text-decoration: none;
-
-      :hover {
-        text-decoration: underline;
-      }
-    }
   }
+
 }
+
+
 
 
 /** @media (max-width: 600px)      */
@@ -428,6 +474,22 @@ ul {
   .navigationLinks {
     >div :hover {
       color: rgb(201, 201, 201);
+    }
+  }
+
+  /** MENU PAGE                      */
+  /** ****************************** */
+  /** ****************************** */
+  /* navbar of Menu page */
+  .navbarMenu {
+    >a {
+      padding: 0.5rem 0.7rem;
+
+      .navbarMenuLink {
+        >h3 {
+          display: none;
+        }
+      }
     }
   }
 }
