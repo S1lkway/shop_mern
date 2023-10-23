@@ -41,7 +41,6 @@ ul {
 /** HELP DEFAULT CLASSES           */
 /** ****************************** */
 /** ****************************** */
-
 .between {
   display: flex;
   justify-content: space-between;
@@ -205,7 +204,6 @@ ul {
 
 /*/// User Login/Register/Profile MODAL */
 .userModalContainer {
-
   .userModalHeader {
     display: flex;
     justify-content: space-between;
@@ -338,8 +336,6 @@ ul {
 /** ****************************** */
 /** ****************************** */
 .userModalProfile {
-
-
   .userModalProfileList {
     >li {
       margin: 0 0 2.5rem 1.5rem;
@@ -350,7 +346,6 @@ ul {
     }
 
     .membershipTitle {
-
       border-top: 1px solid rgba(0, 125, 193, 0.782);
       border-bottom: 1px solid rgba(0, 125, 193, 0.782);
       margin-bottom: 2.5rem;
@@ -381,12 +376,13 @@ ul {
   background-color: #e4b90e;
   padding: 1rem 1rem 0 1rem;
   border-radius: 1rem;
+  margin-bottom: 1rem;
   display: flex;
   flex-wrap: wrap;
 
   >a {
     background-color: black;
-    border: 1px solid white;
+    border: 2px solid white;
     border-radius: 1rem;
     padding: 0.5rem 1.5rem;
     margin-bottom: 1rem;
@@ -399,31 +395,45 @@ ul {
         margin: 0 0 0 5px;
       }
     }
-
-
   }
 
   >a:hover {
     /* background-color: rgb(98, 40, 40); */
     background-color: white;
-    border: 1px solid black;
+    border: 2px solid black;
 
     >div {
       color: black;
     }
-
   }
-
 }
 
+/** @media (max-width: 800px)      *********************/
+/** ------------------------------ *********************/
+/** ------------------------------ *********************/
+@media (max-width: 800px) {
 
+  /** MENU PAGE                      */
+  /** ****************************** */
+  /** ****************************** */
+  /* navbar of Menu page */
+  .navbarMenu {
+    >a {
+      padding: 0.5rem 0.7rem;
 
+      .navbarMenuLink {
+        >h3 {
+          display: none;
+        }
+      }
+    }
+  }
+}
 
-/** @media (max-width: 600px)      */
-/** ------------------------------ */
-/** ------------------------------ */
+/** @media (max-width: 600px)      *********************/
+/** ------------------------------ *********************/
+/** ------------------------------ *********************/
 @media (max-width: 600px) {
-
   #search {
     padding-inline-start: 1rem;
     padding-inline-end: 1rem;
@@ -441,7 +451,6 @@ ul {
   /** USERMODAL FORM                 */
   /** ****************************** */
   /** ****************************** */
-
   .userModalForm {
     .userModalFormTitle {
       width: 100% !important;
@@ -474,22 +483,6 @@ ul {
   .navigationLinks {
     >div :hover {
       color: rgb(201, 201, 201);
-    }
-  }
-
-  /** MENU PAGE                      */
-  /** ****************************** */
-  /** ****************************** */
-  /* navbar of Menu page */
-  .navbarMenu {
-    >a {
-      padding: 0.5rem 0.7rem;
-
-      .navbarMenuLink {
-        >h3 {
-          display: none;
-        }
-      }
     }
   }
 }

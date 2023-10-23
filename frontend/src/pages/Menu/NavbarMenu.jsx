@@ -7,10 +7,12 @@ import CookieOutlinedIcon from '@mui/icons-material/CookieOutlined';
 import EmojiFoodBeverageOutlinedIcon from '@mui/icons-material/EmojiFoodBeverageOutlined';
 import WidgetsOutlinedIcon from '@mui/icons-material/WidgetsOutlined';
 
-function NavbarMenu() {
+function NavbarMenu(props) {
+  const setMenuPage = props.setMenuPage
   return (
     <div className="navbarMenu between">
       <Link
+        onClick={() => setMenuPage('Pizza')}
         title='Pizza'>
         <div className='navbarMenuLink'>
           <LocalPizzaOutlinedIcon />
@@ -19,6 +21,7 @@ function NavbarMenu() {
       </Link>
 
       <Link
+        onClick={() => setMenuPage('Sides')}
         title='Sides'>
         <div className='navbarMenuLink'>
           <RiceBowlOutlinedIcon />
@@ -27,6 +30,7 @@ function NavbarMenu() {
       </Link>
 
       <Link
+        onClick={() => setMenuPage('Pasta')}
         title='Pasta'>
         <div className='navbarMenuLink'>
           <RamenDiningOutlinedIcon />
@@ -35,6 +39,7 @@ function NavbarMenu() {
       </Link>
 
       <Link
+        onClick={() => setMenuPage('Desserts')}
         title='Desserts'>
         <div className='navbarMenuLink'>
           <CookieOutlinedIcon />
@@ -43,6 +48,7 @@ function NavbarMenu() {
       </Link>
 
       <Link
+        onClick={() => setMenuPage('Drinks')}
         title='Drinks'>
         <div className='navbarMenuLink'>
           <EmojiFoodBeverageOutlinedIcon />
@@ -51,6 +57,7 @@ function NavbarMenu() {
       </Link>
 
       <Link
+        onClick={() => setMenuPage('Dips')}
         title='Dips'>
         <div className='navbarMenuLink'>
           <WidgetsOutlinedIcon />
