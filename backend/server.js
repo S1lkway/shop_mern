@@ -8,6 +8,12 @@ const connectDB = require('./config/db')
 
 const app = express()
 
+//* PATH TO GET IMAGES FROM BACKEND TO FRONTEND
+/* We make absolute path to folder with files */
+const menuUploadsPath = path.join(__dirname, 'uploads', 'menuUploads');
+/* Set path on frontend that will use backend path in menuUploadsPath */
+app.use('/uploads/menuUploads', express.static(menuUploadsPath));
+
 //* MIDDLEWARES
 /* Used to parse incoming requests with JSON payloads */
 app.use(express.json())
@@ -20,6 +26,8 @@ app.use('/images', express.static('frontend/public/images'));
 //*  ROUTES  
 // routes for registration, edit user and authorization
 app.use('/api/users', require('./routes/userRoutes'))
+// rotes for creating, deleting and edit menu items
+app.use('/api/menu', require('./routes/menuRoutes'))
 
 /* Provides a basic error handling mechanism in Express that sends a JSON response with an error message and, optionally, the stack trace */
 app.use(errorHandler)
