@@ -27,7 +27,7 @@ app.use('/images', express.static('frontend/public/images'));
 // routes for registration, edit user and authorization
 app.use('/api/users', require('./routes/userRoutes'))
 // rotes for creating, deleting and edit menu items
-app.use('/api/menu', require('./routes/menuRoutes'))
+app.use('/api/dishes', require('./routes/dishRoutes'))
 
 /* Provides a basic error handling mechanism in Express that sends a JSON response with an error message and, optionally, the stack trace */
 app.use(errorHandler)

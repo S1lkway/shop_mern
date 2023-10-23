@@ -19,7 +19,7 @@ const imageSchema = mongoose.Schema({
   },
 });
 
-const menuItemSchema = mongoose.Schema({
+const dishSchema = mongoose.Schema({
   category: {
     type: String,
     required: [true, 'Please add a category']
@@ -29,15 +29,15 @@ const menuItemSchema = mongoose.Schema({
   },
   name: {
     type: String,
-    required: [true, 'Please add a name of menu item']
+    required: [true, 'Please add a name of dish']
   },
   description: {
     type: String,
-    required: [true, 'Please add a description of menu item']
+    required: [true, 'Please add a description of dish']
   },
   price: {
     type: String,
-    required: [true, 'Please add price for menu item']
+    required: [true, 'Please add price for dish']
   },
   type: {
     type: String,
@@ -50,4 +50,4 @@ const menuItemSchema = mongoose.Schema({
     timestamps: true
   })
 
-module.exports = mongoose.model('Menu', menuItemSchema)
+module.exports = mongoose.model('Dish', dishSchema)
