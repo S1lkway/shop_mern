@@ -19,6 +19,27 @@ const imageSchema = mongoose.Schema({
   },
 });
 
+const sizeSchema = mongoose.Schema({
+  name: {
+    type: String,
+    required: true,
+    default: 'Standart',
+  },
+  price: {
+    type: Number,
+    required: true,
+  },
+  description: {
+    type: String,
+  },
+});
+
+const ownAdditionOptionSchema = mongoose.Schema({
+  name: {
+    type: String,
+  },
+});
+
 const dishSchema = mongoose.Schema({
   category: {
     type: String,
@@ -35,9 +56,12 @@ const dishSchema = mongoose.Schema({
     type: String,
     required: [true, 'Please add a description of dish']
   },
-  price: {
-    type: String,
-    required: [true, 'Please add price for dish']
+  sizes: {
+    type: [sizeSchema],
+    required: [true, 'Please add minimum one size of dish']
+  },
+  additionOptions: {
+    type: [ownAdditionOptionSchema],
   },
   type: {
     type: String,
