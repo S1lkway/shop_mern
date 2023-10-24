@@ -75,4 +75,4 @@ const menuSectionSchema = mongoose.Schema({
     timestamps: true
   })
 
-module.exports = mongoose.model('Dish', menuSectionSchema)
+module.exports = mongoose.model('MenuSection', menuSectionSchema)
