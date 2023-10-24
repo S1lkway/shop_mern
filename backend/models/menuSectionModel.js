@@ -62,10 +62,16 @@ const extraIngridientTypesSchema = mongoose.Schema({
 const menuSectionSchema = mongoose.Schema({
   name: {
     type: String,
-    required: [true, 'Please add a name of menu section']
+    required: [true, 'Please add a name of menu section'],
+    unique: [true, 'Section with this name is already exist'],
   },
   description: {
     type: String,
+    default: null,
+  },
+  activeInMenu: {
+    type: Boolean,
+    default: false,
   },
   extraIngridientTypes: {
     type: [extraIngridientTypesSchema],

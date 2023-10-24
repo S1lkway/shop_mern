@@ -42,8 +42,9 @@ const additionOptionSchema = mongoose.Schema({
 
 const dishSchema = mongoose.Schema({
   menuSection: {
-    type: String,
-    required: [true, 'Please add a menu section']
+    type: mongoose.Schema.Types.ObjectId,
+    required: true,
+    ref: 'MenuSection',
   },
   image: {
     type: imageSchema,
@@ -58,7 +59,7 @@ const dishSchema = mongoose.Schema({
   },
   sizes: {
     type: [sizeSchema],
-    required: [true, 'Please add minimum one size of dish']
+    required: [true, 'Please add minimum one size of dish'],
   },
   additionOptions: {
     type: [additionOptionSchema],
