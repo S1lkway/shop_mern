@@ -48,7 +48,7 @@ const categorySchema = mongoose.Schema({
 });
 
 //Toppings
-const extraIngridientTypesSchema = mongoose.Schema({
+const extraIngridientTypeSchema = mongoose.Schema({
   name: {
     type: String,
     required: [true, 'Please add a name of ingridient type']
@@ -74,7 +74,7 @@ const menuSectionSchema = mongoose.Schema({
     default: false,
   },
   extraIngridientTypes: {
-    type: [extraIngridientTypesSchema],
+    type: [extraIngridientTypeSchema],
   },
 },
   {

@@ -32,7 +32,24 @@ const getMenuSections = asyncHandler(async (req, res) => {
 //* route PUT /api/menu_sections/:id
 //* access Private
 const editMenuSection = asyncHandler(async (req, res) => {
+  const extraIngridientTypes = req.body.extraIngridientTypes
+  console.log(extraIngridientTypes)
+  try {
+    const menuSection = await MenuSection.findById(req.params.id)
+    if (!menuSection) {
+      res.status(400)
+      throw new Error('Menu section is not found')
+    }
+    /// Basic edit fields
+    menuSection.name = req.body.name;
+    menuSection.description = (req.body.description && req.body.description.length > 0) ? req.body.description : null;
 
+    /// Save the updated menu section
+    const updatedMenuSection = await menuSection.save();
+    res.status(200).json(updatedMenuSection)
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
 })
 
 //* desc GET One Menu Section
