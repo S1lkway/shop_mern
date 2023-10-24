@@ -27,7 +27,7 @@ app.use('/images', express.static('frontend/public/images'));
 // routes for registration, edit user and authorization
 app.use('/api/users', require('./routes/userRoutes'))
 // rotes for creating, deleting and edit menu categories
-app.use('/api/categories', require('./routes/categoryRoutes'))
+app.use('/api/menu_sections', require('./routes/menuSectionRoutes'))
 // rotes for creating, deleting and edit menu items
 app.use('/api/dishes', require('./routes/dishRoutes'))
 
