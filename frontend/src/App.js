@@ -2,12 +2,15 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 import PrivateRoutes from './utils/PrivateRoutes'
+import AdminRoutes from './utils/AdminRoutes'
 //-Main components
 import Header from './components/Header';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 //-Routes-----------------------------------------------------------------
 import Main from './pages/Main'
+//-Admin
+import AdminPanel from './pages/AdminPanel/AdminPanel'
 //-Account
 import Addresses from './pages/Account/Addresses/Addresses'
 import Basket from './pages/Account/Basket/Basket'
@@ -48,6 +51,10 @@ function App() {
 
               <Route path='/menu' element={<Menu />} />
               <Route path='/deals' element={<Deals />} />
+
+              <Route element={<AdminRoutes />}>
+                <Route path='/admin_panel' element={<AdminPanel />} />
+              </Route>
             </Route>
           </Routes>
         </div>

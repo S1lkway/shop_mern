@@ -10,6 +10,7 @@ import AccountCircleOutlinedIcon from '@mui/icons-material/AccountCircleOutlined
 import WorkspacePremiumIcon from '@mui/icons-material/WorkspacePremium';
 import LocalPizzaIcon from '@mui/icons-material/LocalPizza';
 import LocationOnOutlinedIcon from '@mui/icons-material/LocationOnOutlined';
+import AdminPanelSettingsOutlinedIcon from '@mui/icons-material/AdminPanelSettingsOutlined';
 // - Redux
 import { logout, reset } from '../../../features/auth/authSlice'
 
@@ -66,6 +67,15 @@ function ProfileList(props) {
             <span><LocationOnOutlinedIcon /> Addresses</span>
           </Link>
         </li>
+        {user.admin && (
+          <li>
+            <Link
+              to='/admin_panel'
+              onClick={closeModal}>
+              <span><AdminPanelSettingsOutlinedIcon /> Admin panel</span>
+            </Link>
+          </li>
+        )}
         <li>
           <Link
             onClick={profileForm}>
