@@ -12,7 +12,7 @@ import { createMenuSection, resetMenuSections } from '../../features/sections/se
 
 function AdminPanel() {
   const dispatch = useDispatch()
-  const { sections, isLoading, isError, message } = useSelector(
+  const { sections, isLoading, isSuccess, isError, message } = useSelector(
     (state) => state.menuSections
   )
 
@@ -26,10 +26,13 @@ function AdminPanel() {
   useEffect(() => {
     if (isError) {
       toast.error(message)
-
+    }
+    if (isSuccess) {
+      toast.success('Menu section was created')
+      setFormData({ name: '', description: '' })
     }
     dispatch(resetMenuSections())
-  }, [sections, isLoading, isError, message, dispatch])
+  }, [sections, isLoading, isSuccess, isError, message, dispatch])
 
   const onChange = (e) => {
     setFormData((prevState) => ({
@@ -72,7 +75,7 @@ function AdminPanel() {
               type="text"
               name='name'
               id='name'
-              // value={email}
+              value={name}
               placeholder='Enter name for section'
               onChange={onChange}
             />
@@ -86,6 +89,7 @@ function AdminPanel() {
               autoComplete="on"
               type="textarea"
               id='description'
+              value={description}
               name='description'
               placeholder='Description of Menu Section'
               rows="3"
