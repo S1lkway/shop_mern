@@ -17,7 +17,7 @@ const createMenuSection = asyncHandler(async (req, res) => {
     res.status(200).json(menuSection)
   } catch (error) {
     res.status(404)
-    throw new Error(error)
+    throw new Error('Section with this name is already exist')
   }
 })
 
