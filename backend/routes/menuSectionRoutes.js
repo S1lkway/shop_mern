@@ -12,7 +12,7 @@ const {
 const { protect } = require('../middleware/authMiddleware')
 const { admin } = require('../middleware/adminMiddleware')
 
-router.route('/').get(protect, admin, getMenuSections).post(protect, admin, createMenuSection)
+router.route('/').get(getMenuSections).post(protect, admin, createMenuSection)
 router.route('/:id').get(protect, admin, getMenuSection).delete(protect, admin, deleteMenuSection).put(protect, admin, upload.array('images', 1), editMenuSection)
 
 module.exports = router

@@ -25,7 +25,8 @@ const createMenuSection = asyncHandler(async (req, res) => {
 //* route GET /api/menu_sections
 //* access Private
 const getMenuSections = asyncHandler(async (req, res) => {
-
+  const menuSections = await MenuSection.find();
+  res.status(200).json(menuSections)
 })
 
 //* desc EDIT Menu Section
