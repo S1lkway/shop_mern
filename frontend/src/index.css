@@ -406,24 +406,7 @@ ul {
 /** ADMIN PANEL                    */
 /** ****************************** */
 /** ****************************** */
-.adminPanelLinks {
-  display: flex;
-  /* justify-content: space-around; */
-  align-items: center;
 
-
-  >a {
-    margin-right: 2rem;
-  }
-
-  >a {
-    text-decoration: none;
-
-    :hover {
-      text-decoration: underline;
-    }
-  }
-}
 
 /** MENU SECTIONS                  */
 /** ****************************** */
@@ -626,7 +609,4 @@ ul {
   /** ADMIN PANEL                    */
   /** ****************************** */
   /** ****************************** */
-  .adminPanelLinks {
-    justify-content: space-around;
-  }
 }
