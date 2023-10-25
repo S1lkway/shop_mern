@@ -30,7 +30,7 @@ function ProfileList(props) {
   }
   return (
     <>
-      <ul className='userModalProfileList'>
+      <ul className='defaultList'>
         <li className='membershipTitle'>
           <Link
             className='membershipLink'

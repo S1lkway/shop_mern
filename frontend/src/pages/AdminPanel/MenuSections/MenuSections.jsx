@@ -1,4 +1,4 @@
-// import { useState } from 'react'
+import { Link } from 'react-router-dom'
 
 function MenuSections() {
 
@@ -21,8 +21,25 @@ function MenuSections() {
   }
   return (
     <div className='menuSectionsContainer'>
-      <div className='sectionsList'></div>
-      <form className="defaultForm" onSubmit={onSubmit}>
+      <ul className='defaultList'>
+        <li className='membershipTitle'>
+          <Link
+            className='membershipLink'
+            to='/membership'>
+            <span> Membership card</span>
+          </Link>
+        </li>
+        <li>
+          <Link
+            to='/order_history'>
+            <span> Order history</span>
+          </Link>
+        </li>
+      </ul>
+
+      <form
+        className="defaultForm"
+        onSubmit={onSubmit}>
         <div className="defaultFormGroup">
           <label htmlFor="email" className="defaultFormLabel">
             Name

@@ -147,6 +147,19 @@ ul {
   text-decoration: underline;
 }
 
+/** DEFAULT LIST                   */
+/** ****************************** */
+/** ****************************** */
+.defaultList {
+  >li {
+    margin: 0 0 2.5rem 1.5rem;
+  }
+
+  >li span:hover {
+    text-decoration: underline;
+  }
+}
+
 /** HEADER                         */
 /** ****************************** */
 /** ****************************** */
@@ -355,29 +368,19 @@ ul {
 /** ****************************** */
 /** ****************************** */
 .userModalProfile {
-  .userModalProfileList {
-    >li {
-      margin: 0 0 2.5rem 1.5rem;
-    }
+  .membershipTitle {
+    border-top: 1px solid rgba(0, 125, 193, 0.782);
+    border-bottom: 1px solid rgba(0, 125, 193, 0.782);
+    margin-bottom: 2.5rem;
+    margin-left: 0;
+    padding: 1.5rem;
 
-    >li span:hover {
-      text-decoration: underline;
-    }
+    >a {
+      color: rgba(0, 125, 193, 0.782);
 
-    .membershipTitle {
-      border-top: 1px solid rgba(0, 125, 193, 0.782);
-      border-bottom: 1px solid rgba(0, 125, 193, 0.782);
-      margin-bottom: 2.5rem;
-      margin-left: 0;
-      padding: 1.5rem;
-
-      >a {
-        color: rgba(0, 125, 193, 0.782);
-
-        >span {
-          font-weight: 600;
-          font-size: 22px;
-        }
+      >span {
+        font-weight: 600;
+        font-size: 22px;
       }
     }
   }
@@ -443,7 +446,6 @@ ul {
   }
 
   >a:hover {
-    /* background-color: rgb(98, 40, 40); */
     background-color: white;
     border: 2px solid black;
 
@@ -461,7 +463,7 @@ ul {
   /** MENU PAGE                      */
   /** ****************************** */
   /** ****************************** */
-  /* navbar of Menu page */
+  /* Navbar of Menu page */
   .navbarMenu {
     >a {
       padding: 0.5rem 0.7rem;
