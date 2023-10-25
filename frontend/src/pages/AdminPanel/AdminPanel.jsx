@@ -25,7 +25,7 @@ function AdminPanel() {
           onClick={() => setPanelPage('MenuSections')}
           title='Add menu section'>
           <h3
-            className={panelPage === 'MenuSections' && 'pickedLink'}>
+            className={panelPage === 'MenuSections' ? 'pickedLink' : ''}>
             <MenuBookOutlinedIcon /> Menu Sections
           </h3>
         </Link>
@@ -33,7 +33,7 @@ function AdminPanel() {
           onClick={() => setPanelPage('Dishes')}
           title='Add a dish for menu'>
           <h3
-            className={panelPage === 'Dishes' && 'pickedLink'}>
+            className={panelPage === 'Dishes' ? 'pickedLink' : ''}>
             <FastfoodIcon /> Dishes for menu
           </h3>
         </Link>
