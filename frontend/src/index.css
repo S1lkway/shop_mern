@@ -33,6 +33,10 @@ ul {
   padding: 0;
 }
 
+.pickedLink {
+  text-decoration: underline;
+}
+
 .container {
   margin: 1rem auto;
   max-width: 1400px;
@@ -375,6 +379,7 @@ ul {
   display: flex;
   /* justify-content: space-around; */
   align-items: center;
+  margin: 2rem 0;
 
   >a {
     margin-right: 2rem;
