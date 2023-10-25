@@ -435,7 +435,7 @@ ul {
 
   .createForm {
     order: 2;
-    width: 30%;
+    min-width: 400px;
     background-color: #e4b90e;
     border-radius: 1rem;
 
@@ -533,6 +533,38 @@ ul {
       }
     }
   }
+
+  /** MENU SECTIONS                  */
+  /** ****************************** */
+  /** ****************************** */
+  .menuSectionsContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+
+    .createForm {
+      order: 1;
+      width: 100%;
+
+      .defaultForm {
+        .defaultFormGroup {
+          margin: 1rem;
+
+          .defaultFormButton {
+            width: 100%;
+          }
+        }
+      }
+    }
+
+    .menuSectionsList {
+      order: 2;
+
+      >h2 {
+        margin: 1rem 0 2rem 0;
+      }
+    }
+  }
 }
 
 /** @media (max-width: 600px)      ////////////////////*/
@@ -596,37 +628,5 @@ ul {
   /** ****************************** */
   .adminPanelLinks {
     justify-content: space-around;
-  }
-
-  /** MENU SECTIONS                  */
-  /** ****************************** */
-  /** ****************************** */
-  .menuSectionsContainer {
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-
-    .createForm {
-      order: 1;
-      width: 100%;
-
-      .defaultForm {
-        .defaultFormGroup {
-          margin: 1rem;
-
-          .defaultFormButton {
-            width: 100%;
-          }
-        }
-      }
-    }
-
-    .menuSectionsList {
-      order: 2;
-
-      >h2 {
-        margin: 1rem 0 2rem 0;
-      }
-    }
   }
 }
