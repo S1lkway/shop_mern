@@ -33,10 +33,6 @@ ul {
   padding: 0;
 }
 
-.pickedLink {
-  text-decoration: underline;
-}
-
 .container {
   margin: 1rem auto;
   max-width: 1400px;
@@ -45,6 +41,10 @@ ul {
 /** HELP DEFAULT CLASSES           */
 /** ****************************** */
 /** ****************************** */
+.pickedLink {
+  text-decoration: underline;
+}
+
 .between {
   display: flex;
   justify-content: space-between;
@@ -335,87 +335,20 @@ ul {
 /** USERMODAL FORM                 */
 /** ****************************** */
 /** ****************************** */
-.userModalForm {
-  width: 100%;
-
-  >h5 {
-    margin: 0.7rem 1.5rem 1.5rem 1.5rem;
-    color: rgba(0, 125, 193, 0.782);
-  }
-
-  >h5>span:hover {
-    cursor: pointer;
-    text-decoration: underline;
-    color: rgb(0, 125, 193);
-  }
-
-  .userModalFormTitle {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 70%;
-
-    >h2 {
-      margin-left: 1.5rem;
-      text-decoration: underline;
-    }
-
-    >svg:hover {
-      cursor: pointer;
-      color: rgb(201, 201, 201);
-    }
-  }
-
-  .userModalFormGroup {
-    display: flex;
-    flex-direction: column;
-    margin-top: 1.8rem;
-
-    /* Label */
-    >label {
-      margin: 0 0 0.5rem 1.5rem;
-      font-size: 1rem;
-      font-weight: 600;
-    }
-  }
+/* Title */
+.userModalFormTitle {
+  width: 70%;
 }
 
 /* Input */
 .userModalFormInput {
-  margin-left: 0;
   width: 70%;
-  height: 2.5rem;
-  padding: 0.1rem;
-  padding-inline-start: 1.5rem;
-  padding-inline-end: 1.5rem;
-  font-size: 1rem;
-  background-color: rgb(243, 243, 243);
-  border: 1px solid rgb(243, 243, 243);
-  border-radius: 64px;
 }
 
 /* Button */
 .userModalFormButton {
-  margin-top: 2rem;
+  margin-top: 1rem;
   width: 40%;
-  height: 2.5rem;
-  padding: 0.1rem;
-  font-size: 1rem;
-  border: 1px solid hsl(0, 0%, 0%);
-  border-radius: 64px;
-  background-color: hsl(0, 0%, 0%);
-  font-weight: 600;
-  color: white;
-}
-
-.userModalFormButton:active {
-  border: 1px solid white;
-}
-
-.userModalFormButton:hover {
-  cursor: pointer;
-  background-color: rgb(35, 35, 35);
-  text-decoration: underline;
 }
 
 /** USERMODAL PROFILE              */

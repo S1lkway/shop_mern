@@ -41,13 +41,13 @@ function Login(props) {
   }
 
   return (
-    <form className="userModalForm" onSubmit={onSubmit}>
-      <div className="userModalFormGroup">
-        <label htmlFor="email" className="userModalFormLabel">
+    <form className="defaultForm" onSubmit={onSubmit}>
+      <div className="defaultFormGroup">
+        <label htmlFor="email" className="defaultFormLabel">
           Email
         </label>
         <input
-          className='userModalFormInput'
+          className='defaultFormInput userModalFormInput'
           autoComplete="on"
           type="email"
           id="email"
@@ -57,12 +57,12 @@ function Login(props) {
           onChange={onChange}
         />
       </div>
-      <div className="userModalFormGroup">
-        <label htmlFor="password" className="userModalFormLabel">
+      <div className="defaultFormGroup">
+        <label htmlFor="password" className="defaultFormLabel">
           Password
         </label>
         <input
-          className='userModalFormInput'
+          className='defaultFormInput userModalFormInput'
           autoComplete="on"
           type="password"
           id="password"
@@ -75,9 +75,9 @@ function Login(props) {
 
       <h5 title="Forgot password?"><span>Forgot password?</span></h5>
 
-      <div className="userModalFormGroup">
+      <div className="defaultFormGroup">
         <button
-          className='userModalFormButton'
+          className='defaultFormButton userModalFormButton'
           type='submit' >
           Sign in
         </button>

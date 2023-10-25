@@ -84,7 +84,7 @@ function ProfileList(props) {
         </li>
       </ul >
       <button
-        className='userModalFormButton'
+        className='defaultFormButton userModalFormButton'
         onClick={onLogout}
         type='submit' >
         Sign out

@@ -66,18 +66,18 @@ function Profile() {
       {editProfileForm === true ?
         (
           <>
-            <form className="userModalForm" onSubmit={onSubmit}>
-              <div className='userModalFormTitle'>
+            <form className="defaultForm" onSubmit={onSubmit}>
+              <div className='defaultFormTitle userModalFormTitle'>
                 <h2><i>Edit profile</i></h2>
                 <ReplyIcon onClick={profileForm} />
               </div>
 
-              <div className="userModalFormGroup">
-                <label htmlFor="name" className="userModalFormLabel">
+              <div className="defaultFormGroup">
+                <label htmlFor="name" className="defaultFormLabel">
                   Name
                 </label>
                 <input
-                  className='userModalFormInput'
+                  className='defaultFormInput userModalFormInput'
                   autoComplete="on"
                   type="text"
                   id="name"
@@ -88,12 +88,12 @@ function Profile() {
                 />
               </div>
 
-              <div className="userModalFormGroup">
-                <label htmlFor="email" className="userModalFormLabel">
+              <div className="defaultFormGroup">
+                <label htmlFor="email" className="defaultFormLabel">
                   Email
                 </label>
                 <input
-                  className='userModalFormInput'
+                  className='defaultFormInput userModalFormInput'
                   autoComplete="on"
                   type="email"
                   id="email"
@@ -104,12 +104,12 @@ function Profile() {
                 />
               </div>
 
-              <div className="userModalFormGroup">
-                <label htmlFor="password" className="userModalFormLabel">
+              <div className="defaultFormGroup">
+                <label htmlFor="password" className="defaultFormLabel">
                   Password
                 </label>
                 <input
-                  className='userModalFormInput'
+                  className='defaultFormInput userModalFormInput'
                   autoComplete="on"
                   type="password"
                   id="password"
@@ -120,12 +120,12 @@ function Profile() {
                 />
               </div>
 
-              <div className="userModalFormGroup">
-                <label htmlFor="password2" className="userModalFormLabel">
+              <div className="defaultFormGroup">
+                <label htmlFor="password2" className="defaultFormLabel">
                   Confirm Password
                 </label>
                 <input
-                  className='userModalFormInput'
+                  className='defaultFormInput userModalFormInput'
                   autoComplete="on"
                   type="password"
                   id="password2"
@@ -136,9 +136,9 @@ function Profile() {
                 />
               </div>
 
-              <div className="userModalFormGroup">
+              <div className="defaultFormGroup">
                 <button
-                  className='userModalFormButton'
+                  className='defaultFormButton userModalFormButton'
                   type='submit' >
                   Save
                 </button>
