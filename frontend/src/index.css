@@ -125,6 +125,19 @@ ul {
   border-radius: 64px;
 }
 
+/* TextArea */
+.defaultFormTextArea {
+  padding: 0.3rem 0.1rem;
+  padding-inline-start: 1.5rem;
+  padding-inline-end: 1.5rem;
+  font-size: 1rem;
+  background-color: rgb(243, 243, 243);
+  border: 1px solid rgb(243, 243, 243);
+  border-radius: 1rem;
+  min-width: 100%;
+  max-width: 100%;
+}
+
 /* Button */
 .defaultFormButton {
   height: 2.5rem;
@@ -397,14 +410,10 @@ ul {
   display: flex;
   /* justify-content: space-around; */
   align-items: center;
-  margin: 2rem 0;
+
 
   >a {
     margin-right: 2rem;
-
-    >h3 {
-      margin: 0.5rem 0;
-    }
   }
 
   >a {
@@ -412,6 +421,55 @@ ul {
 
     :hover {
       text-decoration: underline;
+    }
+  }
+}
+
+/** MENU SECTIONS                  */
+/** ****************************** */
+/** ****************************** */
+.menuSectionsContainer {
+  display: flex;
+  gap: 2rem;
+  margin-top: 2rem;
+
+  .createForm {
+    order: 2;
+    width: 30%;
+    background-color: #e4b90e;
+    border-radius: 1rem;
+
+    .createFormTitle {
+      background-color: black;
+      color: white;
+      text-align: center;
+      font-weight: 600;
+      font-size: 1.4rem;
+      padding: 10px;
+      border-radius: 1rem 1rem 0 0;
+    }
+
+    >h3 {
+      margin-left: 1.5rem;
+    }
+
+    .defaultForm {
+      .defaultFormGroup {
+        margin: 1rem;
+
+        .defaultFormButton {
+          width: 40%;
+        }
+      }
+    }
+  }
+
+  .menuSectionsList {
+    order: 1;
+    flex-grow: 1;
+
+    >h2 {
+      margin: 0 0 3rem 0;
     }
   }
 }
@@ -538,5 +596,37 @@ ul {
   /** ****************************** */
   .adminPanelLinks {
     justify-content: space-around;
+  }
+
+  /** MENU SECTIONS                  */
+  /** ****************************** */
+  /** ****************************** */
+  .menuSectionsContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+
+    .createForm {
+      order: 1;
+      width: 100%;
+
+      .defaultForm {
+        .defaultFormGroup {
+          margin: 1rem;
+
+          .defaultFormButton {
+            width: 100%;
+          }
+        }
+      }
+    }
+
+    .menuSectionsList {
+      order: 2;
+
+      >h2 {
+        margin: 1rem 0 2rem 0;
+      }
+    }
   }
 }

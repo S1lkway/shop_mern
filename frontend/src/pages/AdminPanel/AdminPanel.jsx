@@ -24,18 +24,18 @@ function AdminPanel() {
         <Link
           onClick={() => setPanelPage('MenuSections')}
           title='Add menu section'>
-          <h3
+          <h2
             className={panelPage === 'MenuSections' ? 'pickedLink' : ''}>
-            <MenuBookOutlinedIcon /> Menu Sections
-          </h3>
+            <MenuBookOutlinedIcon /> Sections
+          </h2>
         </Link>
         <Link
           onClick={() => setPanelPage('Dishes')}
           title='Add a dish for menu'>
-          <h3
+          <h2
             className={panelPage === 'Dishes' ? 'pickedLink' : ''}>
-            <FastfoodIcon /> Dishes for menu
-          </h3>
+            <FastfoodIcon /> Dishes
+          </h2>
         </Link>
       </div>
       {panelPages[panelPage]}
