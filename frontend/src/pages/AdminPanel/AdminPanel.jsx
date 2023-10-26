@@ -7,7 +7,7 @@ import { toast } from 'react-toastify'
 import LibraryAddOutlinedIcon from '@mui/icons-material/LibraryAddOutlined';
 import DvrOutlinedIcon from '@mui/icons-material/DvrOutlined';
 //-Redux
-import { createMenuSection, resetMenuSections } from '../../features/sections/sectionSlice'
+import { getMenuSections, createMenuSection, resetMenuSections } from '../../features/sections/sectionSlice'
 
 
 function AdminPanel() {
@@ -23,15 +23,26 @@ function AdminPanel() {
 
   const { name, description } = formData
 
+
+
+  useEffect(() => {
+    dispatch(getMenuSections())
+    // eslint-disable-next-line
+  }, [])
+
   useEffect(() => {
     if (isError) {
       toast.error(message)
+      dispatch(resetMenuSections())
     }
     if (isSuccess) {
-      toast.success('Menu section was created')
+      if (name.length > 0) {
+        toast.success('Menu section was created')
+      }
       setFormData({ name: '', description: '' })
+      dispatch(resetMenuSections())
     }
-    dispatch(resetMenuSections())
+    // eslint-disable-next-line
   }, [sections, isLoading, isSuccess, isError, message, dispatch])
 
   const onChange = (e) => {

@@ -11,11 +11,29 @@ const initialState = {
 
 //* CREATE NEW MENU SECTION
 export const createMenuSection = createAsyncThunk(
-  'articles/create',
+  'menu_sections/create',
   async (menuSectionData, thunkAPI) => {
     try {
-      const token = thunkAPI.getState().auth.user.token
-      return await sectionService.createMenuSection(menuSectionData, token)
+      const token = thunkAPI.getState().auth.user.token;
+      return await sectionService.createMenuSection(menuSectionData, token);
+    } catch (error) {
+      const message =
+        (error.response &&
+          error.response.data &&
+          error.response.data.message) ||
+        error.message ||
+        error.toString()
+      return thunkAPI.rejectWithValue(message)
+    }
+  }
+)
+
+//* GET MENU SECTIONS
+export const getMenuSections = createAsyncThunk(
+  'menu_sections',
+  async (_, thunkAPI) => {
+    try {
+      return await sectionService.getMenuSections();
     } catch (error) {
       const message =
         (error.response &&
@@ -53,6 +71,20 @@ export const menuSectionsSlice = createSlice({
         state.sections.push(action.payload)
       })
       .addCase(createMenuSection.rejected, (state, action) => {
+        state.isLoading = false
+        state.isError = true
+        state.message = action.payload
+      })
+      /// getMenuSections
+      .addCase(getMenuSections.pending, (state) => {
+        state.isLoading = true
+      })
+      .addCase(getMenuSections.fulfilled, (state, action) => {
+        state.isLoading = false
+        state.isSuccess = true
+        state.sections = action.payload
+      })
+      .addCase(getMenuSections.rejected, (state, action) => {
         state.isLoading = false
         state.isError = true
         state.message = action.payload

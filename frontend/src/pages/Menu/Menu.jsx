@@ -1,6 +1,5 @@
-import { useState } from 'react';
-
-
+import { useState, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 //-Menu Pages
 import NavbarMenu from "./NavbarMenu"
 import Desserts from './MenuPages/Desserts'
@@ -9,9 +8,28 @@ import Drinks from './MenuPages/Drinks'
 import Pasta from './MenuPages/Pasta'
 import Pizza from './MenuPages/Pizza'
 import Sides from './MenuPages/Sides'
+//-Redux
+import { getMenuSections, resetMenuSections } from '../../features/sections/sectionSlice'
+
 
 function Menu() {
+  const dispatch = useDispatch()
+  const { isSuccess } = useSelector(
+    (state) => state.menuSections
+  )
   const [menuPage, setMenuPage] = useState('Pizza')
+
+
+  useEffect(() => {
+    dispatch(getMenuSections())
+    // eslint-disable-next-line
+  }, [])
+  useEffect(() => {
+    if (isSuccess) {
+      dispatch(resetMenuSections())
+    }
+    // eslint-disable-next-line
+  }, [isSuccess])
 
   const menuPages = {
     Desserts: <Desserts />,

@@ -3,7 +3,9 @@ import axios from 'axios'
 const API_URL = '/api/menu_sections'
 
 //* GET MENU SECTIONS
-const getMenuSections = async (token) => {
+const getMenuSections = async () => {
+  const response = await axios.get(API_URL)
+  return response.data
 }
 
 //* CREATE MENU SECTION
