@@ -26,7 +26,7 @@ const createMenuSection = asyncHandler(async (req, res) => {
 //* access Private
 const getMenuSections = asyncHandler(async (req, res) => {
   try {
-    const menuSections = await MenuSection.find();
+    const menuSections = await MenuSection.find().sort({ name: 1 });
     res.status(200).json(menuSections)
   } catch (error) {
     res.status(400)

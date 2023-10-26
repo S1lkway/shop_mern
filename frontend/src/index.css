@@ -421,6 +421,7 @@ ul {
     min-width: 400px;
     background-color: #e4b90e;
     border-radius: 1rem;
+    /* margin-top: 2rem; */
 
     .createFormTitle {
       background-color: black;
@@ -450,9 +451,48 @@ ul {
   .menuSectionsList {
     order: 1;
     flex-grow: 1;
+    display: flex;
+    flex-direction: column;
 
     >h2 {
       margin: 0 0 3rem 0;
+    }
+
+    .sectionsListButton {
+      text-align: left;
+      padding-inline-start: 1.5rem;
+      padding-inline-end: 1.5rem;
+      margin-bottom: 1rem;
+      width: 100%;
+      max-width: 600px;
+      height: 3rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      >span {
+        display: flex;
+        align-items: center;
+
+        >svg {
+          margin-right: 10px;
+        }
+      }
+
+      .listDeleteIcon {
+        display: none;
+      }
+
+      .listDeleteIcon:hover {
+        color: rgb(201, 201, 201);
+        transform: scale(1.15);
+      }
+    }
+
+    .sectionsListButton:hover {
+      .listDeleteIcon {
+        display: block;
+      }
     }
   }
 }
@@ -528,6 +568,7 @@ ul {
     .createForm {
       order: 1;
       width: 100%;
+      min-width: 300px;
 
       .defaultForm {
         .defaultFormGroup {
@@ -545,6 +586,10 @@ ul {
 
       >h2 {
         margin: 1rem 0 2rem 0;
+      }
+
+      .sectionsListButton {
+        max-width: 100%;
       }
     }
   }

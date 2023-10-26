@@ -24,7 +24,7 @@ function Navbar() {
             to='/restaraunt'
             title='Choose favorite restaraunt'>
             <StoreOutlinedIcon />
-            <span className='hideMedia600'> Restaraunt</span>
+            <span className='hideMedia600'> Restaurant</span>
           </Link>
         </div>
         <div>

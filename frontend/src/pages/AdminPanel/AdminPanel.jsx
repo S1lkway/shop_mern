@@ -6,6 +6,8 @@ import { toast } from 'react-toastify'
 //-MUI icons
 import LibraryAddOutlinedIcon from '@mui/icons-material/LibraryAddOutlined';
 import DvrOutlinedIcon from '@mui/icons-material/DvrOutlined';
+import TurnedInIcon from '@mui/icons-material/TurnedIn';
+import DeleteOutlinedIcon from '@mui/icons-material/DeleteOutlined';
 //-Redux
 import { getMenuSections, createMenuSection, resetMenuSections } from '../../features/sections/sectionSlice'
 
@@ -44,6 +46,7 @@ function AdminPanel() {
     }
     // eslint-disable-next-line
   }, [sections, isLoading, isSuccess, isError, message, dispatch])
+
 
   const onChange = (e) => {
     setFormData((prevState) => ({
@@ -119,29 +122,17 @@ function AdminPanel() {
 
       <div className='menuSectionsList'>
         <h2><i><DvrOutlinedIcon /> Sections list</i></h2>
-        <ul className='defaultList'>
-          <li>
-            <Link
-              to='/order_history'>
-              <span> Order history</span>
-            </Link>
-          </li>
-          <li>
-            <Link
-              to='/order_history'>
-              <span> Order history</span>
-            </Link>
-          </li>
-          <li>
-            <Link
-              to='/order_history'>
-              <span> Order history</span>
-            </Link>
-          </li>
-        </ul>
+        {sections?.map((section) => (
+          <Link to={'/section/' + section._id} key={section._id} className='defaultFormButton sectionsListButton' title='Edit Section'>
+            <span><TurnedInIcon style={{ color: section.activeInMenu ? 'green' : 'red' }} /> {section.name}</span>
+
+            <div title='Delete section'>
+              <DeleteOutlinedIcon className='listDeleteIcon' />
+            </div>
+          </Link>
+        ))}
       </div>
     </div>
-
   )
 }
 

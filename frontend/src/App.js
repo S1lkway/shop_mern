@@ -11,6 +11,7 @@ import Footer from './components/Footer';
 import Main from './pages/Main'
 //-Admin
 import AdminPanel from './pages/AdminPanel/AdminPanel'
+import Section from './pages/AdminPanel/Section/Section'
 //-Account
 import Addresses from './pages/Account/Addresses/Addresses'
 import Basket from './pages/Account/Basket/Basket'
@@ -54,6 +55,7 @@ function App() {
 
               <Route element={<AdminRoutes />}>
                 <Route path='/admin_panel' element={<AdminPanel />} />
+                <Route path='/section/:id' element={<Section />} />
               </Route>
             </Route>
           </Routes>
