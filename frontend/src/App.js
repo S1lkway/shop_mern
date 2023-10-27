@@ -55,7 +55,7 @@ function App() {
 
               <Route element={<AdminRoutes />}>
                 <Route path='/admin_panel' element={<AdminPanel />} />
-                <Route path='/section/:id' element={<Section />} />
+                <Route path='/section/:sectionId' element={<Section />} />
               </Route>
             </Route>
           </Routes>

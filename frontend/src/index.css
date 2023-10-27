@@ -403,12 +403,7 @@ ul {
   }
 }
 
-/** ADMIN PANEL                    */
-/** ****************************** */
-/** ****************************** */
-
-
-/** MENU SECTIONS                  */
+/** ADMIN PANEL(menu sections)     */
 /** ****************************** */
 /** ****************************** */
 .menuSectionsContainer {
@@ -495,6 +490,27 @@ ul {
     .sectionsListButton:hover {
       .listDeleteIcon {
         display: block;
+      }
+    }
+  }
+}
+
+/** SECTION EDIT                   */
+/** ****************************** */
+/** ****************************** */
+.sectionEditContainer {
+  .sectionEditTitle {
+    display: flex;
+    /* justify-content: space-between; */
+    align-items: center;
+
+    .comeBackButton {
+      margin-right: 1rem;
+      font-size: 2rem;
+
+      :hover {
+        cursor: pointer;
+        color: rgb(201, 201, 201);
       }
     }
   }
