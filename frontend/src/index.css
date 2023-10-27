@@ -470,12 +470,15 @@ ul {
       justify-content: space-between;
       align-items: center;
 
-      >span {
+      .sectionMainButton {
         display: flex;
         align-items: center;
+        flex-grow: 1;
 
-        >svg {
-          margin-right: 10px;
+        >div {
+          >svg {
+            margin-right: 10px;
+          }
         }
       }
 

@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { Link } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import { toast } from 'react-toastify'
 
 //-MUI icons
@@ -14,6 +14,7 @@ import { getMenuSections, createMenuSection, resetMenuSections } from '../../fea
 
 function AdminPanel() {
   const dispatch = useDispatch()
+  const navigate = useNavigate()
   const { sections, isLoading, isSuccess, isError, message } = useSelector(
     (state) => state.menuSections
   )
@@ -46,6 +47,15 @@ function AdminPanel() {
     }
     // eslint-disable-next-line
   }, [sections, isLoading, isSuccess, isError, message, dispatch])
+
+  const goToEditSection = (sectionId) => {
+    const navigateLink = '/section/' + sectionId
+    navigate(navigateLink)
+  }
+
+  const deleteListSection = (sectionId) => {
+    console.log('Delete section ' + sectionId)
+  }
 
 
   const onChange = (e) => {
@@ -123,13 +133,20 @@ function AdminPanel() {
       <div className='menuSectionsList'>
         <h2><i><DvrOutlinedIcon /> Sections list</i></h2>
         {sections?.map((section) => (
-          <Link to={'/section/' + section._id} key={section._id} className='defaultFormButton sectionsListButton' title='Edit Section'>
-            <span><TurnedInIcon style={{ color: section.activeInMenu ? 'green' : 'red' }} /> {section.name}</span>
-
-            <div title='Delete section'>
-              <DeleteOutlinedIcon className='listDeleteIcon' />
+          <div key={section._id} className='defaultFormButton sectionsListButton'>
+            <div
+              title='Click to edit section'
+              className='sectionMainButton'
+              onClick={() => goToEditSection(section._id)}>
+              <div title='It shows activity of section in menu. If green, users can see it in'>
+                <TurnedInIcon style={{ color: section.activeInMenu ? 'green' : 'red' }} />
+              </div>
+              <div>{section.name}</div>
             </div>
-          </Link>
+            <div title='Delete section' >
+              <DeleteOutlinedIcon className='listDeleteIcon' onClick={() => deleteListSection(section._id)} />
+            </div>
+          </div>
         ))}
       </div>
     </div>
