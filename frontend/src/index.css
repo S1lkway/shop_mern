@@ -504,6 +504,10 @@ ul {
     /* justify-content: space-between; */
     align-items: center;
 
+    >h2 {
+      margin: 1rem 0;
+    }
+
     .comeBackButton {
       margin-right: 1rem;
       font-size: 2rem;
