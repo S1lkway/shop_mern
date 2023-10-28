@@ -500,6 +500,7 @@ ul {
 /** ****************************** */
 .sectionEditContainer {
   .sectionEditTitle {
+
     display: flex;
     /* justify-content: space-between; */
     align-items: center;
@@ -515,6 +516,24 @@ ul {
       :hover {
         cursor: pointer;
         color: rgb(201, 201, 201);
+      }
+    }
+  }
+
+  .sectionEditMainParametrs {
+
+    .defaultForm {
+      .defaultFormGroup {
+
+        >span {
+          color: rgb(201, 201, 201);
+          margin: 0.5rem 0 0 1.5rem;
+        }
+
+        .defaultFormButton {
+          margin-top: 1.5rem;
+          max-width: 10rem;
+        }
       }
     }
   }

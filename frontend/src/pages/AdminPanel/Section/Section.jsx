@@ -79,6 +79,32 @@ function Section() {
               onChange={onChange}
             />
           </div>
+          {section.extraIngridietTypes?.lenght > 0 ?
+            (
+              <div className="defaultFormGroup">
+                <label htmlFor="name" className="defaultFormLabel">
+                  Name
+                </label>
+                <input
+                  className='defaultFormInput'
+                  autoComplete="on"
+                  type="text"
+                  name='name'
+                  id='name'
+                  value={name}
+                  placeholder='Enter name for section'
+                  onChange={onChange}
+                />
+              </div>
+            ) :
+            (
+              <div className="defaultFormGroup">
+                <label className="defaultFormLabel">
+                  Extra Ingridient Groups
+                </label>
+                <span><i>Section doesn't have groups</i></span>
+              </div>
+            )}
           <div className="defaultFormGroup">
             <button
               className='defaultFormButton'
