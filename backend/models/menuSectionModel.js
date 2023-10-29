@@ -31,19 +31,13 @@ const ingridientSchema = mongoose.Schema({
   description: {
     type: String,
   },
+  category: {
+    type: Number,
+    required: [true, 'Please add a category of ingridient'],
+    default: 'Standart',
+  },
   image: {
     type: imageSchema,
-  },
-});
-
-const categorySchema = mongoose.Schema({
-  name: {
-    type: String,
-    required: [true, 'Please add a name of category for ingridient type']
-  },
-  ingridients: {
-    type: [ingridientSchema],
-    required: true,
   },
 });
 
@@ -53,8 +47,8 @@ const extraIngridientTypeSchema = mongoose.Schema({
     type: String,
     required: [true, 'Please add a name of ingridient type']
   },
-  categories: {
-    type: [categorySchema],
+  ingridients: {
+    type: [ingridientSchema],
   },
 });
 

@@ -552,10 +552,9 @@ ul {
     }
   }
 
-
   .sectionEditZone {
     display: flex;
-    gap: 1rem;
+    gap: 1.5rem;
     margin-top: 1rem;
 
     .sectionEditMainParametrs {
@@ -582,8 +581,16 @@ ul {
     }
 
     .editSectionIngridientGroupsList {
+      border-left: 1px solid rgb(201, 201, 201);
+
       >h3 {
         margin-left: 1.5rem;
+      }
+
+      .ingridientTypesList {
+        >span {
+          margin-left: 1.5rem;
+        }
       }
     }
   }
@@ -701,7 +708,7 @@ ul {
       }
 
       .sectionEditTitle {
-        width: 100%;
+        align-self: self-start;
       }
 
       .newExtraIngridientGorupForm {
@@ -738,8 +745,17 @@ ul {
           }
         }
       }
-    }
 
+      .editSectionIngridientGroupsList {
+        border-left: none;
+        /* >h3 {
+        }
+        .ingridientTypesList {
+          >span {
+          }
+        } */
+      }
+    }
   }
 }
 

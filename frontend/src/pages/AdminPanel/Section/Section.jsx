@@ -127,7 +127,19 @@ function Section() {
         </div>
 
         <div className='editSectionIngridientGroupsList'>
-          <h3>Ingridient groups list <span title="A list of group for extra ingridients. Click on one in the list to see a list of ingridients in this group below"><InfoOutlinedIcon /></span></h3>
+          <h3>Ingridient groups list <span title="A list of group for extra ingridients. Click on one in the list to see a list of ingridients in this group below"><InfoOutlinedIcon /></span>
+          </h3>
+          {section?.extraIngridientTypes.lenght > 0 ?
+            (
+              <div className='ingridientTypesList'>
+                yes
+              </div>
+            ) :
+            (
+              <div className='ingridientTypesList'>
+                <span>Section doesn't have added ingridiet groups</span>
+              </div>
+            )}
         </div>
       </div>
     </div>
