@@ -4,6 +4,8 @@ import { useParams, useNavigate } from 'react-router-dom'
 // import { toast } from 'react-toastify'
 //-MUI icons
 import KeyboardReturnOutlinedIcon from '@mui/icons-material/KeyboardReturnOutlined';
+import PlaylistAddOutlinedIcon from '@mui/icons-material/PlaylistAddOutlined';
+import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
 
 function Section() {
   const navigate = useNavigate()
@@ -35,84 +37,98 @@ function Section() {
 
   return (
     <div className='sectionEditContainer'>
-      <div className='sectionEditTitle'>
-        <span
-          onClick={() => navigate('/admin_panel')}
-          className='comeBackButton'
-          title='Return to sections page'>
-          <KeyboardReturnOutlinedIcon />
-        </span>
-        <h2><i>Section "{section?.name}"</i></h2>
+      <div className='sectionEditHeader'>
+
+        <div className='sectionEditTitle'>
+          <span
+            onClick={() => navigate('/admin_panel')}
+            className='comeBackButton'
+            title='Return to sections page'>
+            <KeyboardReturnOutlinedIcon />
+          </span>
+          <h2><i>Section "{section?.name}"</i></h2>
+        </div>
+
+        <div className='newExtraIngridientGorupForm'>
+          <form
+            className="defaultForm"
+            onSubmit={onSubmit}>
+            <div className="defaultFormGroup newIngridientGroupInput">
+              <label htmlFor="name" className="defaultFormLabel">
+                Greate new ingridient group
+              </label>
+              <input
+                className='defaultFormInput'
+                autoComplete="on"
+                type="text"
+                name='name'
+                id='name'
+                placeholder='Enter name for new group'
+              />
+            </div>
+            <div className="defaultFormGroup">
+              <button
+                title='Add new group'
+                className='defaultFormButton'
+                type='submit' >
+                <PlaylistAddOutlinedIcon />
+              </button>
+            </div>
+          </form>
+        </div>
       </div>
-      <div className='sectionEditMainParametrs'>
-        <form
-          className="defaultForm"
-          onSubmit={onSubmit}>
-          <div className="defaultFormGroup">
-            <label htmlFor="name" className="defaultFormLabel">
-              Name
-            </label>
-            <input
-              className='defaultFormInput'
-              autoComplete="on"
-              type="text"
-              name='name'
-              id='name'
-              value={name}
-              placeholder='Enter name for section'
-              onChange={onChange}
-            />
-          </div>
-          <div className="defaultFormGroup">
-            <label htmlFor="description" className="defaultFormLabel">
-              Description <i>(optional)</i>
-            </label>
-            <textarea
-              className='defaultFormTextArea'
-              autoComplete="on"
-              type="textarea"
-              id='description'
-              value={description}
-              name='description'
-              placeholder='Description of Menu Section'
-              rows="3"
-              onChange={onChange}
-            />
-          </div>
-          {section.extraIngridietTypes?.lenght > 0 ?
-            (
-              <div className="defaultFormGroup">
-                <label htmlFor="name" className="defaultFormLabel">
-                  Name
-                </label>
-                <input
-                  className='defaultFormInput'
-                  autoComplete="on"
-                  type="text"
-                  name='name'
-                  id='name'
-                  value={name}
-                  placeholder='Enter name for section'
-                  onChange={onChange}
-                />
-              </div>
-            ) :
-            (
-              <div className="defaultFormGroup">
-                <label className="defaultFormLabel">
-                  Extra Ingridient Groups
-                </label>
-                <span><i>Section doesn't have groups</i></span>
-              </div>
-            )}
-          <div className="defaultFormGroup">
-            <button
-              className='defaultFormButton'
-              type='submit' >
-              Save
-            </button>
-          </div>
-        </form>
+
+
+      <div className='sectionEditZone'>
+        <div className='sectionEditMainParametrs'>
+          <h3>Main parametrs <span title="Main parametrs of menu section"><InfoOutlinedIcon /></span></h3>
+          <form
+            className="defaultForm"
+            onSubmit={onSubmit}>
+            <div className="defaultFormGroup">
+              <label htmlFor="name" className="defaultFormLabel">
+                Name
+              </label>
+              <input
+                className='defaultFormInput'
+                autoComplete="on"
+                type="text"
+                name='name'
+                id='name'
+                value={name}
+                placeholder='Enter name for section'
+                onChange={onChange}
+              />
+            </div>
+            <div className="defaultFormGroup">
+              <label htmlFor="description" className="defaultFormLabel">
+                Description <i>(optional)</i>
+              </label>
+              <textarea
+                className='defaultFormTextArea'
+                autoComplete="on"
+                type="textarea"
+                id='description'
+                value={description}
+                name='description'
+                placeholder='Description of Menu Section'
+                rows="3"
+                onChange={onChange}
+              />
+            </div>
+            <div className="defaultFormGroup">
+              <button
+                className='defaultFormButton'
+                type='submit' >
+                Save
+              </button>
+            </div>
+          </form>
+        </div>
+
+        <div className='editSectionIngridientGroupsList'>
+          <h3>Ingridient groups list <span title="A list of group for extra ingridients. Click on one in the list to see a list of ingridients in this group below"><InfoOutlinedIcon /></span></h3>
+        </div>
       </div>
     </div>
   )

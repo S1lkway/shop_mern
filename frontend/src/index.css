@@ -499,41 +499,91 @@ ul {
 /** ****************************** */
 /** ****************************** */
 .sectionEditContainer {
-  .sectionEditTitle {
 
+  .sectionEditHeader {
     display: flex;
-    /* justify-content: space-between; */
+    justify-content: space-between;
     align-items: center;
+    background-color: #e4b90e;
+    border-radius: 1rem;
+    padding: 1rem;
+    gap: 1.5rem;
 
-    >h2 {
-      margin: 1rem 0;
+    >div {
+      background-color: black;
+      padding: 1rem;
+      border-radius: 1rem;
+      color: white;
     }
 
-    .comeBackButton {
-      margin-right: 1rem;
-      font-size: 2rem;
+    .sectionEditTitle {
+      display: flex;
+      align-items: center;
 
-      :hover {
-        cursor: pointer;
-        color: rgb(201, 201, 201);
+      >h2 {
+        margin: 0 0.5rem 0 0;
+      }
+
+      .comeBackButton {
+        margin-right: 1rem;
+        font-size: 2rem;
+
+        :hover {
+          cursor: pointer;
+          color: rgb(201, 201, 201);
+        }
+      }
+    }
+
+    .newExtraIngridientGorupForm {
+      .defaultForm {
+        display: flex;
+        align-items: flex-end;
+        gap: 1rem;
+
+        .defaultFormGroup {
+          margin: 0;
+
+          .defaultFormButton {
+            padding: 0.4rem 0.5rem 0.4rem 0.6rem;
+          }
+        }
       }
     }
   }
 
-  .sectionEditMainParametrs {
 
-    .defaultForm {
-      .defaultFormGroup {
+  .sectionEditZone {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
 
-        >span {
-          color: rgb(201, 201, 201);
-          margin: 0.5rem 0 0 1.5rem;
+    .sectionEditMainParametrs {
+      flex-grow: 1;
+      max-width: 50%;
+
+      >h3 {
+        margin-left: 1.5rem;
+      }
+
+      .defaultForm {
+        .defaultFormGroup {
+
+          >span {
+            color: rgb(201, 201, 201);
+            margin: 0.5rem 0 0 1.5rem;
+          }
+
+          .defaultFormButton {
+            max-width: 10rem;
+          }
         }
+      }
+    }
 
-        .defaultFormButton {
-          margin-top: 1.5rem;
-          max-width: 10rem;
-        }
+    .editSectionIngridientGroupsList {
+      >h3 {
+        margin-left: 1.5rem;
       }
     }
   }
@@ -634,6 +684,62 @@ ul {
         max-width: 100%;
       }
     }
+  }
+
+  /** SECTION EDIT                   */
+  /** ****************************** */
+  /** ****************************** */
+  .sectionEditContainer {
+    .sectionEditHeader {
+      flex-direction: column;
+
+      >div {
+        background-color: black;
+        padding: 1rem;
+        border-radius: 1rem;
+        color: white;
+      }
+
+      .sectionEditTitle {
+        width: 100%;
+      }
+
+      .newExtraIngridientGorupForm {
+        width: 100%;
+
+        .defaultForm {
+          display: flex;
+          justify-content: space-between;
+          align-items: flex-end;
+          gap: 1rem;
+
+          .newIngridientGroupInput {
+            flex-grow: 1;
+          }
+        }
+      }
+    }
+
+    .sectionEditZone {
+      flex-direction: column;
+
+      .sectionEditMainParametrs {
+        max-width: 100%;
+        padding-bottom: 1.5rem;
+        border-bottom: 1px solid rgb(201, 201, 201);
+
+        .defaultForm {
+          /* width: 100%; */
+
+          .defaultFormGroup {
+            .defaultFormButton {
+              max-width: 10rem;
+            }
+          }
+        }
+      }
+    }
+
   }
 }
 
