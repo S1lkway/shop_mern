@@ -22,7 +22,7 @@ function Section() {
     description: section.description,
     activeInMenu: section.activeInMenu,
   })
-  console.log(formData)
+  // console.log(formData)
 
   const { name, description, activeInMenu } = formData
 
@@ -75,7 +75,7 @@ function Section() {
                   name="activeInMenu"
                   value={activeInMenu}
                   checked={activeInMenu}
-                  onClick={() => setFormData((prevState) => ({
+                  onChange={() => setFormData((prevState) => ({
                     ...prevState,
                     activeInMenu: !activeInMenu,
                   }))}
