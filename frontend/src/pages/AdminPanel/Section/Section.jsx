@@ -49,39 +49,13 @@ function Section() {
           <h2><i>Section "{section?.name}"</i></h2>
         </div>
 
-        <div className='newExtraIngridientGorupForm'>
-          <form
-            className="defaultForm"
-            onSubmit={onSubmit}>
-            <div className="defaultFormGroup newIngridientGroupInput">
-              <label htmlFor="name" className="defaultFormLabel">
-                Greate new ingridient group
-              </label>
-              <input
-                className='defaultFormInput'
-                autoComplete="on"
-                type="text"
-                name='name'
-                id='name'
-                placeholder='Enter name for new group'
-              />
-            </div>
-            <div className="defaultFormGroup">
-              <button
-                title='Add new group'
-                className='defaultFormButton'
-                type='submit' >
-                <PlaylistAddOutlinedIcon />
-              </button>
-            </div>
-          </form>
-        </div>
+
       </div>
 
 
       <div className='sectionEditZone'>
         <div className='sectionEditMainParametrs'>
-          <h3>Main parametrs <span title="Main parametrs of menu section"><InfoOutlinedIcon /></span></h3>
+          <h3>Main parameters <span title="Main parametrs of menu section"><InfoOutlinedIcon /></span></h3>
           <form
             className="defaultForm"
             onSubmit={onSubmit}>
@@ -127,19 +101,24 @@ function Section() {
         </div>
 
         <div className='editSectionIngridientGroupsList'>
-          <h3>Ingridient groups list <span title="A list of group for extra ingridients. Click on one in the list to see a list of ingridients in this group below"><InfoOutlinedIcon /></span>
-          </h3>
-          {section?.extraIngridientTypes.lenght > 0 ?
-            (
-              <div className='ingridientTypesList'>
-                yes
-              </div>
-            ) :
-            (
-              <div className='ingridientTypesList'>
-                <span>Section doesn't have added ingridiet groups</span>
-              </div>
-            )}
+          <div className='ingridientGroupsListHeader'>
+            <h3>Ingredient groups list <span title="A list of group for extra ingridients. Click on one in the list to see a list of ingridients in this group below"><InfoOutlinedIcon /></span>
+            </h3>
+            <button
+              title='Add new group'
+              className='defaultFormButton'>
+              <PlaylistAddOutlinedIcon />
+            </button>
+          </div>
+          <div className='ingridientGroupsList'>
+            {section?.extraIngridientTypes.lenght > 0 ?
+              (
+                <span>Yes</span>
+              ) :
+              (
+                <span>Section doesn't have added ingredient groups</span>
+              )}
+          </div>
         </div>
       </div>
     </div>

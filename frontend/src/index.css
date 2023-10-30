@@ -506,19 +506,15 @@ ul {
     align-items: center;
     background-color: #e4b90e;
     border-radius: 1rem;
-    padding: 1rem;
-    gap: 1.5rem;
-
-    >div {
-      background-color: black;
-      padding: 1rem;
-      border-radius: 1rem;
-      color: white;
-    }
+    padding: 0.7rem 1rem;
 
     .sectionEditTitle {
       display: flex;
       align-items: center;
+      background-color: black;
+      padding: 0.2rem 1rem;
+      border-radius: 1rem;
+      color: white;
 
       >h2 {
         margin: 0 0.5rem 0 0;
@@ -535,44 +531,29 @@ ul {
       }
     }
 
-    .newExtraIngridientGorupForm {
-      .defaultForm {
-        display: flex;
-        align-items: flex-end;
-        gap: 1rem;
 
-        .defaultFormGroup {
-          margin: 0;
-
-          .defaultFormButton {
-            padding: 0.4rem 0.5rem 0.4rem 0.6rem;
-          }
-        }
-      }
-    }
   }
 
   .sectionEditZone {
     display: flex;
-    gap: 1.5rem;
+    justify-content: space-between;
+    gap: 1rem;
     margin-top: 1rem;
 
-    .sectionEditMainParametrs {
-      flex-grow: 1;
-      max-width: 50%;
+    >div {
+      width: 50%;
+      border: 1px solid rgb(201, 201, 201);
+      border-radius: 1rem;
+      padding: 0.5rem;
+    }
 
+    .sectionEditMainParametrs {
       >h3 {
         margin-left: 1.5rem;
       }
 
       .defaultForm {
         .defaultFormGroup {
-
-          >span {
-            color: rgb(201, 201, 201);
-            margin: 0.5rem 0 0 1.5rem;
-          }
-
           .defaultFormButton {
             max-width: 10rem;
           }
@@ -581,16 +562,19 @@ ul {
     }
 
     .editSectionIngridientGroupsList {
-      border-left: 1px solid rgb(201, 201, 201);
+      .ingridientGroupsListHeader {
+        margin: 0 1.5rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
 
-      >h3 {
-        margin-left: 1.5rem;
+        .defaultFormButton {
+          padding: 0.5rem 1rem;
+        }
       }
 
-      .ingridientTypesList {
-        >span {
-          margin-left: 1.5rem;
-        }
+      .ingridientGroupsList {
+        margin: 1.5rem;
       }
     }
   }
@@ -697,64 +681,18 @@ ul {
   /** ****************************** */
   /** ****************************** */
   .sectionEditContainer {
-    .sectionEditHeader {
-      flex-direction: column;
-
-      >div {
-        background-color: black;
-        padding: 1rem;
-        border-radius: 1rem;
-        color: white;
-      }
-
-      .sectionEditTitle {
-        align-self: self-start;
-      }
-
-      .newExtraIngridientGorupForm {
-        width: 100%;
-
-        .defaultForm {
-          display: flex;
-          justify-content: space-between;
-          align-items: flex-end;
-          gap: 1rem;
-
-          .newIngridientGroupInput {
-            flex-grow: 1;
-          }
-        }
-      }
-    }
+    /* .sectionEditHeader {} */
 
     .sectionEditZone {
       flex-direction: column;
 
-      .sectionEditMainParametrs {
-        max-width: 100%;
-        padding-bottom: 1.5rem;
-        border-bottom: 1px solid rgb(201, 201, 201);
-
-        .defaultForm {
-          /* width: 100%; */
-
-          .defaultFormGroup {
-            .defaultFormButton {
-              max-width: 10rem;
-            }
-          }
-        }
+      >div {
+        width: 100%;
       }
 
-      .editSectionIngridientGroupsList {
-        border-left: none;
-        /* >h3 {
-        }
-        .ingridientTypesList {
-          >span {
-          }
-        } */
-      }
+      /* .sectionEditMainParametrs {}
+
+      .editSectionIngridientGroupsList {} */
     }
   }
 }
