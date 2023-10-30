@@ -24,7 +24,7 @@ function Section() {
   })
   console.log(formData)
 
-  const { name, description } = formData
+  const { name, description, activeInMenu } = formData
 
   const onChange = (e) => {
     setFormData((prevState) => ({
@@ -64,7 +64,26 @@ function Section() {
 
       <div className='sectionEditZone'>
         <div className='sectionEditMainParametrs'>
-          <h3>Main parameters <span title="Main parametrs of menu section"><InfoOutlinedIcon /></span></h3>
+          <div className='editMainParametersHeader'>
+            <h3>Main parameters <span title="Main parametrs of menu section"><InfoOutlinedIcon /></span></h3>
+            <div className="defaultFormToggle">
+              <label className="toggle">
+                <span className="toggle-label">Active</span>
+                <input
+                  className="toggle-checkbox"
+                  type="checkbox"
+                  name="activeInMenu"
+                  value={activeInMenu}
+                  checked={activeInMenu}
+                  onClick={() => setFormData((prevState) => ({
+                    ...prevState,
+                    activeInMenu: !activeInMenu,
+                  }))}
+                />
+                <div className="toggle-switch"></div>
+              </label>
+            </div>
+          </div>
           <form
             className="defaultForm"
             onSubmit={onSubmit}>
@@ -99,6 +118,7 @@ function Section() {
                 onChange={onChange}
               />
             </div>
+
             <div className="defaultFormGroup">
               <button
                 className='defaultFormButton'
