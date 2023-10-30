@@ -6,6 +6,7 @@ import { useParams, useNavigate } from 'react-router-dom'
 import KeyboardReturnOutlinedIcon from '@mui/icons-material/KeyboardReturnOutlined';
 import PlaylistAddOutlinedIcon from '@mui/icons-material/PlaylistAddOutlined';
 import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
+import DeleteOutlinedIcon from '@mui/icons-material/DeleteOutlined';
 
 function Section() {
   const navigate = useNavigate()
@@ -21,6 +22,7 @@ function Section() {
     description: section.description,
     activeInMenu: section.activeInMenu,
   })
+  console.log(formData)
 
   const { name, description } = formData
 
@@ -35,10 +37,13 @@ function Section() {
     e.preventDefault()
   }
 
+  const deleteSection = (sectionId) => {
+    console.log('Delete section ' + sectionId)
+  }
+
   return (
     <div className='sectionEditContainer'>
       <div className='sectionEditHeader'>
-
         <div className='sectionEditTitle'>
           <span
             onClick={() => navigate('/admin_panel')}
@@ -48,10 +53,14 @@ function Section() {
           </span>
           <h2><i>Section "{section?.name}"</i></h2>
         </div>
-
+        <button
+          onClick={() => { deleteSection(section._id) }}
+          title='Add new group'
+          className='defaultFormButton'>
+          <DeleteOutlinedIcon />
+        </button>
 
       </div>
-
 
       <div className='sectionEditZone'>
         <div className='sectionEditMainParametrs'>
