@@ -1,14 +1,13 @@
 import { useState } from 'react'
 import { useSelector } from 'react-redux'
 import { useParams, useNavigate } from 'react-router-dom'
-import ReactModal from 'react-modal';
+// import ReactModal from 'react-modal';
 // import { toast } from 'react-toastify'
 //-Components
-import AddGroupModal from './ModalComponents/AddGroupModal'
-import AddIngridient from './ModalComponents/AddIngridient'
+import AddGroup from './AddGroup';
+// import AddIngridient from './ModalComponents/AddIngridient'
 //-MUI icons
 import KeyboardReturnOutlinedIcon from '@mui/icons-material/KeyboardReturnOutlined';
-import PlaylistAddOutlinedIcon from '@mui/icons-material/PlaylistAddOutlined';
 import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
 import DeleteOutlinedIcon from '@mui/icons-material/DeleteOutlined';
 
@@ -18,14 +17,13 @@ function Section() {
   const { sectionId } = useParams();
   const { sections } = useSelector((state) => state.menuSections)
   const section = sections.find(section => section._id === sectionId);
-  const [modalIsOpen, setModalIsOpen] = useState(false);
-  const [modelClass, setModelClass] = useState('modalOpened')
-  const [modalComponent, setModalComponent] = useState('');
+  // const [modalIsOpen, setModalIsOpen] = useState(false);
+  // const [modelClass, setModelClass] = useState('modalOpened')
+  // const [modalComponent, setModalComponent] = useState('');
   // console.log(section)
-  const modalComponents = {
-    AddGroupModal: <AddGroupModal />,
-    AddIngridient: <AddIngridient />
-  };
+  // const modalComponents = {
+  //   AddIngridient: <AddIngridient />
+  // };
 
   const [formData, setFormData] = useState({
     name: section.name,
@@ -41,17 +39,17 @@ function Section() {
     console.log('Delete section ' + sectionId)
   }
   /// Modal actions
-  const openModal = (component) => {
-    setModelClass('modalOpened')
-    setModalComponent(component)
-    setModalIsOpen(true);
-  };
-  const closeModal = () => {
-    setModelClass('modalClosed')
-    setTimeout(() => {
-      setModalIsOpen(false);
-    }, 250);
-  };
+  // const openModal = (component) => {
+  //   setModelClass('modalOpened')
+  //   setModalComponent(component)
+  //   setModalIsOpen(true);
+  // };
+  // const closeModal = () => {
+  //   setModelClass('modalClosed')
+  //   setTimeout(() => {
+  //     setModalIsOpen(false);
+  //   }, 250);
+  // };
 
   /// Form actions
   const onChange = (e) => {
@@ -63,6 +61,13 @@ function Section() {
 
   const onSubmit = (e) => {
     e.preventDefault()
+
+    const sectionData = {
+      name,
+      description,
+      activeInMenu
+    }
+    console.log(sectionData)
   }
 
   return (
@@ -156,12 +161,7 @@ function Section() {
           <div className='ingridientGroupsListHeader'>
             <h3>Groups of additional ingredients <span title="A list of group for extra ingridients. Click on one in the list to see a list of ingridients in this group below"><InfoOutlinedIcon /></span>
             </h3>
-            <button
-              onClick={() => openModal('AddGroupModal')}
-              title='Add new group'
-              className='defaultFormButton'>
-              <PlaylistAddOutlinedIcon />
-            </button>
+            <AddGroup section={section} />
           </div>
           <div className='ingridientGroupsList'>
             {section?.extraIngridientTypes.lenght > 0 ?
@@ -175,13 +175,13 @@ function Section() {
         </div>
       </div>
 
-      <ReactModal
+      {/* <ReactModal
         isOpen={modalIsOpen}
         onRequestClose={closeModal}
         className={"userModal " + modelClass}
         overlayClassName="userOverlay">
         {modalComponents[modalComponent]}
-      </ReactModal>
+      </ReactModal> */}
 
     </div>
   )

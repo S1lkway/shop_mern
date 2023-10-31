@@ -598,8 +598,6 @@ ul {
     .defaultFormButton {
       padding: 0.4rem 1rem;
     }
-
-
   }
 
   .sectionEditZone {
@@ -637,13 +635,25 @@ ul {
 
     .editSectionIngridientGroupsList {
       .ingridientGroupsListHeader {
-        margin: 0 0.5rem 0 1.5rem;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
 
-        .defaultFormButton {
-          padding: 0.5rem 1rem;
+        >h3 {
+          margin-left: 1.5rem;
+        }
+
+        .defaultForm {
+          display: flex;
+          align-items: flex-end;
+
+          .defaultFormGroup {
+
+            .defaultFormInput {
+              margin-right: 1rem;
+            }
+
+            .defaultFormButton {
+              padding: 0.5rem 1rem;
+            }
+          }
         }
       }
 
