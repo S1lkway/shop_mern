@@ -32,15 +32,12 @@ const getMenuSections = asyncHandler(async (req, res) => {
     res.status(400)
     throw new Error(error)
   }
-
 })
 
 //* desc EDIT Menu Section
 //* route PUT /api/menu_sections/:id
-//* access Private
+//* access Private (x-www-form-urlencoded)
 const editMenuSection = asyncHandler(async (req, res) => {
-  const extraIngridientTypes = req.body.extraIngridientTypes
-  console.log(extraIngridientTypes)
   try {
     const menuSection = await MenuSection.findById(req.params.id)
     if (!menuSection) {
@@ -50,6 +47,7 @@ const editMenuSection = asyncHandler(async (req, res) => {
     /// Basic edit fields
     menuSection.name = req.body.name;
     menuSection.description = (req.body.description && req.body.description.length > 0) ? req.body.description : null;
+    menuSection.activeInMenu = req.body.activeInMenu ? req.body.activeInMenu : menuSection.activeInMenu
 
     /// Save the updated menu section
     const updatedMenuSection = await menuSection.save();

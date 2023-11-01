@@ -8,6 +8,13 @@ const {
   editMenuSection,
   deleteMenuSection
 } = require('../controllers/menuSectionController')
+const {
+  createGroup,
+  getGroups,
+  editGroup,
+  getGroup,
+  deleteGroup,
+} = require('../controllers/groupController')
 
 const { protect } = require('../middleware/authMiddleware')
 const { admin } = require('../middleware/adminMiddleware')
@@ -16,10 +23,10 @@ const { admin } = require('../middleware/adminMiddleware')
 router.route('/').get(getMenuSections).post(protect, admin, createMenuSection)
 router.route('/:id').get(protect, admin, getMenuSection).delete(protect, admin, deleteMenuSection).put(protect, admin, editMenuSection)
 /// Groups
-// router.route('/:id/groups').get(protect, admin, getGroups).post(protect, admin, createGroup)
-// router.route('/:id/groups/:groupId').get(protect, admin, getGroup).delete(protect, admin, deleteGroup).put(protect, admin, editGroup)
-// /// Dishes
-// router.route('/:id/groups/:groupId/dishes').get(protect, admin, getDishes).post(protect, admin, upload.array('images', 1), createDish)
-// router.route('/:id/groups/:groupId/dishes/:dishId').get(protect, admin, getDishe).delete(protect, admin, deleteDish).put(protect, admin, upload.array('images', 1), editDish)
+router.route('/:id/groups').get(protect, admin, getGroups).post(protect, admin, createGroup)
+router.route('/:id/groups/:groupId').get(protect, admin, getGroup).delete(protect, admin, deleteGroup).put(protect, admin, editGroup)
+// /// Ingredients
+// router.route('/:id/groups/:groupId/ingredients').get(protect, admin, getIngredients).post(protect, admin, upload.array('images', 1), createIngredient)
+// router.route('/:id/groups/:groupId/ingredients/:ingredientId').get(protect, admin, getIngredient).delete(protect, admin, deleteIngredient).put(protect, admin, upload.array('images', 1), editIngredient)
 
 module.exports = router
