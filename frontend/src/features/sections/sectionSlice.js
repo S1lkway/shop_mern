@@ -1,5 +1,6 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 import sectionService from './sectionService'
+import groupService from './groupService'
 
 const initialState = {
   sections: [],
@@ -69,6 +70,24 @@ export const editMenuSection = createAsyncThunk(
 
 //* GROUPS ******************************************************************//
 
+//* CREATE NEW SECTION GROUP
+export const createSectionGroup = createAsyncThunk(
+  'menu_sections/groups',
+  async (groupData, thunkAPI) => {
+    try {
+      const token = thunkAPI.getState().auth.user.token;
+      return await groupService.createSectionGroup(groupData, token);
+    } catch (error) {
+      const message =
+        (error.response &&
+          error.response.data &&
+          error.response.data.message) ||
+        error.message ||
+        error.toString()
+      return thunkAPI.rejectWithValue(message)
+    }
+  }
+)
 
 //* SECTIONSLICE
 export const menuSectionsSlice = createSlice({
@@ -126,6 +145,24 @@ export const menuSectionsSlice = createSlice({
         }
       })
       .addCase(editMenuSection.rejected, (state, action) => {
+        state.sectionsIsLoading = false
+        state.sectionsIsError = true
+        state.sectionsMessage = action.payload
+      })
+
+      /// createSectionGroup
+      .addCase(createSectionGroup.pending, (state) => {
+        state.sectionsIsLoading = true
+      })
+      .addCase(createSectionGroup.fulfilled, (state, action) => {
+        state.sectionsIsLoading = false
+        state.sectionsIsSuccess = true
+        const index = state.sections.findIndex((section) => section._id === action.payload._id)
+        if (index !== -1) {
+          state.sections[index] = action.payload
+        }
+      })
+      .addCase(createSectionGroup.rejected, (state, action) => {
         state.sectionsIsLoading = false
         state.sectionsIsError = true
         state.sectionsMessage = action.payload

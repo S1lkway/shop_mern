@@ -188,9 +188,11 @@ function Section() {
             <AddGroup section={section} />
           </div>
           <div className='ingridientGroupsList'>
-            {section?.extraIngridientTypes?.lenght > 0 ?
+            {section?.extraIngredientTypes?.length > 0 ?
               (
-                <span>Yes</span>
+                section.extraIngredientTypes.map((group) => (
+                  <h3 key={group._id}>{group.name}</h3>
+                ))
               ) :
               (
                 <span>Section doesn't have added ingredient groups</span>

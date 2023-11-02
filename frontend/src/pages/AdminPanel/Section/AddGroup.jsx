@@ -1,10 +1,15 @@
 import { useState } from 'react'
-// import { useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
+import { useParams } from 'react-router-dom'
+import { toast } from 'react-toastify'
 //-MUI icons
 import PlaylistAddOutlinedIcon from '@mui/icons-material/PlaylistAddOutlined';
+//- Redux
+import { createSectionGroup } from '../../../features/sections/sectionSlice'
 
 function AddGroup(props) {
-  // const section = props.section
+  const { sectionId } = useParams();
+  const dispatch = useDispatch()
 
   const [formData, setFormData] = useState({
     groupName: '',
@@ -22,11 +27,18 @@ function AddGroup(props) {
 
   const onSubmit = (e) => {
     e.preventDefault()
-
-    const sectionData = {
-      groupName
+    if (groupName.length < 1) {
+      toast.error("Group name can't be empty")
+    } else {
+      const sectionData = {
+        sectionId: sectionId,
+        name: groupName,
+      }
+      dispatch(createSectionGroup(sectionData))
+      // console.log(sectionData)
     }
-    console.log(sectionData)
+
+
   }
   return (
     <form
