@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { useParams, useNavigate } from 'react-router-dom'
 // import ReactModal from 'react-modal';
@@ -11,15 +11,17 @@ import KeyboardReturnOutlinedIcon from '@mui/icons-material/KeyboardReturnOutlin
 import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
 import DeleteOutlinedIcon from '@mui/icons-material/DeleteOutlined';
 //-Redux
-import { editMenuSection } from '../../../features/sections/sectionSlice';
+import { editMenuSection, resetMenuSections } from '../../../features/sections/sectionSlice';
+
 
 function Section() {
   //* CONSTS *******************************************
   const navigate = useNavigate()
   const dispatch = useDispatch()
   const { sectionId } = useParams();
-  const { sections } = useSelector((state) => state.menuSections)
+  const { sections, sectionsIsError, sectionsIsSuccess, sectionsMessage } = useSelector((state) => state.menuSections)
   const section = sections.find(section => section._id === sectionId);
+  const [mainParChanged, setMainParChanged] = useState(false)
   // const [modalIsOpen, setModalIsOpen] = useState(false);
   // const [modelClass, setModelClass] = useState('modalOpened')
   // const [modalComponent, setModalComponent] = useState('');
@@ -55,6 +57,18 @@ function Section() {
   // };
 
   /// Form actions
+  useEffect(() => {
+    if (sectionsIsError) {
+      toast.error(sectionsMessage)
+    }
+    if (sectionsIsSuccess && mainParChanged) {
+      toast.success('Main parameters were changed')
+      setMainParChanged(false)
+    }
+    dispatch(resetMenuSections())
+    // eslint-disable-next-line
+  }, [sections, sectionsIsError, sectionsIsSuccess, sectionsMessage, dispatch])
+
   const onChange = (e) => {
     setFormData((prevState) => ({
       ...prevState,
@@ -75,10 +89,9 @@ function Section() {
         activeInMenu
       }
       // console.log(menuSectionData)
+      setMainParChanged(true)
       dispatch(editMenuSection(menuSectionData))
     }
-
-
   }
 
   return (

@@ -15,7 +15,7 @@ import { getMenuSections, createMenuSection, resetMenuSections } from '../../fea
 function AdminPanel() {
   const dispatch = useDispatch()
   const navigate = useNavigate()
-  const { sections, isLoading, isSuccess, isError, message } = useSelector(
+  const { sections, sectionsIsLoading, sectionsIsSuccess, sectionsIsError, sectionsMessage } = useSelector(
     (state) => state.menuSections
   )
 
@@ -34,11 +34,11 @@ function AdminPanel() {
   }, [])
 
   useEffect(() => {
-    if (isError) {
-      toast.error(message)
+    if (sectionsIsError) {
+      toast.error(sectionsMessage)
       dispatch(resetMenuSections())
     }
-    if (isSuccess) {
+    if (sectionsIsSuccess) {
       if (name.length > 0) {
         toast.success('Menu section was created')
       }
@@ -46,7 +46,7 @@ function AdminPanel() {
       dispatch(resetMenuSections())
     }
     // eslint-disable-next-line
-  }, [sections, isLoading, isSuccess, isError, message, dispatch])
+  }, [sections, sectionsIsLoading, sectionsIsSuccess, sectionsIsError, sectionsMessage, dispatch])
 
   const goToEditSection = (sectionId) => {
     const navigateLink = '/section/' + sectionId
