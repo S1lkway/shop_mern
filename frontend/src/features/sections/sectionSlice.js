@@ -9,6 +9,8 @@ const initialState = {
   message: '',
 }
 
+//* MENU SECTIONS ***********************************************************//
+
 //* CREATE NEW MENU SECTION
 export const createMenuSection = createAsyncThunk(
   'menu_sections/create',
@@ -45,6 +47,8 @@ export const getMenuSections = createAsyncThunk(
     }
   }
 )
+
+//* GROUPS ******************************************************************//
 
 
 //* ARTICLESLICE

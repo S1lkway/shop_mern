@@ -27,7 +27,7 @@ function Section() {
 
   const [formData, setFormData] = useState({
     name: section.name,
-    description: section.description,
+    description: section.description || '',
     activeInMenu: section.activeInMenu,
   })
   // console.log(formData)
