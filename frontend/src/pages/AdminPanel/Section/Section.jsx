@@ -164,7 +164,7 @@ function Section() {
             <AddGroup section={section} />
           </div>
           <div className='ingridientGroupsList'>
-            {section?.extraIngridientTypes.lenght > 0 ?
+            {section?.extraIngridientTypes?.lenght > 0 ?
               (
                 <span>Yes</span>
               ) :
