@@ -47,7 +47,7 @@ const editMenuSection = asyncHandler(async (req, res) => {
     /// Basic edit fields
     menuSection.name = req.body.name;
     menuSection.description = (req.body.description && req.body.description.length > 0) ? req.body.description : null;
-    menuSection.activeInMenu = req.body.activeInMenu ? req.body.activeInMenu : menuSection.activeInMenu
+    menuSection.activeInMenu = req.body.activeInMenu
 
     /// Save the updated menu section
     const updatedMenuSection = await menuSection.save();

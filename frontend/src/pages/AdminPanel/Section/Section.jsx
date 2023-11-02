@@ -1,8 +1,8 @@
 import { useState } from 'react'
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 import { useParams, useNavigate } from 'react-router-dom'
 // import ReactModal from 'react-modal';
-// import { toast } from 'react-toastify'
+import { toast } from 'react-toastify'
 //-Components
 import AddGroup from './AddGroup';
 // import AddIngridient from './ModalComponents/AddIngridient'
@@ -10,10 +10,13 @@ import AddGroup from './AddGroup';
 import KeyboardReturnOutlinedIcon from '@mui/icons-material/KeyboardReturnOutlined';
 import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
 import DeleteOutlinedIcon from '@mui/icons-material/DeleteOutlined';
+//-Redux
+import { editMenuSection } from '../../../features/sections/sectionSlice';
 
 function Section() {
   //* CONSTS *******************************************
   const navigate = useNavigate()
+  const dispatch = useDispatch()
   const { sectionId } = useParams();
   const { sections } = useSelector((state) => state.menuSections)
   const section = sections.find(section => section._id === sectionId);
@@ -62,12 +65,20 @@ function Section() {
   const onSubmit = (e) => {
     e.preventDefault()
 
-    const sectionData = {
-      name,
-      description,
-      activeInMenu
+    if (name.length < 2) {
+      toast.error("Section name can't be less than 2 symbols")
+    } else {
+      const menuSectionData = {
+        sectionId,
+        name,
+        description,
+        activeInMenu
+      }
+      // console.log(menuSectionData)
+      dispatch(editMenuSection(menuSectionData))
     }
-    console.log(sectionData)
+
+
   }
 
   return (
