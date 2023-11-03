@@ -56,11 +56,11 @@ function AddGroup(props) {
 
   return (
     <form
-      className="defaultForm"
+      className="defaultForm addGroupForm"
       onSubmit={onSubmit}>
       <div className="defaultFormGroup">
         <label htmlFor="groupName" className="defaultFormLabel">
-          Name
+          Add group
         </label>
         <input
           className='defaultFormInput'

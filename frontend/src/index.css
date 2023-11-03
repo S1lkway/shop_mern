@@ -640,9 +640,11 @@ ul {
           margin-left: 1.5rem;
         }
 
-        .defaultForm {
+        .addGroupForm {
           display: flex;
           align-items: flex-end;
+          padding-bottom: 1.5rem;
+          border-bottom: 1px solid rgb(201, 201, 201);
 
           .defaultFormGroup {
 
