@@ -58,8 +58,9 @@ function Section() {
 
   /// Form actions
   useEffect(() => {
-    if (sectionsIsError) {
+    if (sectionsIsError && mainParChanged) {
       toast.error(sectionsMessage)
+      setMainParChanged(false)
     }
     if (sectionsIsSuccess && mainParChanged) {
       toast.success('Main parameters were changed')
