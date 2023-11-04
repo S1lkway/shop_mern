@@ -4,8 +4,8 @@ import { useParams, useNavigate } from 'react-router-dom'
 // import ReactModal from 'react-modal';
 import { toast } from 'react-toastify'
 //-Components
-import AddGroup from './AddGroup';
-// import AddIngridient from './ModalComponents/AddIngridient'
+import AddGroup from './Group/AddGroup';
+import GroupButton from './Group/GroupButton';
 //-MUI icons
 import KeyboardReturnOutlinedIcon from '@mui/icons-material/KeyboardReturnOutlined';
 import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
@@ -192,7 +192,7 @@ function Section() {
             {section?.extraIngredientTypes?.length > 0 ?
               (
                 section.extraIngredientTypes.map((group) => (
-                  <h3 key={group._id}>{group.name}</h3>
+                  <GroupButton key={group._id} group={group} />
                 ))
               ) :
               (

@@ -5,7 +5,7 @@ import { toast } from 'react-toastify'
 //-MUI icons
 import PlaylistAddOutlinedIcon from '@mui/icons-material/PlaylistAddOutlined';
 //- Redux
-import { createSectionGroup } from '../../../features/sections/sectionSlice'
+import { createSectionGroup } from '../../../../features/sections/sectionSlice'
 
 function AddGroup(props) {
   const { sectionId } = useParams();
