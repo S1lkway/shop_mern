@@ -1,17 +1,47 @@
 import { useState } from 'react'
+import { useParams } from 'react-router-dom'
+import { toast } from 'react-toastify'
 
 //-MUI icons
 import DeleteOutlinedIcon from '@mui/icons-material/DeleteOutlined';
 import EditCalendarOutlinedIcon from '@mui/icons-material/EditCalendarOutlined';
+import SaveOutlinedIcon from '@mui/icons-material/SaveOutlined';
 
 function GroupButton(props) {
+  const { sectionId } = useParams();
   const group = props.group
-  // console.log(group)
   const [showEditForm, setShowEditForm] = useState(false)
+  const [groupFormData, setGroupFormData] = useState({
+    groupName: group.name
+  })
+  const { groupName } = groupFormData
 
   //* ACTIONS *******************************************
   const deleteGroup = (groupId) => {
     console.log('Delete group ' + groupId)
+  }
+
+  const onChange = (e) => {
+    setGroupFormData((prevState) => ({
+      ...prevState,
+      [e.target.name]: e.target.value,
+    }))
+  }
+
+  const onSubmit = (e) => {
+    e.preventDefault()
+    if (groupName.length < 1) {
+      toast.error("Group name can't be empty")
+    } else {
+      const sectionData = {
+        sectionId: sectionId,
+        groupId: group._id,
+        name: groupName,
+      }
+      // setAddGroupChanged(true)
+      // dispatch(createSectionGroup(sectionData))
+      console.log(sectionData)
+    }
   }
 
 
@@ -20,11 +50,38 @@ function GroupButton(props) {
       <div className='groupListLeft'>
         {showEditForm ?
           (
-            <div className='leftForm'>Form</div>
+            <div className='leftForm'>
+              <form
+                className="defaultForm"
+                onSubmit={onSubmit}
+              >
+                <div className="defaultFormGroup">
+                  <input
+                    className='defaultFormInput'
+                    autoComplete="on"
+                    type="text"
+                    name='groupName'
+                    id='groupName'
+                    value={groupName}
+                    placeholder='Enter name for section'
+                    onChange={onChange}
+                  />
+                </div>
+                <div className="defaultFormGroup">
+                  <button
+                    title="Save new name"
+                    className='defaultFormButton'
+                    type='submit' >
+                    <SaveOutlinedIcon />
+                  </button>
+                </div>
+              </form>
+            </div>
           ) :
           (
             <div className='leftNameButton'>
               <button
+                title="Show list of group ingredients"
                 className='defaultFormButton groupNameButton'>
                 {group.name}
               </button>

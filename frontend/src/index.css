@@ -674,10 +674,28 @@ ul {
 
           .groupListLeft {
             flex-grow: 1;
+            margin-right: 2rem;
+
+            .leftForm {
+              .defaultForm {
+                display: flex;
+                align-items: center;
+
+                .defaultFormGroup {
+                  margin: 0;
+
+                  .defaultFormButton {
+                    display: flex;
+                    align-items: center;
+                    padding: 0 0.5rem;
+                    margin-left: 0.5rem;
+                  }
+                }
+              }
+            }
 
             .leftNameButton {
               display: flex;
-              margin-right: 1rem;
 
               .groupNameButton {
                 flex-grow: 1;
