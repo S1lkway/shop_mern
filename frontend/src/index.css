@@ -602,7 +602,7 @@ ul {
 
   .sectionEditZone {
     display: flex;
-    justify-content: space-between;
+    /* justify-content: space-between; */
     gap: 1rem;
     margin-top: 1rem;
 
@@ -614,10 +614,13 @@ ul {
     }
 
     .sectionEditMainParametrs {
+      order: 2;
+
       .editMainParametersHeader {
         display: flex;
         justify-content: space-between;
         align-items: center;
+
 
         >h3 {
           margin-left: 1.5rem;
@@ -637,6 +640,8 @@ ul {
     /** ****************************** */
     /** ****************************** */
     .editSectionIngridientGroupsList {
+      order: 1;
+
       .ingridientGroupsListHeader {
 
         >h3 {
@@ -781,9 +786,9 @@ ul {
   }
 }
 
-/** @media (max-width: 800px)      ////////////////////*/
-/** ///////////////////////////////////////////////////*/
-/** ///////////////////////////////////////////////////*/
+/** @media (max-width: 800px)      ////////////////////////////////////*/
+/** ///////////////////////////////////////////////////////////////////*/
+/** ///////////////////////////////////////////////////////////////////*/
 @media (max-width: 800px) {
 
   /** MENU PAGE                      */
@@ -852,16 +857,20 @@ ul {
         width: 100%;
       }
 
-      /* .sectionEditMainParametrs {}
+      .sectionEditMainParametrs {
+        order: 1;
+      }
 
-      .editSectionIngridientGroupsList {} */
+      .editSectionIngridientGroupsList {
+        order: 2;
+      }
     }
   }
 }
 
-/** @media (max-width: 600px)      ////////////////////*/
-/** ///////////////////////////////////////////////////*/
-/** ///////////////////////////////////////////////////*/
+/** @media (max-width: 600px)      ////////////////////////////////////*/
+/** ///////////////////////////////////////////////////////////////////*/
+/** ///////////////////////////////////////////////////////////////////*/
 @media (max-width: 600px) {
   #search {
     padding-inline-start: 1rem;

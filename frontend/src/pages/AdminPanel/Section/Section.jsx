@@ -4,8 +4,7 @@ import { useParams, useNavigate } from 'react-router-dom'
 // import ReactModal from 'react-modal';
 import { toast } from 'react-toastify'
 //-Components
-import AddGroup from './Group/AddGroup';
-import GroupButton from './Group/GroupButton';
+import GroupList from './Groups/GroupList'
 //-MUI icons
 import KeyboardReturnOutlinedIcon from '@mui/icons-material/KeyboardReturnOutlined';
 import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
@@ -22,20 +21,11 @@ function Section() {
   const { sections, sectionsIsError, sectionsIsSuccess, sectionsMessage } = useSelector((state) => state.menuSections)
   const section = sections.find(section => section._id === sectionId);
   const [mainParChanged, setMainParChanged] = useState(false)
-  // const [modalIsOpen, setModalIsOpen] = useState(false);
-  // const [modelClass, setModelClass] = useState('modalOpened')
-  // const [modalComponent, setModalComponent] = useState('');
-  // console.log(section)
-  // const modalComponents = {
-  //   AddIngridient: <AddIngridient />
-  // };
-
   const [formData, setFormData] = useState({
     name: section.name,
     description: section.description || '',
     activeInMenu: section.activeInMenu,
   })
-  // console.log(formData)
 
   const { name, description, activeInMenu } = formData
 
@@ -43,18 +33,6 @@ function Section() {
   const deleteSection = (sectionId) => {
     console.log('Delete section ' + sectionId)
   }
-  /// Modal actions
-  // const openModal = (component) => {
-  //   setModelClass('modalOpened')
-  //   setModalComponent(component)
-  //   setModalIsOpen(true);
-  // };
-  // const closeModal = () => {
-  //   setModelClass('modalClosed')
-  //   setTimeout(() => {
-  //     setModalIsOpen(false);
-  //   }, 250);
-  // };
 
   /// Form actions
   useEffect(() => {
@@ -119,7 +97,7 @@ function Section() {
       <div className='sectionEditZone'>
         <div className='sectionEditMainParametrs'>
           <div className='editMainParametersHeader'>
-            <h3>Main parameters <span title="Main parametrs of menu section"><InfoOutlinedIcon /></span></h3>
+            <h3>Main parameters <span title="Main parameters of menu section"><InfoOutlinedIcon /></span></h3>
             <div className="defaultFormToggle">
               <label className="toggle">
                 <span className="toggle-label">Active</span>
@@ -182,39 +160,9 @@ function Section() {
           </form>
         </div>
 
-        <div className='editSectionIngridientGroupsList'>
-          <div className='ingridientGroupsListHeader'>
-            <h3>Groups of additional ingredients <span title="A list of group for extra ingridients. Click on one in the list to see a list of ingridients in this group below"><InfoOutlinedIcon /></span>
-            </h3>
-            <AddGroup section={section} />
-          </div>
-          <div className='ingridientGroupsList'>
-            {section?.extraIngredientTypes?.length > 0 ?
-              (
-                section.extraIngredientTypes.map((group) => (
-                  <GroupButton key={group._id} group={group} />
-                ))
-              ) :
-              (
-                <div className='noGroupsInList'>
-                  <h3>
-                    <i>Section doesn't have added ingredient groups</i>
-                  </h3>
-                </div>
-
-              )}
-          </div>
-        </div>
+        {/* GROUP LIST ******************************************/}
+        <GroupList section={section} />
       </div>
-
-      {/* <ReactModal
-        isOpen={modalIsOpen}
-        onRequestClose={closeModal}
-        className={"userModal " + modelClass}
-        overlayClassName="userOverlay">
-        {modalComponents[modalComponent]}
-      </ReactModal> */}
-
     </div>
   )
 }
