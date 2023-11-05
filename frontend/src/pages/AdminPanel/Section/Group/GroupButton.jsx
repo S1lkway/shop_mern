@@ -53,9 +53,8 @@ function GroupButton(props) {
             <div className='leftForm'>
               <form
                 className="defaultForm"
-                onSubmit={onSubmit}
-              >
-                <div className="defaultFormGroup">
+                onSubmit={onSubmit}>
+                <div className="defaultFormGroup leftFormInput">
                   <input
                     className='defaultFormInput'
                     autoComplete="on"
@@ -64,8 +63,7 @@ function GroupButton(props) {
                     id='groupName'
                     value={groupName}
                     placeholder='Enter name for section'
-                    onChange={onChange}
-                  />
+                    onChange={onChange} />
                 </div>
                 <div className="defaultFormGroup">
                   <button

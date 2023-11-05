@@ -679,7 +679,13 @@ ul {
             .leftForm {
               .defaultForm {
                 display: flex;
+                justify-content: space-between;
                 align-items: center;
+
+                .leftFormInput {
+                  width: 100px;
+                  flex-grow: 1;
+                }
 
                 .defaultFormGroup {
                   margin: 0;
