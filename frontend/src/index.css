@@ -633,6 +633,7 @@ ul {
       }
     }
 
+    /* INGREDIENTS LIST **********************/
     .editSectionIngridientGroupsList {
       .ingridientGroupsListHeader {
 
@@ -666,31 +667,38 @@ ul {
           display: flex;
           justify-content: space-between;
           align-items: center;
+          background-color: #e4b90e;
+          padding: 0.5rem;
+          border-radius: 1rem;
           margin-bottom: 0.5rem;
 
           .groupListLeft {
             flex-grow: 1;
 
-            .leftButtons {
+            .leftNameButton {
               display: flex;
-              justify-content: space-between;
-              margin-right: 2rem;
+              margin-right: 1rem;
 
               .groupNameButton {
                 flex-grow: 1;
                 text-align: left;
-                padding-left: 1.5rem;
+                border-radius: 1rem;
+                padding-left: 1rem;
                 margin-right: 0.5rem;
               }
             }
           }
 
           .groupListRight {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
 
-            .deleteGroupButton {
+            .defaultFormButton {
+              padding: 0 0.5rem;
               display: flex;
               align-items: center;
-              padding: 0 0.5rem;
+              margin-left: 0.5rem;
             }
           }
         }

@@ -23,21 +23,21 @@ function GroupButton(props) {
             <div className='leftForm'>Form</div>
           ) :
           (
-            <div className='leftButtons'>
+            <div className='leftNameButton'>
               <button
                 className='defaultFormButton groupNameButton'>
                 {group.name}
-              </button>
-              <button
-                onClick={() => setShowEditForm(true)}
-                title='Edit group name'
-                className='defaultFormButton'>
-                <EditCalendarOutlinedIcon />
               </button>
             </div>
           )}
       </div>
       <div className="groupListRight">
+        <button
+          onClick={() => setShowEditForm(!showEditForm)}
+          title='Edit group name'
+          className='defaultFormButton'>
+          <EditCalendarOutlinedIcon />
+        </button>
         <button
           onClick={() => { deleteGroup(group._id) }}
           title='Delete group'
