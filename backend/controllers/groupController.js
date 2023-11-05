@@ -83,10 +83,10 @@ const editGroup = asyncHandler(async (req, res) => {
     })
     await menuSection.save()
     // console.log(menuSection)
-    const updatedCroup = menuSection.extraIngredientTypes?.find((group) => group._id.toString() === groupId);
-    // console.log(updatedCroup)
+    // const updatedGroup = menuSection.extraIngredientTypes?.find((group) => group._id.toString() === groupId);
+    // console.log(updatedGroup)
 
-    res.status(200).json(updatedCroup)
+    res.status(200).json(menuSection)
   } catch (error) {
     res.status(404)
     throw new Error(error)

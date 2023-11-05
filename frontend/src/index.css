@@ -633,7 +633,9 @@ ul {
       }
     }
 
-    /* INGREDIENTS LIST **********************/
+    /** GROUP EDIT                     */
+    /** ****************************** */
+    /** ****************************** */
     .editSectionIngridientGroupsList {
       .ingridientGroupsListHeader {
 
@@ -662,6 +664,15 @@ ul {
 
       .ingridientGroupsList {
         margin-top: 1.5rem;
+
+        .noGroupsInList {
+          margin: 3rem 1.5rem;
+          color: rgb(201, 201, 201);
+
+          >h3 {
+            text-decoration: underline;
+          }
+        }
 
         .groupListItem {
           display: flex;

@@ -1,4 +1,5 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
+import { useSelector, useDispatch } from 'react-redux'
 import { useParams } from 'react-router-dom'
 import { toast } from 'react-toastify'
 
@@ -6,17 +7,35 @@ import { toast } from 'react-toastify'
 import DeleteOutlinedIcon from '@mui/icons-material/DeleteOutlined';
 import EditCalendarOutlinedIcon from '@mui/icons-material/EditCalendarOutlined';
 import SaveOutlinedIcon from '@mui/icons-material/SaveOutlined';
+//-Redux
+import { editSectionGroup } from '../../../../features/sections/sectionSlice'
 
 function GroupButton(props) {
+  const dispatch = useDispatch()
   const { sectionId } = useParams();
   const group = props.group
+  const { sections, sectionsIsError, sectionsIsSuccess, sectionsMessage } = useSelector((state) => state.menuSections)
   const [showEditForm, setShowEditForm] = useState(false)
+  const [editGroupChanged, setEditGroupChanged] = useState(false)
   const [groupFormData, setGroupFormData] = useState({
     groupName: group.name
   })
   const { groupName } = groupFormData
 
   //* ACTIONS *******************************************
+  useEffect(() => {
+    if (sectionsIsError && editGroupChanged) {
+      toast.error(sectionsMessage)
+      setEditGroupChanged(false)
+    }
+    if (sectionsIsSuccess && editGroupChanged) {
+      // setGroupFormData({ groupName: '' })
+      toast.success('Group name changed')
+      setEditGroupChanged(false)
+    }
+    // eslint-disable-next-line
+  }, [sections, sectionsIsError, sectionsIsSuccess, sectionsMessage, dispatch])
+
   const deleteGroup = (groupId) => {
     console.log('Delete group ' + groupId)
   }
@@ -33,14 +52,14 @@ function GroupButton(props) {
     if (groupName.length < 1) {
       toast.error("Group name can't be empty")
     } else {
-      const sectionData = {
+      const groupData = {
         sectionId: sectionId,
         groupId: group._id,
         name: groupName,
       }
-      // setAddGroupChanged(true)
-      // dispatch(createSectionGroup(sectionData))
-      console.log(sectionData)
+
+      setEditGroupChanged(true)
+      dispatch(editSectionGroup(groupData))
     }
   }
 

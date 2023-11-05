@@ -196,7 +196,12 @@ function Section() {
                 ))
               ) :
               (
-                <span>Section doesn't have added ingredient groups</span>
+                <div className='noGroupsInList'>
+                  <h3>
+                    <i>Section doesn't have added ingredient groups</i>
+                  </h3>
+                </div>
+
               )}
           </div>
         </div>
