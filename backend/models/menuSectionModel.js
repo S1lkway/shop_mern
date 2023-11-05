@@ -19,29 +19,30 @@ const imageSchema = mongoose.Schema({
   },
 });
 
+
 const ingredientSchema = mongoose.Schema({
   name: {
     type: String,
-    required: [true, 'Please add a name of ingredient']
+    required: [true, 'Please add a name for ingredient']
   },
   price: {
     type: Number,
-    required: [true, 'Please add a price of ingredient']
+    required: [true, 'Please add a price for ingredient']
   },
   description: {
     type: String,
+    default: null,
   },
   category: {
-    type: Number,
-    required: [true, 'Please add a category of ingredient'],
-    default: 'Standart',
+    type: String,
+    required: [true, 'Please add a category for ingredient'],
   },
   image: {
     type: imageSchema,
   },
 });
 
-//Toppings
+
 const extraIngredientTypeSchema = mongoose.Schema({
   name: {
     type: String,
@@ -52,7 +53,7 @@ const extraIngredientTypeSchema = mongoose.Schema({
   },
 });
 
-//Pizza
+
 const menuSectionSchema = mongoose.Schema({
   name: {
     type: String,
