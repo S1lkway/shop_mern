@@ -8,7 +8,7 @@ import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
 
 function GroupList(props) {
   const section = props.section
-  const [pickedGroup, setPickedGroup] = useState(false)
+  const [pickedGroup, setPickedGroup] = useState(0)
   // console.log(pickedGroup)
 
 
@@ -22,9 +22,19 @@ function GroupList(props) {
       <div className='ingridientGroupsList'>
         {section?.extraIngredientTypes?.length > 0 ?
           (
-            section.extraIngredientTypes.map((group, index) => (
-              <GroupButton key={index} group={group} setPickedGroup={setPickedGroup} index={index} />
-            ))
+            <>
+              {
+                section.extraIngredientTypes.map((group, index) => (
+                  <GroupButton
+                    key={index}
+                    index={index}
+                    group={group}
+                    setPickedGroup={setPickedGroup}
+                    pickedGroup={pickedGroup} />
+                ))
+              }
+              <IngredientList section={section} pickedGroup={pickedGroup} />
+            </>
           ) :
           (
             <div className='noGroupsInList'>
@@ -35,8 +45,7 @@ function GroupList(props) {
           )}
       </div>
 
-      {/* INGREDIENTS *****************************************/}
-      <IngredientList section={section} pickedGroup={pickedGroup} />
+
     </div>
   )
 }

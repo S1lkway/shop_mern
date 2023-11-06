@@ -12,6 +12,7 @@ import { editSectionGroup } from '../../../../features/sections/sectionSlice'
 
 function GroupButton(props) {
   const groupIndex = props.index
+  const pickedGroup = props.pickedGroup
   const setPickedGroup = props.setPickedGroup
   const dispatch = useDispatch()
   const { sectionId } = useParams();
@@ -102,7 +103,7 @@ function GroupButton(props) {
               <button
                 onClick={() => setPickedGroup(groupIndex)}
                 title="Show list of group ingredients"
-                className='defaultFormButton groupNameButton'>
+                className={pickedGroup === groupIndex ? ('defaultFormButton groupNameButton pickedButton') : ('defaultFormButton groupNameButton')}>
                 {group.name}
               </button>
             </div>

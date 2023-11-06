@@ -45,6 +45,10 @@ ul {
   text-decoration: underline;
 }
 
+.pickedButton {
+  background-color: rgb(35, 35, 35) !important;
+}
+
 .between {
   display: flex;
   justify-content: space-between;
