@@ -1,3 +1,4 @@
+import { useState } from "react";
 //-Components
 import AddGroup from "./AddGroup"
 import GroupButton from "./GroupButton"
@@ -7,6 +8,10 @@ import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
 
 function GroupList(props) {
   const section = props.section
+  const [pickedGroup, setPickedGroup] = useState(false)
+  // console.log(pickedGroup)
+
+
   return (
     <div className='editSectionIngridientGroupsList'>
       <div className='ingridientGroupsListHeader'>
@@ -17,8 +22,8 @@ function GroupList(props) {
       <div className='ingridientGroupsList'>
         {section?.extraIngredientTypes?.length > 0 ?
           (
-            section.extraIngredientTypes.map((group) => (
-              <GroupButton key={group._id} group={group} />
+            section.extraIngredientTypes.map((group, index) => (
+              <GroupButton key={index} group={group} setPickedGroup={setPickedGroup} index={index} />
             ))
           ) :
           (
@@ -31,7 +36,7 @@ function GroupList(props) {
       </div>
 
       {/* INGREDIENTS *****************************************/}
-      <IngredientList section={section} />
+      <IngredientList section={section} pickedGroup={pickedGroup} />
     </div>
   )
 }

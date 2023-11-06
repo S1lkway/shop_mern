@@ -11,6 +11,8 @@ import SaveOutlinedIcon from '@mui/icons-material/SaveOutlined';
 import { editSectionGroup } from '../../../../features/sections/sectionSlice'
 
 function GroupButton(props) {
+  const groupIndex = props.index
+  const setPickedGroup = props.setPickedGroup
   const dispatch = useDispatch()
   const { sectionId } = useParams();
   const group = props.group
@@ -98,6 +100,7 @@ function GroupButton(props) {
           (
             <div className='leftNameButton'>
               <button
+                onClick={() => setPickedGroup(groupIndex)}
                 title="Show list of group ingredients"
                 className='defaultFormButton groupNameButton'>
                 {group.name}
