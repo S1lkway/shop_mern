@@ -762,6 +762,14 @@ ul {
 
           .ingredientsListHeader {
             margin: 2rem 1.5rem;
+
+
+          }
+
+          .addIngredient {
+            >h4 {
+              margin-left: 1.5rem;
+            }
           }
 
           .ingredientItem {
