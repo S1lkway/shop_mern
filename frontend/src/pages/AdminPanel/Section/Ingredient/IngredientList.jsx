@@ -1,3 +1,4 @@
+import IngredientItem from './IngredientItem'
 
 function IngredientList(props) {
   const section = props.section
@@ -10,17 +11,10 @@ function IngredientList(props) {
     <div className='groupIngridientsList'>
       {(group?.ingredients.length > 0) ?
         (
-          <>
-            <div className='ingredientsListHeader'>{group.name}</div>
-            <div className="listOfIngredients">listOfIngredients</div>
-          </>
+          <IngredientItem section={section} group={group} />
         ) :
         (
-          <>
-            <div>
-              <h3>Group doesn't have ingredients</h3>
-            </div>
-          </>
+          <h3>Group "{group.name}" doesn't have additional ingredients</h3>
         )}
 
     </div>
