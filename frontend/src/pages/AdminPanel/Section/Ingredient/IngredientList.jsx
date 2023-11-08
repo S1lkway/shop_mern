@@ -1,7 +1,7 @@
 
 //-Components
 import IngredientItem from './IngredientItem'
-import AddIngredient from './AddIngredient'
+// import AddIngredient from '../ModalComponents/AddIngredient'
 
 function IngredientList(props) {
   const section = props.section
@@ -20,7 +20,7 @@ function IngredientList(props) {
             <div className='ingredientsListHeader'>
               <h3>Additional ingredients for "{group.name}":</h3>
             </div>
-            <AddIngredient section={section} group={group} />
+            {/* <AddIngredient section={section} group={group} /> */}
             {group.ingredients.map((ingredient) => (
               <IngredientItem key={ingredient._id} section={section} group={group} ingredient={ingredient} />
             ))}
