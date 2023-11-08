@@ -762,8 +762,20 @@ ul {
 
           .ingredientsListHeader {
             margin: 2rem 1.5rem;
+          }
 
+          .newIngredient {
+            margin-left: 0.5rem;
 
+            .defaultFormButton {
+              display: flex;
+              align-items: center;
+              padding: 0.5rem 1rem;
+
+              >svg {
+                margin-right: 0.5rem;
+              }
+            }
           }
 
           .addIngredient {

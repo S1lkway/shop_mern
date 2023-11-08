@@ -2,6 +2,8 @@
 //-Components
 import IngredientItem from './IngredientItem'
 // import AddIngredient from '../ModalComponents/AddIngredient'
+//-MUI icons
+import PlaylistAddOutlinedIcon from '@mui/icons-material/PlaylistAddOutlined';
 
 function IngredientList(props) {
   const section = props.section
@@ -21,6 +23,14 @@ function IngredientList(props) {
               <h3>Additional ingredients for "{group.name}":</h3>
             </div>
             {/* <AddIngredient section={section} group={group} /> */}
+            <div className="newIngredient">
+              <button
+                title="Add new ingredient"
+                className='defaultFormButton' >
+                <PlaylistAddOutlinedIcon />
+                <span>New ingredient</span>
+              </button>
+            </div>
             {group.ingredients.map((ingredient) => (
               <IngredientItem key={ingredient._id} section={section} group={group} ingredient={ingredient} />
             ))}
