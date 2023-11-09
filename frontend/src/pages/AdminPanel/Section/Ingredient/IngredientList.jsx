@@ -1,7 +1,9 @@
-
+import { useState } from 'react';
+import ReactModal from 'react-modal';
+import ModalCloseContext from '../../../../utils/ModalCloseContext';
 //-Components
 import IngredientItem from './IngredientItem'
-// import AddIngredient from '../ModalComponents/AddIngredient'
+import AddIngredient from '../ModalComponents/AddIngredient'
 //-MUI icons
 import PlaylistAddOutlinedIcon from '@mui/icons-material/PlaylistAddOutlined';
 
@@ -10,8 +12,20 @@ function IngredientList(props) {
   const pickedGroup = props.pickedGroup
   const group = section.extraIngredientTypes[pickedGroup]
 
-  // console.log(section)
+  const [modalIsOpen, setModalIsOpen] = useState(false);
+  const [modelClass, setModelClass] = useState('modalOpened')
 
+  //* MODAL
+  const openModal = () => {
+    setModelClass('modalOpened')
+    setModalIsOpen(true);
+  };
+  const closeModal = () => {
+    setModelClass('modalClosed')
+    setTimeout(() => {
+      setModalIsOpen(false);
+    }, 250);
+  };
 
 
   return (
@@ -22,9 +36,9 @@ function IngredientList(props) {
             <div className='ingredientsListHeader'>
               <h3>Additional ingredients for "{group.name}":</h3>
             </div>
-            {/* <AddIngredient section={section} group={group} /> */}
             <div className="newIngredient">
               <button
+                onClick={openModal}
                 title="Add new ingredient"
                 className='defaultFormButton' >
                 <PlaylistAddOutlinedIcon />
@@ -39,7 +53,16 @@ function IngredientList(props) {
         (
           <h3>Group "{group.name}" doesn't have additional ingredients</h3>
         )}
-
+      <ReactModal
+        isOpen={modalIsOpen}
+        onRequestClose={closeModal}
+        className={"userModal " + modelClass}
+        overlayClassName="userOverlay"
+      >
+        <ModalCloseContext.Provider value={closeModal}>
+          <AddIngredient closeModal={closeModal} />
+        </ModalCloseContext.Provider>
+      </ReactModal>
     </div>
   )
 }

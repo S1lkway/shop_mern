@@ -747,7 +747,7 @@ ul {
           }
         }
 
-        /** INGREDIENTS LIST                    */
+        /** INGREDIENTS LIST               */
         /** ****************************** */
         /** ****************************** */
         .groupIngridientsList {
@@ -778,12 +778,6 @@ ul {
             }
           }
 
-          .addIngredient {
-            >h4 {
-              margin-left: 1.5rem;
-            }
-          }
-
           .ingredientItem {
             margin: 0.5rem 1.5rem;
           }
@@ -791,6 +785,34 @@ ul {
       }
     }
   }
+}
+
+/** INGREDIENTS MODAL               */
+/** ****************************** */
+/** ****************************** */
+.addIngredient {
+
+  .addIngredientHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .addIngredientTitle {
+      margin-left: 1.5rem;
+    }
+
+    .addIngredientCloseModal {
+      cursor: pointer;
+
+      :hover {
+        color: rgb(201, 201, 201);
+      }
+    }
+  }
+
+  /* .ingredientForm {
+    .defaultForm {}
+  } */
 }
 
 /** MENU PAGE                      */
