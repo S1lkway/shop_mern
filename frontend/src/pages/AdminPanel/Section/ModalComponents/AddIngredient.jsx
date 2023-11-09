@@ -56,36 +56,72 @@ function AddIngredient(props) {
             </label>
             <input
               className='defaultFormInput'
-              autoComplete="on"
               type="text"
               name='name'
               id='name'
-              // value={name}
-              placeholder='Enter name for section'
-              onChange={onChange}
-            />
+              placeholder='Enter name for ingredient'
+              onChange={onChange} />
           </div>
+
+          <div className="defaultFormGroup">
+            <label htmlFor="name" className="defaultFormLabel">
+              Price
+            </label>
+            <input
+              className='defaultFormInput'
+              type="number"
+              name='price'
+              id='price'
+              placeholder='Enter price for ingredient'
+              onChange={onChange} />
+          </div>
+
+          <div className="defaultFormGroup">
+            <label htmlFor="name" className="defaultFormLabel">
+              Image
+            </label>
+            <input
+              type="file"
+              className="defaultFormFileUpload"
+              id="file"
+              name="file"
+              multiple={false}
+              onChange={onChange}
+              accept='image/*' />
+          </div>
+
+          <div className="defaultFormGroup">
+            <label htmlFor="name" className="defaultFormLabel">
+              Category
+            </label>
+            <select
+              name="category"
+              className='defaultFormSelect'>
+              <option value="Standart">Standart</option>
+              <option value="Spicy">Spicy</option>
+              <option value="Veggies">Veggies</option>
+            </select>
+          </div>
+
           <div className="defaultFormGroup">
             <label htmlFor="description" className="defaultFormLabel">
               Description <i>(optional)</i>
             </label>
             <textarea
               className='defaultFormTextArea'
-              autoComplete="on"
               type="textarea"
               id='description'
-              // value={description}
               name='description'
-              placeholder='Description of Menu Section'
+              placeholder='Description for ingredient'
               rows="3"
-              onChange={onChange}
-            />
+              onChange={onChange} />
           </div>
+
           <div className="defaultFormGroup">
             <button
               className='defaultFormButton'
               type='submit' >
-              Save
+              Create
             </button>
           </div>
         </form>

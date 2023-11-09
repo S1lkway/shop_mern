@@ -129,6 +129,39 @@ ul {
   border-radius: 64px;
 }
 
+/* Select */
+.defaultFormSelect {
+  height: 2.5rem;
+  padding: 0;
+  padding-inline-start: 1.3rem;
+  padding-inline-end: 1.5rem;
+  font-size: 1rem;
+  background-color: rgb(243, 243, 243);
+  border: 1px solid rgb(243, 243, 243);
+  border-radius: 64px;
+}
+
+/* FileUpload */
+input[type="file"]::-webkit-file-upload-button {
+  /* margin-left: 1.5rem; */
+  height: 2.3rem;
+  padding: 0.1rem;
+  padding-inline-start: 1.5rem;
+  padding-inline-end: 1.5rem;
+  font-size: 1rem;
+  background-color: rgb(243, 243, 243);
+  border: 1px solid rgb(201, 201, 201);
+  border-radius: 64px;
+  margin-right: 0.5rem;
+}
+
+
+input[type="file"]::-webkit-file-upload-button:hover {
+  cursor: pointer;
+  background-color: rgb(226, 226, 226);
+}
+
+
 /* TextArea */
 .defaultFormTextArea {
   padding: 0.3rem 0.1rem;
@@ -810,9 +843,16 @@ ul {
     }
   }
 
-  /* .ingredientForm {
-    .defaultForm {}
-  } */
+  .ingredientForm {
+    .defaultForm {
+      .defaultFormGroup {
+        .defaultFormFileUpload {
+          padding-bottom: 2rem;
+          border-bottom: 1px solid rgb(201, 201, 201);
+        }
+      }
+    }
+  }
 }
 
 /** MENU PAGE                      */
