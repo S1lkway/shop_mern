@@ -1,5 +1,6 @@
 import { useState, useContext } from 'react';
 import ModalCloseContext from '../../../../utils/ModalCloseContext';
+import { toast } from 'react-toastify'
 //-MUI icons
 import CloseIcon from '@mui/icons-material/Close';
 
@@ -8,6 +9,7 @@ function AddIngredient(props) {
   // const group = props.group
   const closeModal = useContext(ModalCloseContext);
 
+  const [fileData, setFileData] = useState([]);
   const [formData, setFormData] = useState({
     name: '',
     price: 0,
@@ -15,19 +17,38 @@ function AddIngredient(props) {
     description: '',
   })
   const { name, price, description, category } = formData
+  const file = fileData
 
   ///ACTIONS
   const onChange = (e) => {
-    setFormData((prevState) => ({
-      ...prevState,
-      [e.target.name]: e.target.value,
-    }))
+    if (e.target.name === 'file') {
+      const selectedFile = Array.from(e.target.files).filter(
+        (file) => file.type.startsWith('image/')
+      )
+      setFileData(selectedFile);
+    } else {
+      setFormData((prevState) => ({
+        ...prevState,
+        [e.target.name]: e.target.value,
+      }));
+    }
   }
 
   const addIngredient = (e) => {
     e.preventDefault()
 
-    console.log(formData)
+    if (price <= 0) {
+      toast.error("Price must be more than 0")
+    } else {
+      const ingredientData = new FormData();
+      ingredientData.append('name', name);
+      ingredientData.append('price', parseFloat(price));
+      ingredientData.append('category', category);
+      ingredientData.append('description', description);
+      ingredientData.append('images', file[0]);
+      console.log([...ingredientData.entries()])
+    }
+
   }
 
 
@@ -62,7 +83,8 @@ function AddIngredient(props) {
               id='name'
               value={name || ''}
               placeholder='Enter name for ingredient'
-              onChange={onChange} />
+              onChange={onChange}
+              required />
           </div>
 
           <div className="defaultFormGroup">
@@ -75,9 +97,10 @@ function AddIngredient(props) {
               name='price'
               id='price'
               value={price || 0}
-              min="0"
+              min={0}
               placeholder='Enter price for ingredient'
-              onChange={onChange} />
+              onChange={onChange}
+              required />
           </div>
 
           <div className="defaultFormGroup">
@@ -91,7 +114,8 @@ function AddIngredient(props) {
               name="file"
               multiple={false}
               onChange={onChange}
-              accept='image/*' />
+              accept='image/*'
+              required />
           </div>
 
           <div className="defaultFormGroup">
@@ -102,7 +126,8 @@ function AddIngredient(props) {
               name="category"
               value={category || 'Standart'}
               onChange={onChange}
-              className='defaultFormSelect'>
+              className='defaultFormSelect'
+              required>
               <option value="Standart">Standart</option>
               <option value="Spicy">Spicy</option>
               <option value="Veggies">Veggies</option>
