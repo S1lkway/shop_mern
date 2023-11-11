@@ -9,11 +9,12 @@ function AddIngredient(props) {
   const closeModal = useContext(ModalCloseContext);
 
   const [formData, setFormData] = useState({
-    name: 'aa',
-    description: 'bb',
-    activeInMenu: 'cc',
+    name: '',
+    price: 0,
+    category: '',
+    description: '',
   })
-  // const { name, description, activeInMenu } = formData
+  const { name, price, description, category } = formData
 
   ///ACTIONS
   const onChange = (e) => {
@@ -59,6 +60,7 @@ function AddIngredient(props) {
               type="text"
               name='name'
               id='name'
+              value={name || ''}
               placeholder='Enter name for ingredient'
               onChange={onChange} />
           </div>
@@ -72,6 +74,8 @@ function AddIngredient(props) {
               type="number"
               name='price'
               id='price'
+              value={price || 0}
+              min="0"
               placeholder='Enter price for ingredient'
               onChange={onChange} />
           </div>
@@ -96,6 +100,8 @@ function AddIngredient(props) {
             </label>
             <select
               name="category"
+              value={category || 'Standart'}
+              onChange={onChange}
               className='defaultFormSelect'>
               <option value="Standart">Standart</option>
               <option value="Spicy">Spicy</option>
@@ -112,9 +118,10 @@ function AddIngredient(props) {
               type="textarea"
               id='description'
               name='description'
+              value={description || ''}
+              onChange={onChange}
               placeholder='Description for ingredient'
-              rows="3"
-              onChange={onChange} />
+              rows="3" />
           </div>
 
           <div className="defaultFormGroup">
