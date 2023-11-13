@@ -804,6 +804,8 @@ input[type="file"]::-webkit-file-upload-button:hover {
               display: flex;
               align-items: center;
               padding: 0.5rem 1rem;
+              border-radius: 0;
+              height: 2rem;
 
               >svg {
                 margin-right: 0.5rem;
@@ -812,7 +814,39 @@ input[type="file"]::-webkit-file-upload-button:hover {
           }
 
           .ingredientItem {
-            margin: 0.5rem 1.5rem;
+            margin-top: 0.5rem;
+            background-color: #e4b90e;
+
+            .ingredientHeader {
+              display: flex;
+              justify-content: space-between;
+
+              .ingredientHeaderLeft {
+                flex-grow: 1;
+
+                .ingredientButton {
+                  text-align: left;
+                  width: 100%;
+                  margin: 0.5rem;
+                  padding: 0 1rem;
+                  border-radius: 0;
+                }
+              }
+
+              .ingredientHeaderRight {
+                display: flex;
+                align-items: center;
+                margin: 0 0.5rem;
+
+                .defaultFormButton {
+                  border-radius: 0;
+                  padding: 0 0.5rem;
+                  display: flex;
+                  align-items: center;
+                  margin-left: 0.5rem;
+                }
+              }
+            }
           }
         }
       }
