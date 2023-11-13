@@ -49,6 +49,10 @@ ul {
   background-color: rgb(35, 35, 35) !important;
 }
 
+.displayNone {
+  display: none;
+}
+
 .between {
   display: flex;
   justify-content: space-between;
@@ -814,7 +818,7 @@ input[type="file"]::-webkit-file-upload-button:hover {
           }
 
           .ingredientItem {
-            margin-top: 0.5rem;
+            margin-top: 1rem;
             background-color: #e4b90e;
 
             .ingredientHeader {
@@ -844,6 +848,17 @@ input[type="file"]::-webkit-file-upload-button:hover {
                   display: flex;
                   align-items: center;
                   margin-left: 0.5rem;
+                }
+              }
+            }
+
+            .ingredientForm {
+              .defaultForm {
+                margin: 0;
+                padding: 1rem;
+
+                .defaultFormGroup {
+                  margin: 0 0 1rem 0;
                 }
               }
             }
