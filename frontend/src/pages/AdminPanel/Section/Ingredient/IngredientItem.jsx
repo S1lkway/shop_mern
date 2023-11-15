@@ -10,6 +10,39 @@ function IngredientItem(props) {
   const [showProperties, setShowProperties] = useState(false)
   const formPropertiesClass = showProperties === true ? 'ingredientForm' : 'ingredientForm displayNone'
 
+  const [fileData, setFileData] = useState([]);
+  const [formData, setFormData] = useState({
+    name: ingredient.name,
+    price: ingredient.price,
+    description: ingredient.description || '',
+    category: ingredient.category,
+    image: ingredient.image,
+  })
+  const { name, price, description, category, image } = formData
+  // console.log(image)
+
+  ///ACTIONS
+  const onChange = (e) => {
+    if (e.target.name === 'file') {
+      const selectedFile = Array.from(e.target.files).filter(
+        (file) => file.type.startsWith('image/')
+      )
+      setFileData(selectedFile);
+    } else {
+      setFormData((prevState) => ({
+        ...prevState,
+        [e.target.name]: e.target.value,
+      }));
+    }
+  }
+
+  const editIngredient = (e) => {
+    e.preventDefault()
+
+    console.log(fileData)
+    console.log(formData)
+  }
+
   return (
     <div className='ingredientItem'>
       <div className='ingredientHeader'>
@@ -32,7 +65,7 @@ function IngredientItem(props) {
       </div>
       <div className={formPropertiesClass}>
         <form
-          // onSubmit={addIngredient}
+          onSubmit={editIngredient}
           className="defaultForm">
           <div className="defaultFormGroup">
             <label htmlFor="name" className="defaultFormLabel">
@@ -43,9 +76,9 @@ function IngredientItem(props) {
               type="text"
               name='name'
               id='name'
-              // value={name || ''}
+              value={name}
               placeholder='Enter name for ingredient'
-              // onChange={onChange}
+              onChange={onChange}
               required />
           </div>
 
@@ -58,27 +91,14 @@ function IngredientItem(props) {
               type="number"
               name='price'
               id='price'
-              // value={price || 0}
+              value={price}
               min={0}
               placeholder='Enter price for ingredient'
-              // onChange={onChange}
+              onChange={onChange}
               required />
           </div>
 
-          <div className="defaultFormGroup">
-            <label htmlFor="name" className="defaultFormLabel">
-              Image
-            </label>
-            <input
-              type="file"
-              className="defaultFormFileUpload"
-              id="file"
-              name="file"
-              multiple={false}
-              // onChange={onChange}
-              accept='image/*'
-              required />
-          </div>
+
 
           <div className="defaultFormGroup">
             <label htmlFor="name" className="defaultFormLabel">
@@ -86,8 +106,8 @@ function IngredientItem(props) {
             </label>
             <select
               name="category"
-              // value={category || 'Standart'}
-              // onChange={onChange}
+              value={category || 'Standart'}
+              onChange={onChange}
               className='defaultFormSelect'
               required>
               <option value="Standart">Standart</option>
@@ -105,10 +125,35 @@ function IngredientItem(props) {
               type="textarea"
               id='description'
               name='description'
-              // value={description || ''}
-              // onChange={onChange}
+              value={description}
+              onChange={onChange}
               placeholder='Description for ingredient'
               rows="3" />
+          </div>
+
+          <div className="fileFormGroup">
+            <div className='addFile'>
+              <label htmlFor="file" className="defaultFormLabel">
+                Image
+              </label>
+              <input
+                type="file"
+                className="defaultFormFileUpload"
+                id="file"
+                name="file"
+                multiple={false}
+                onChange={onChange}
+                accept='image/*'
+                required />
+            </div>
+            <div className='filePicture'>
+              <img
+                key={image._id}
+                // src={URL.createObjectURL(image)}
+                alt={`File "${image.originalname}" wasn't found`}
+                className='editImage'
+              />
+            </div>
           </div>
 
           <div className="defaultFormGroup">
