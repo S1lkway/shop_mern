@@ -51,7 +51,20 @@ function IngredientList(props) {
           </>
         ) :
         (
-          <h3>Group "{group.name}" doesn't have additional ingredients</h3>
+          <>
+
+            <h3>Group "{group.name}" doesn't have additional ingredients</h3>
+            <div className="newIngredient">
+              <button
+                onClick={openModal}
+                title="Add new ingredient"
+                className='defaultFormButton' >
+                <PlaylistAddOutlinedIcon />
+                <span>New ingredient</span>
+              </button>
+            </div>
+          </>
+
         )}
       <ReactModal
         isOpen={modalIsOpen}

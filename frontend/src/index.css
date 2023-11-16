@@ -788,17 +788,17 @@ input[type="file"]::-webkit-file-upload-button:hover {
         /** ****************************** */
         /** ****************************** */
         .groupIngridientsList {
-          margin-top: 1.5rem;
+          margin: 1.5rem 0;
           border-top: 1px solid rgb(201, 201, 201);
 
           >h3 {
-            margin: 2.5rem 1.5rem;
+            margin: 1.5rem 0 1.5rem 0.5rem;
             color: rgb(201, 201, 201);
             text-decoration: underline;
           }
 
           .ingredientsListHeader {
-            margin: 2rem 1.5rem;
+            margin: 1.5rem 0.5rem;
           }
 
           .newIngredient {
@@ -862,7 +862,7 @@ input[type="file"]::-webkit-file-upload-button:hover {
                 }
 
                 .fileFormGroup {
-                  margin-bottom: 1.8rem;
+                  margin: 1.8rem 0;
                   display: flex;
                   justify-content: space-between;
                   align-items: center;
@@ -875,6 +875,17 @@ input[type="file"]::-webkit-file-upload-button:hover {
                       margin: 0 0 0.5rem 1.5rem;
                       font-size: 1rem;
                       font-weight: 600;
+                    }
+                  }
+
+                  .filePicture {
+                    display: flex;
+                    align-items: center;
+
+                    >img {
+                      max-height: 4rem;
+                      max-width: 5rem;
+                      border-radius: 1rem;
                     }
                   }
                 }

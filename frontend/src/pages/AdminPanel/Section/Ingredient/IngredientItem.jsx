@@ -3,6 +3,7 @@ import { useState } from 'react';
 import DeleteOutlinedIcon from '@mui/icons-material/DeleteOutlined';
 
 function IngredientItem(props) {
+  const basePath = '/uploads/menuUploads/'
   // const section = props.section
   // const group = props.group
   const ingredient = props.ingredient
@@ -143,13 +144,12 @@ function IngredientItem(props) {
                 name="file"
                 multiple={false}
                 onChange={onChange}
-                accept='image/*'
-                required />
+                accept='image/*' />
             </div>
             <div className='filePicture'>
               <img
                 key={image._id}
-                // src={URL.createObjectURL(image)}
+                src={basePath + image.filename}
                 alt={`File "${image.originalname}" wasn't found`}
                 className='editImage'
               />
