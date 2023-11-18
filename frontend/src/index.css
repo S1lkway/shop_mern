@@ -860,59 +860,6 @@ input[type="file"]::-webkit-file-upload-button:hover {
                 .defaultFormGroup {
                   margin: 0 0 1rem 0;
                 }
-
-                .fileFormGroup {
-                  margin: 1.8rem 0;
-                  display: flex;
-                  justify-content: space-between;
-                  align-items: center;
-
-                  .addFile {
-                    display: flex;
-                    flex-direction: column;
-
-                    >label {
-                      margin: 0 0 0.5rem 1.5rem;
-                      font-size: 1rem;
-                      font-weight: 600;
-                    }
-                  }
-
-                  .filePicture {
-                    display: flex;
-                    align-items: center;
-                    height: 4rem;
-
-                    .newImageDiv {
-                      display: flex;
-                      align-items: center;
-
-                      .removeNewImage {
-                        cursor: pointer;
-
-                        :hover {
-                          color: white;
-                        }
-                      }
-
-                      .newImage {
-                        margin-left: 0.5rem;
-                        max-height: 4rem;
-                        border-radius: 1rem;
-                      }
-                    }
-
-                    .editImage {
-                      margin-left: 1rem;
-                      max-height: 4rem;
-                      border-radius: 1rem;
-                    }
-
-                    .oldImage {
-                      opacity: 0.5;
-                    }
-                  }
-                }
               }
             }
           }
@@ -947,12 +894,36 @@ input[type="file"]::-webkit-file-upload-button:hover {
 
   .ingredientForm {
     .defaultForm {
-      .defaultFormGroup {
-        .defaultFormFileUpload {
-          padding-bottom: 2rem;
-          border-bottom: 1px solid rgb(201, 201, 201);
+
+      .newImageFormGroup {
+        margin: 2.5rem 0;
+        height: 4rem;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        /* border-bottom: 1px solid rgb(201, 201, 201); */
+
+        .addFile {
+          display: flex;
+          flex-direction: column;
+
+          .defaultFormLabel {
+            margin: 0 0 0.5rem 1.5rem;
+            font-size: 1rem;
+            font-weight: 600;
+          }
+        }
+
+        .newImageDiv {
+          .newImage {
+            height: 4rem;
+            border-radius: 1rem;
+          }
+
         }
       }
+
     }
   }
 }
@@ -1094,16 +1065,6 @@ input[type="file"]::-webkit-file-upload-button:hover {
   /*/// Main classes of right side MODAL */
   .userModal {
     padding: 30px 10px;
-  }
-
-  .ingredientFormFile {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start !important;
-
-    .filePicture {
-      margin-top: 1rem;
-    }
   }
 
   /** USERMODAL FORM                 */

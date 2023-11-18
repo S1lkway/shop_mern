@@ -10,6 +10,7 @@ function AddIngredient(props) {
   const closeModal = useContext(ModalCloseContext);
 
   const [fileData, setFileData] = useState([]);
+  const [newImageUrl, setNewImageUrl] = useState(null)
   const [formData, setFormData] = useState({
     name: '',
     price: 0,
@@ -25,6 +26,9 @@ function AddIngredient(props) {
       const selectedFile = Array.from(e.target.files).filter(
         (file) => file.type.startsWith('image/')
       )
+      const imageUrl = URL.createObjectURL(e.target.files[0]);
+      //Url to show new image
+      setNewImageUrl(imageUrl);
       setFileData(selectedFile);
     } else {
       setFormData((prevState) => ({
@@ -98,24 +102,36 @@ function AddIngredient(props) {
               id='price'
               value={price || 0}
               min={0}
+              step="any"
               placeholder='Enter price for ingredient'
               onChange={onChange}
               required />
           </div>
 
-          <div className="defaultFormGroup">
-            <label htmlFor="name" className="defaultFormLabel">
-              Image
-            </label>
-            <input
-              type="file"
-              className="defaultFormFileUpload"
-              id="file"
-              name="file"
-              multiple={false}
-              onChange={onChange}
-              accept='image/*'
-              required />
+          <div className="defaultFormGroup newImageFormGroup">
+            <div className='addFile'>
+              <label htmlFor="name" className="defaultFormLabel">
+                Image
+              </label>
+              <input
+                type="file"
+                className="defaultFormFileUpload"
+                id="file"
+                name="file"
+                multiple={false}
+                onChange={onChange}
+                accept='image/*'
+                required />
+            </div>
+            {newImageUrl && (
+              <div className='newImageDiv'>
+                <img
+                  className='newImage'
+                  src={newImageUrl}
+                  alt={`File "${newImageUrl}" wasn't found`}
+                />
+              </div>
+            )}
           </div>
 
           <div className="defaultFormGroup">
