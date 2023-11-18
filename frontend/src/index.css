@@ -884,8 +884,17 @@ input[type="file"]::-webkit-file-upload-button:hover {
 
                     >img {
                       max-height: 4rem;
-                      max-width: 5rem;
+                      /* max-width: 5rem; */
                       border-radius: 1rem;
+
+                    }
+
+                    .editImage {
+                      margin-left: 1rem;
+                    }
+
+                    .oldImage {
+                      opacity: 0.5;
                     }
                   }
                 }
@@ -1070,6 +1079,16 @@ input[type="file"]::-webkit-file-upload-button:hover {
   /*/// Main classes of right side MODAL */
   .userModal {
     padding: 30px 10px;
+  }
+
+  .ingredientFormFile {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start !important;
+
+    .filePicture {
+      margin-top: 1rem;
+    }
   }
 
   /** USERMODAL FORM                 */

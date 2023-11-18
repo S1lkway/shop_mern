@@ -1,6 +1,8 @@
 import { useState } from 'react';
+import { toast } from 'react-toastify'
 //-MUI icons
 import DeleteOutlinedIcon from '@mui/icons-material/DeleteOutlined';
+import CloseIcon from '@mui/icons-material/Close';
 
 function IngredientItem(props) {
   const basePath = '/uploads/menuUploads/'
@@ -11,13 +13,14 @@ function IngredientItem(props) {
   const [showProperties, setShowProperties] = useState(false)
   const formPropertiesClass = showProperties === true ? 'ingredientForm' : 'ingredientForm displayNone'
 
-  const [fileData, setFileData] = useState([]);
+  const [selectedImage, setSelectedImage] = useState(null);
+  const [newImageUrl, setNewImageUrl] = useState(null)
   const [formData, setFormData] = useState({
     name: ingredient.name,
     price: ingredient.price,
     description: ingredient.description || '',
     category: ingredient.category,
-    image: ingredient.image,
+    image: ingredient.image
   })
   const { name, price, description, category, image } = formData
   // console.log(image)
@@ -28,7 +31,9 @@ function IngredientItem(props) {
       const selectedFile = Array.from(e.target.files).filter(
         (file) => file.type.startsWith('image/')
       )
-      setFileData(selectedFile);
+      setSelectedImage(selectedFile);
+      const imageUrl = URL.createObjectURL(e.target.files[0]);
+      setNewImageUrl(imageUrl);
     } else {
       setFormData((prevState) => ({
         ...prevState,
@@ -40,8 +45,20 @@ function IngredientItem(props) {
   const editIngredient = (e) => {
     e.preventDefault()
 
-    console.log(fileData)
-    console.log(formData)
+    if (price <= 0) {
+      toast.error("Price must be more than 0")
+    } else {
+      const ingredientData = new FormData();
+      ingredientData.append('name', name);
+      ingredientData.append('price', parseFloat(price));
+      ingredientData.append('category', category);
+      ingredientData.append('description', description);
+      ingredientData.append('images', selectedImage);
+      console.log([...ingredientData.entries()])
+    }
+
+    // console.log(fileData)
+    // console.log(formData)
   }
 
   return (
@@ -132,10 +149,10 @@ function IngredientItem(props) {
               rows="3" />
           </div>
 
-          <div className="fileFormGroup">
+          <div className="fileFormGroup ingredientFormFile">
             <div className='addFile'>
               <label htmlFor="file" className="defaultFormLabel">
-                Image
+                New Image
               </label>
               <input
                 type="file"
@@ -147,11 +164,29 @@ function IngredientItem(props) {
                 accept='image/*' />
             </div>
             <div className='filePicture'>
+              {newImageUrl && (
+                <>
+                  <div
+                    className="removeNewImage"
+                    title="Remove new image"
+                  // onClick={closeModal}
+                  >
+                    <h4>
+                      <CloseIcon />
+                    </h4>
+                  </div>
+                  <img
+                    src={newImageUrl}
+                    alt={`File "${newImageUrl}" wasn't found`}
+                  />
+                </>
+              )}
               <img
                 key={image._id}
                 src={basePath + image.filename}
                 alt={`File "${image.originalname}" wasn't found`}
-                className='editImage'
+                className={newImageUrl ? ('editImage oldImage') : ('editImage')}
+
               />
             </div>
           </div>
