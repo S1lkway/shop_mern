@@ -9,12 +9,12 @@ function AddIngredient(props) {
   // const group = props.group
   const closeModal = useContext(ModalCloseContext);
 
-  const [fileData, setFileData] = useState([]);
+  const [fileData, setFileData] = useState(null);
   const [newImageUrl, setNewImageUrl] = useState(null)
   const [formData, setFormData] = useState({
     name: '',
     price: 0,
-    category: '',
+    category: 'Standart',
     description: '',
   })
   const { name, price, description, category } = formData
@@ -22,7 +22,7 @@ function AddIngredient(props) {
 
   ///ACTIONS
   const onChange = (e) => {
-    if (e.target.name === 'file') {
+    if (e.target.name === 'file' && e.target.files.length > 0) {
       const selectedFile = Array.from(e.target.files).filter(
         (file) => file.type.startsWith('image/')
       )
@@ -41,8 +41,12 @@ function AddIngredient(props) {
   const addIngredient = (e) => {
     e.preventDefault()
 
-    if (price <= 0) {
-      toast.error("Price must be more than 0")
+    if (name === '' || fileData === null || category === '') {
+      if (price <= 0) {
+        toast.error("Price can't be 0")
+      } else {
+        toast.error("Fill all fields except optional")
+      }
     } else {
       const ingredientData = new FormData();
       ingredientData.append('name', name);
@@ -120,8 +124,7 @@ function AddIngredient(props) {
                 name="file"
                 multiple={false}
                 onChange={onChange}
-                accept='image/*'
-                required />
+                accept='image/*' />
             </div>
             {newImageUrl && (
               <div className='newImageDiv'>
@@ -140,7 +143,7 @@ function AddIngredient(props) {
             </label>
             <select
               name="category"
-              value={category || 'Standart'}
+              value={category}
               onChange={onChange}
               className='defaultFormSelect'
               required>
