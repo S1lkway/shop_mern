@@ -1,6 +1,10 @@
 import { useState } from 'react';
 import { toast } from 'react-toastify'
 import { useDispatch } from 'react-redux'
+import ReactModal from 'react-modal';
+import ModalCloseContext from '../../../../utils/ModalCloseContext';
+//-Components
+import ConfirmModal from '../../../../components/ConfirmModal';
 //-MUI icons
 import DeleteOutlinedIcon from '@mui/icons-material/DeleteOutlined';
 //- Redux
@@ -21,6 +25,18 @@ function IngredientItem(props) {
     category: ingredient.category,
   })
   const { name, price, description, category } = formData
+  ///MODAL
+  const [modalIsOpen, setModalIsOpen] = useState(false);
+
+  //* MODAL
+  const openModal = () => {
+    setModalIsOpen(true);
+  };
+  const closeModal = () => {
+    setTimeout(() => {
+      setModalIsOpen(false);
+    }, 250);
+  };
 
   ///ACTIONS
   const removeIngredient = (ingredientId) => {
@@ -68,7 +84,8 @@ function IngredientItem(props) {
         </div>
         <div className="ingredientHeaderRight">
           <button
-            onClick={() => { removeIngredient(ingredient._id) }}
+            // onClick={() => { removeIngredient(ingredient._id) }}
+            onClick={openModal}
             title='Delete ingredient'
             className='defaultFormButton deleteGroupButton'>
             <DeleteOutlinedIcon />
@@ -151,6 +168,16 @@ function IngredientItem(props) {
           </div>
         </form>
       </div>
+      <ReactModal
+        isOpen={modalIsOpen}
+        onRequestClose={closeModal}
+        className='confirmModal'
+        overlayClassName="userOverlay"
+      >
+        <ModalCloseContext.Provider value={closeModal}>
+          <ConfirmModal />
+        </ModalCloseContext.Provider>
+      </ReactModal>
     </div>
   )
 }

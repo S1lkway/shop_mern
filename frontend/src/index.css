@@ -364,6 +364,27 @@ input[type="file"]::-webkit-file-upload-button:hover {
 /** REACT-MODAL WINDOWS            */
 /** ****************************** */
 /** ****************************** */
+/*/// MAIN BASIC CLASSES */
+.confirmModal {
+  position: fixed;
+  top: 40%;
+  left: 50%;
+  background: #fff;
+
+  .confirmDiv {
+    width: 10rem;
+  }
+}
+
+.userOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(223, 223, 223, 0.412);
+}
+
 /*/// Right Side MODAL */
 /* Animation */
 @keyframes slideIn {
@@ -408,15 +429,6 @@ input[type="file"]::-webkit-file-upload-button:hover {
   padding: 30px;
   text-align: left;
   overflow-y: auto;
-}
-
-.userOverlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(223, 223, 223, 0.412);
 }
 
 /*/// User Login/Register/Profile MODAL */
