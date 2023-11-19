@@ -130,7 +130,29 @@ export const createIngredient = createAsyncThunk(
   }
 )
 
-//* SECTIONSLICE
+//* DELETE INGREDIENT
+export const deleteIngredient = createAsyncThunk(
+  'menu_sections/ingredients/delete',
+  async (ingredientData, thunkAPI) => {
+    try {
+      const token = thunkAPI.getState().auth.user.token;
+      return await ingredientService.deleteIngredient(ingredientData, token);
+    } catch (error) {
+      const message =
+        (error.response &&
+          error.response.data &&
+          error.response.data.message) ||
+        error.message ||
+        error.toString()
+      return thunkAPI.rejectWithValue(message)
+    }
+  }
+)
+
+
+///////////////////////////////////////////////////////////////////////////////
+//* SECTIONSLICE */////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////
 export const menuSectionsSlice = createSlice({
   name: 'menuSections',
   initialState,
@@ -239,6 +261,23 @@ export const menuSectionsSlice = createSlice({
         }
       })
       .addCase(createIngredient.rejected, (state, action) => {
+        state.sectionsIsLoading = false
+        state.sectionsIsError = true
+        state.sectionsMessage = action.payload
+      })
+      /// deleteIngredient
+      .addCase(deleteIngredient.pending, (state) => {
+        state.sectionsIsLoading = true
+      })
+      .addCase(deleteIngredient.fulfilled, (state, action) => {
+        state.sectionsIsLoading = false
+        state.sectionsIsSuccess = true
+        const index = state.sections.findIndex((section) => section._id === action.payload._id)
+        if (index !== -1) {
+          state.sections[index] = action.payload
+        }
+      })
+      .addCase(deleteIngredient.rejected, (state, action) => {
         state.sectionsIsLoading = false
         state.sectionsIsError = true
         state.sectionsMessage = action.payload

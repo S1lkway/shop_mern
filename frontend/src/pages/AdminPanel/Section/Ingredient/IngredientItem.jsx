@@ -1,9 +1,13 @@
 import { useState } from 'react';
 import { toast } from 'react-toastify'
+import { useDispatch } from 'react-redux'
 //-MUI icons
 import DeleteOutlinedIcon from '@mui/icons-material/DeleteOutlined';
+//- Redux
+import { deleteIngredient } from '../../../../features/sections/sectionSlice';
 
 function IngredientItem(props) {
+  const dispatch = useDispatch()
   // const basePath = '/uploads/menuUploads/'
   const ingredient = props.ingredient
   // console.log(ingredient)
@@ -19,10 +23,13 @@ function IngredientItem(props) {
   const { name, price, description, category } = formData
 
   ///ACTIONS
-  const deleteIngredient = (ingredientId) => {
-    console.log(ingredientId)
-    console.log(props.section._id)
-    console.log(props.group._id)
+  const removeIngredient = (ingredientId) => {
+    const ingredientData = {
+      'sectionId': props.section._id,
+      'groupId': props.group._id,
+      'ingredientId': ingredientId,
+    }
+    dispatch(deleteIngredient(ingredientData))
   }
 
 
@@ -61,7 +68,7 @@ function IngredientItem(props) {
         </div>
         <div className="ingredientHeaderRight">
           <button
-            onClick={() => { deleteIngredient(ingredient._id) }}
+            onClick={() => { removeIngredient(ingredient._id) }}
             title='Delete ingredient'
             className='defaultFormButton deleteGroupButton'>
             <DeleteOutlinedIcon />
