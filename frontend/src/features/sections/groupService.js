@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-/// /api/menu_sections/:id/groups:groupId
+/// /api/menu_sections/:id/groups/:groupId
 const API_URL_START = '/api/menu_sections/'
 
 //* CREATE SECTION GROUP

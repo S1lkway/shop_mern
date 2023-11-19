@@ -5,10 +5,10 @@ import { toast } from 'react-toastify'
 import CloseIcon from '@mui/icons-material/Close';
 
 function AddIngredient(props) {
-  // const section = props.section
-  // const group = props.group
+  ///CONSTS
+  const sectionId = props.section._id
+  const groupId = props.group._id
   const closeModal = useContext(ModalCloseContext);
-
   const [fileData, setFileData] = useState(null);
   const [newImageUrl, setNewImageUrl] = useState(null)
   const [formData, setFormData] = useState({
@@ -49,6 +49,8 @@ function AddIngredient(props) {
       }
     } else {
       const ingredientData = new FormData();
+      ingredientData.append('sectionId', sectionId);
+      ingredientData.append('groupId', groupId);
       ingredientData.append('name', name);
       ingredientData.append('price', parseFloat(price));
       ingredientData.append('category', category);
