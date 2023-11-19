@@ -104,7 +104,7 @@ function AddIngredient(props) {
               type="number"
               name='price'
               id='price'
-              value={price || 0}
+              value={price}
               min={0}
               step="any"
               placeholder='Enter price for ingredient'
