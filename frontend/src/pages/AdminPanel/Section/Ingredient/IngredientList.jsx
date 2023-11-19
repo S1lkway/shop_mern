@@ -73,7 +73,7 @@ function IngredientList(props) {
         overlayClassName="userOverlay"
       >
         <ModalCloseContext.Provider value={closeModal}>
-          <AddIngredient closeModal={closeModal} group={group} section={section} />
+          <AddIngredient group={group} section={section} />
         </ModalCloseContext.Provider>
       </ReactModal>
     </div>

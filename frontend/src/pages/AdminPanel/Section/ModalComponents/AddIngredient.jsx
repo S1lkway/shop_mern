@@ -1,10 +1,14 @@
 import { useState, useContext } from 'react';
+import { useDispatch } from 'react-redux'
 import ModalCloseContext from '../../../../utils/ModalCloseContext';
 import { toast } from 'react-toastify'
 //-MUI icons
 import CloseIcon from '@mui/icons-material/Close';
+//-Redux
+import { createIngredient } from '../../../../features/sections/sectionSlice';
 
 function AddIngredient(props) {
+  const dispatch = useDispatch()
   ///CONSTS
   const sectionId = props.section._id
   const groupId = props.group._id
@@ -56,7 +60,9 @@ function AddIngredient(props) {
       ingredientData.append('category', category);
       ingredientData.append('description', description);
       ingredientData.append('images', file[0]);
-      console.log([...ingredientData.entries()])
+      // console.log([...ingredientData.entries()])
+      dispatch(createIngredient(ingredientData))
+      closeModal()
     }
 
   }

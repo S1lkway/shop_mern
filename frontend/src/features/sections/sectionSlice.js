@@ -1,6 +1,7 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 import sectionService from './sectionService'
 import groupService from './groupService'
+import ingredientService from './ingredientService'
 
 const initialState = {
   sections: [],
@@ -108,6 +109,27 @@ export const editSectionGroup = createAsyncThunk(
   }
 )
 
+
+//* INGREDIENTS *************************************************************//
+//* CREATE NEW INGREDIENT
+export const createIngredient = createAsyncThunk(
+  'menu_sections/ingredients',
+  async (ingredientData, thunkAPI) => {
+    try {
+      const token = thunkAPI.getState().auth.user.token;
+      return await ingredientService.createIngredient(ingredientData, token);
+    } catch (error) {
+      const message =
+        (error.response &&
+          error.response.data &&
+          error.response.data.message) ||
+        error.message ||
+        error.toString()
+      return thunkAPI.rejectWithValue(message)
+    }
+  }
+)
+
 //* SECTIONSLICE
 export const menuSectionsSlice = createSlice({
   name: 'menuSections',
@@ -186,7 +208,7 @@ export const menuSectionsSlice = createSlice({
         state.sectionsIsError = true
         state.sectionsMessage = action.payload
       })
-      /// editSection
+      /// editSectionGroup
       .addCase(editSectionGroup.pending, (state) => {
         state.sectionsIsLoading = true
       })
@@ -200,6 +222,23 @@ export const menuSectionsSlice = createSlice({
         }
       })
       .addCase(editSectionGroup.rejected, (state, action) => {
+        state.sectionsIsLoading = false
+        state.sectionsIsError = true
+        state.sectionsMessage = action.payload
+      })
+      /// createIngredient
+      .addCase(createIngredient.pending, (state) => {
+        state.sectionsIsLoading = true
+      })
+      .addCase(createIngredient.fulfilled, (state, action) => {
+        state.sectionsIsLoading = false
+        state.sectionsIsSuccess = true
+        const index = state.sections.findIndex((section) => section._id === action.payload._id)
+        if (index !== -1) {
+          state.sections[index] = action.payload
+        }
+      })
+      .addCase(createIngredient.rejected, (state, action) => {
         state.sectionsIsLoading = false
         state.sectionsIsError = true
         state.sectionsMessage = action.payload
