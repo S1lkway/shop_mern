@@ -19,6 +19,13 @@ function IngredientItem(props) {
   const { name, price, description, category } = formData
 
   ///ACTIONS
+  const deleteIngredient = (ingredientId) => {
+    console.log(ingredientId)
+    console.log(props.section._id)
+    console.log(props.group._id)
+  }
+
+
   const onChange = (e) => {
     setFormData((prevState) => ({
       ...prevState,
@@ -54,7 +61,7 @@ function IngredientItem(props) {
         </div>
         <div className="ingredientHeaderRight">
           <button
-            // onClick={() => { deleteGroup(group._id) }}
+            onClick={() => { deleteIngredient(ingredient._id) }}
             title='Delete ingredient'
             className='defaultFormButton deleteGroupButton'>
             <DeleteOutlinedIcon />
