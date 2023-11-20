@@ -33,9 +33,7 @@ function IngredientItem(props) {
     setModalIsOpen(true);
   };
   const closeModal = () => {
-    setTimeout(() => {
-      setModalIsOpen(false);
-    }, 250);
+    setModalIsOpen(false);
   };
 
   ///ACTIONS
@@ -175,7 +173,7 @@ function IngredientItem(props) {
         overlayClassName="userOverlay"
       >
         <ModalCloseContext.Provider value={closeModal}>
-          <ConfirmModal />
+          <ConfirmModal closeModal={closeModal} handleFunction={() => removeIngredient(ingredient._id)} />
         </ModalCloseContext.Provider>
       </ReactModal>
     </div>

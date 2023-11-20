@@ -1,23 +1,31 @@
-import React from 'react'
 
-function ConfirmModal() {
+
+function ConfirmModal(props) {
+  const handleFunction = props.handleFunction
+  const closeModal = props.closeModal
+
   return (
     <div className='confirmDiv'>
-      <h3>Are you sure?</h3>
-      <div></div>
-      <div className="defaultFormGroup">
-        <button
-          className='defaultFormButton'
-          type='submit' >
-          Yes
-        </button>
+      <div className='confirmModalHeader'>
+        <h1>Are you sure?</h1>
       </div>
-      <div className="defaultFormGroup">
-        <button
-          className='defaultFormButton'
-          type='submit' >
-          No
-        </button>
+      <div className='confirmModalButtons'>
+        <div className="defaultFormGroup">
+          <button
+            onClick={handleFunction}
+            className='defaultFormButton'
+            type='submit' >
+            Yes
+          </button>
+        </div>
+        <div className="defaultFormGroup">
+          <button
+            onClick={closeModal}
+            className='defaultFormButton'
+            type='submit' >
+            No
+          </button>
+        </div>
       </div>
     </div>
   )

@@ -369,10 +369,31 @@ input[type="file"]::-webkit-file-upload-button:hover {
   position: fixed;
   top: 40%;
   left: 50%;
+  transform: translate(-50%, -50%);
   background: #fff;
+  padding: 2rem;
+  border-radius: 1rem;
 
   .confirmDiv {
-    width: 10rem;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 20rem;
+
+    .confirmModalButtons {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      margin-top: 2rem;
+
+
+      .defaultFormGroup {
+        .defaultFormButton {
+          width: 5rem;
+        }
+      }
+    }
   }
 }
 
