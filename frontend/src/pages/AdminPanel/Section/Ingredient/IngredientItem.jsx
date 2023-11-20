@@ -2,7 +2,6 @@ import { useState } from 'react';
 import { toast } from 'react-toastify'
 import { useDispatch } from 'react-redux'
 import ReactModal from 'react-modal';
-import ModalCloseContext from '../../../../utils/ModalCloseContext';
 //-Components
 import ConfirmModal from '../../../../components/ConfirmModal';
 //-MUI icons
@@ -12,9 +11,7 @@ import { deleteIngredient } from '../../../../features/sections/sectionSlice';
 
 function IngredientItem(props) {
   const dispatch = useDispatch()
-  // const basePath = '/uploads/menuUploads/'
   const ingredient = props.ingredient
-  // console.log(ingredient)
   const [showProperties, setShowProperties] = useState(false)
   const formPropertiesClass = showProperties === true ? 'ingredientForm' : 'ingredientForm displayNone'
 
@@ -82,7 +79,6 @@ function IngredientItem(props) {
         </div>
         <div className="ingredientHeaderRight">
           <button
-            // onClick={() => { removeIngredient(ingredient._id) }}
             onClick={openModal}
             title='Delete ingredient'
             className='defaultFormButton deleteGroupButton'>
@@ -170,11 +166,8 @@ function IngredientItem(props) {
         isOpen={modalIsOpen}
         onRequestClose={closeModal}
         className='confirmModal'
-        overlayClassName="userOverlay"
-      >
-        <ModalCloseContext.Provider value={closeModal}>
-          <ConfirmModal closeModal={closeModal} handleFunction={() => removeIngredient(ingredient._id)} />
-        </ModalCloseContext.Provider>
+        overlayClassName="userOverlay" >
+        <ConfirmModal closeModal={closeModal} handleFunction={() => removeIngredient(ingredient._id)} />
       </ReactModal>
     </div>
   )

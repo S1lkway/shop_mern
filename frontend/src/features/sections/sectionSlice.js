@@ -109,6 +109,25 @@ export const editSectionGroup = createAsyncThunk(
   }
 )
 
+//* DELETE GROUP
+export const deleteSectionGroup = createAsyncThunk(
+  'menu_sections/groups/delete',
+  async (groupData, thunkAPI) => {
+    try {
+      const token = thunkAPI.getState().auth.user.token;
+      return await groupService.deleteSectionGroup(groupData, token);
+    } catch (error) {
+      const message =
+        (error.response &&
+          error.response.data &&
+          error.response.data.message) ||
+        error.message ||
+        error.toString()
+      return thunkAPI.rejectWithValue(message)
+    }
+  }
+)
+
 
 //* INGREDIENTS *************************************************************//
 //* CREATE NEW INGREDIENT
@@ -244,6 +263,24 @@ export const menuSectionsSlice = createSlice({
         }
       })
       .addCase(editSectionGroup.rejected, (state, action) => {
+        state.sectionsIsLoading = false
+        state.sectionsIsError = true
+        state.sectionsMessage = action.payload
+      })
+      /// deleteSectionGroup
+      .addCase(deleteSectionGroup.pending, (state) => {
+        state.sectionsIsLoading = true
+      })
+      .addCase(deleteSectionGroup.fulfilled, (state, action) => {
+        state.sectionsIsLoading = false
+        state.sectionsIsSuccess = true
+
+        const index = state.sections.findIndex((section) => section._id === action.payload._id)
+        if (index !== -1) {
+          state.sections[index] = action.payload
+        }
+      })
+      .addCase(deleteSectionGroup.rejected, (state, action) => {
         state.sectionsIsLoading = false
         state.sectionsIsError = true
         state.sectionsMessage = action.payload

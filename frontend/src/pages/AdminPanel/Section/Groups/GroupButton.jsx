@@ -1,14 +1,16 @@
 import { useState, useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
+import ReactModal from 'react-modal';
 import { useParams } from 'react-router-dom'
 import { toast } from 'react-toastify'
-
+//-Components
+import ConfirmModal from '../../../../components/ConfirmModal';
 //-MUI icons
 import DeleteOutlinedIcon from '@mui/icons-material/DeleteOutlined';
 import EditCalendarOutlinedIcon from '@mui/icons-material/EditCalendarOutlined';
 import SaveOutlinedIcon from '@mui/icons-material/SaveOutlined';
 //-Redux
-import { editSectionGroup } from '../../../../features/sections/sectionSlice'
+import { editSectionGroup, deleteSectionGroup } from '../../../../features/sections/sectionSlice'
 
 function GroupButton(props) {
   const groupIndex = props.index
@@ -25,6 +27,17 @@ function GroupButton(props) {
   })
   const { groupName } = groupFormData
 
+  ///MODAL
+  const [modalIsOpen, setModalIsOpen] = useState(false);
+
+  //* MODAL
+  const openModal = () => {
+    setModalIsOpen(true);
+  };
+  const closeModal = () => {
+    setModalIsOpen(false);
+  };
+
   //* ACTIONS *******************************************
   useEffect(() => {
     if (sectionsIsError && editGroupChanged) {
@@ -40,7 +53,12 @@ function GroupButton(props) {
   }, [sections, sectionsIsError, sectionsIsSuccess, sectionsMessage, dispatch])
 
   const deleteGroup = (groupId) => {
-    console.log('Delete group ' + groupId)
+    const groupData = {
+      'sectionId': sectionId,
+      'groupId': groupId,
+    }
+    dispatch(deleteSectionGroup(groupData))
+    setPickedGroup(0)
   }
 
   const onChange = (e) => {
@@ -117,12 +135,19 @@ function GroupButton(props) {
           <EditCalendarOutlinedIcon />
         </button>
         <button
-          onClick={() => { deleteGroup(group._id) }}
+          onClick={openModal}
           title='Delete group'
           className='defaultFormButton deleteGroupButton'>
           <DeleteOutlinedIcon />
         </button>
       </div>
+      <ReactModal
+        isOpen={modalIsOpen}
+        onRequestClose={closeModal}
+        className='confirmModal'
+        overlayClassName="userOverlay" >
+        <ConfirmModal closeModal={closeModal} handleFunction={() => deleteGroup(group._id)} />
+      </ReactModal>
     </div>
   )
 }

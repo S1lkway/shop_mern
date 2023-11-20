@@ -27,9 +27,22 @@ const editSectionGroup = async (groupData, token) => {
   return response.data
 }
 
+//* DELETE SECTION GROUP
+const deleteSectionGroup = async (groupData, token) => {
+  const config = {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  }
+  const URL = API_URL_START + groupData.sectionId + '/groups/' + groupData.groupId
+  const response = await axios.delete(URL, config)
+  return response.data
+}
+
 const groupService = {
   createSectionGroup,
   editSectionGroup,
+  deleteSectionGroup,
 }
 
 

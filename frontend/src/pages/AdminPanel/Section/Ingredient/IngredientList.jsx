@@ -53,7 +53,7 @@ function IngredientList(props) {
         (
           <>
 
-            <h3>Group "{group.name}" doesn't have additional ingredients</h3>
+            <h3>Group "{group?.name}" doesn't have additional ingredients</h3>
             <div className="newIngredient">
               <button
                 onClick={openModal}
