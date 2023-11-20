@@ -10,9 +10,7 @@ const {
 } = require('../controllers/menuSectionController')
 const {
   createGroup,
-  getGroups,
   editGroup,
-  getGroup,
   deleteGroup,
 } = require('../controllers/groupController')
 const {
@@ -27,8 +25,8 @@ const { admin } = require('../middleware/adminMiddleware')
 router.route('/').get(getMenuSections).post(protect, admin, createMenuSection)
 router.route('/:id').get(protect, admin, getMenuSection).delete(protect, admin, deleteMenuSection).put(protect, admin, editMenuSection)
 /// Groups
-router.route('/:id/groups').get(protect, admin, getGroups).post(protect, admin, createGroup)
-router.route('/:id/groups/:groupId').get(protect, admin, getGroup).delete(protect, admin, deleteGroup).put(protect, admin, editGroup)
+router.route('/:id/groups').post(protect, admin, createGroup)
+router.route('/:id/groups/:groupId').delete(protect, admin, deleteGroup).put(protect, admin, editGroup)
 // /// Ingredients
 router.route('/:id/groups/:groupId/ingredients').post(protect, admin, upload.array('images', 1), createIngredient)
 router.route('/:id/groups/:groupId/ingredients/:ingredientId').delete(protect, admin, deleteIngredient)

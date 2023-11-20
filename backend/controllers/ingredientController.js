@@ -109,13 +109,13 @@ const deleteIngredient = asyncHandler(async (req, res) => {
     }
     // console.log('Ingredient index - ' + ingredientIndex)
 
-    /// Delete files attached to article
+    /// Delete files attached to ingredient
     const imagePath = path.join(__dirname, '../uploads/menuUploads', menuSection.extraIngredientTypes[groupIndex].ingredients[ingredientIndex].image.filename)
     // console.log(imagePath)
     if (fs.existsSync(imagePath)) {
       fs.unlinkSync(imagePath)
     }
-    ///Delete article data from MongoDB
+    ///Delete ingredient data from MongoDB
     menuSection.extraIngredientTypes.forEach((group) => {
       group.ingredients = group.ingredients.filter((ingredient) => ingredient._id.toString() !== ingredientId);
     });

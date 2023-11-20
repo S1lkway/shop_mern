@@ -1,5 +1,6 @@
 const asyncHandler = require('express-async-handler')
 const path = require('path');
+const fs = require('fs');
 const MenuSection = require('../models/menuSectionModel')
 
 //* desc CREATE Group
@@ -32,11 +33,6 @@ const createGroup = asyncHandler(async (req, res) => {
     throw new Error(error)
   }
 })
-
-//* desc GET Groups
-//* route GET /api/menu_sections/:id/groups
-//* access Private
-const getGroups = asyncHandler(async (req, res) => { })
 
 //* desc EDIT Group
 //* route PUT /api/menu_sections/:id/groups:groupId
@@ -81,10 +77,8 @@ const editGroup = asyncHandler(async (req, res) => {
       }
       return group;
     })
+
     await menuSection.save()
-    // console.log(menuSection)
-    // const updatedGroup = menuSection.extraIngredientTypes?.find((group) => group._id.toString() === groupId);
-    // console.log(updatedGroup)
 
     res.status(200).json(menuSection)
   } catch (error) {
@@ -93,20 +87,47 @@ const editGroup = asyncHandler(async (req, res) => {
   }
 })
 
-//* desc GET Group
-//* route GET /api/menu_sections/:id/groups:groupId
-//* access Private
-const getGroup = asyncHandler(async (req, res) => { })
-
 //* desc DELETE Group
 //* route DELETE /api/menu_sections/:id/groups:groupId
 //* access Private
-const deleteGroup = asyncHandler(async (req, res) => { })
+const deleteGroup = asyncHandler(async (req, res) => {
+  const groupId = req.params.groupId
+
+  try {
+    const menuSection = await MenuSection.findById(req.params.id)
+    if (!menuSection) {
+      res.status(400)
+      throw new Error('Menu section is not found')
+    }
+
+    const groupIndex = menuSection.extraIngredientTypes?.findIndex((group) => group._id.toString() === groupId)
+    if (groupIndex === -1) {
+      res.status(400)
+      throw new Error("Section doesn't have that group")
+    }
+
+    /// Delete files attached to group
+    menuSection.extraIngredientTypes[groupIndex].ingredients?.forEach((ingredient) => {
+      const imagePath = path.join(__dirname, '../uploads/menuUploads', ingredient.image?.filename)
+
+      if (fs.existsSync(imagePath)) {
+        fs.unlinkSync(imagePath)
+      }
+    })
+    /// Delete group from MongoDB
+    menuSection.extraIngredientTypes = menuSection.extraIngredientTypes.filter((group) => group._id.toString() !== groupId);
+
+    await menuSection.save();
+
+    res.status(200).json(menuSection)
+  } catch (error) {
+    res.status(404)
+    throw new Error(error)
+  }
+})
 
 module.exports = {
   createGroup,
-  getGroups,
   editGroup,
-  getGroup,
   deleteGroup,
 }
