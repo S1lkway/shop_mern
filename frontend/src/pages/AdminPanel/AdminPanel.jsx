@@ -9,7 +9,7 @@ import DvrOutlinedIcon from '@mui/icons-material/DvrOutlined';
 import TurnedInIcon from '@mui/icons-material/TurnedIn';
 import DeleteOutlinedIcon from '@mui/icons-material/DeleteOutlined';
 //-Redux
-import { getMenuSections, createMenuSection, resetMenuSections } from '../../features/sections/sectionSlice'
+import { getMenuSections, createMenuSection, resetMenuSections, deleteMenuSection } from '../../features/sections/sectionSlice'
 
 
 function AdminPanel() {
@@ -55,6 +55,7 @@ function AdminPanel() {
 
   const deleteListSection = (sectionId) => {
     console.log('Delete section ' + sectionId)
+    dispatch(deleteMenuSection(sectionId))
   }
 
 

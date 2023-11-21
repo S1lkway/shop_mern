@@ -19,10 +19,6 @@ const createMenuSection = async (menuSectionData, token) => {
   return response.data
 }
 
-//* GET ONE MENU SECTION
-const getMenuSection = async (id, token) => {
-}
-
 //* EDIT MENU SECTION
 const editMenuSection = async (menuSectionData, token) => {
   const config = {
@@ -37,12 +33,20 @@ const editMenuSection = async (menuSectionData, token) => {
 
 //* DELETE MENU SECTION
 const deleteMenuSection = async (sectionId, token) => {
+  const config = {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  }
+  const URL = API_URL + '/' + sectionId
+  console.log(URL)
+  const response = await axios.delete(URL, config)
+  return response.data
 }
 
 const sectionService = {
   getMenuSections,
   createMenuSection,
-  getMenuSection,
   editMenuSection,
   deleteMenuSection,
 }

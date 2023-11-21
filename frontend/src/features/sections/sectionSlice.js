@@ -11,7 +11,9 @@ const initialState = {
   sectionsMessage: '',
 }
 
+//* *************************************************************************//
 //* MENU SECTIONS ***********************************************************//
+//* *************************************************************************//
 
 //* CREATE NEW MENU SECTION
 export const createMenuSection = createAsyncThunk(
@@ -69,7 +71,28 @@ export const editMenuSection = createAsyncThunk(
   }
 )
 
+//* DELETE MENU SECTION
+export const deleteMenuSection = createAsyncThunk(
+  'menu_sections/delete',
+  async (sectionId, thunkAPI) => {
+    try {
+      const token = thunkAPI.getState().auth.user.token;
+      return await sectionService.deleteMenuSection(sectionId, token);
+    } catch (error) {
+      const message =
+        (error.response &&
+          error.response.data &&
+          error.response.data.message) ||
+        error.message ||
+        error.toString()
+      return thunkAPI.rejectWithValue(message)
+    }
+  }
+)
+
+//* *************************************************************************//
 //* GROUPS ******************************************************************//
+//* *************************************************************************//
 
 //* CREATE NEW SECTION GROUP
 export const createSectionGroup = createAsyncThunk(
@@ -128,8 +151,10 @@ export const deleteSectionGroup = createAsyncThunk(
   }
 )
 
-
+//* *************************************************************************//
 //* INGREDIENTS *************************************************************//
+//* *************************************************************************//
+
 //* CREATE NEW INGREDIENT
 export const createIngredient = createAsyncThunk(
   'menu_sections/ingredients',
@@ -185,6 +210,7 @@ export const menuSectionsSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder
+      /// SECTIONS ////////////////////////////////////////////////////////////
       /// createSection
       .addCase(createMenuSection.pending, (state) => {
         state.sectionsIsLoading = true
@@ -231,7 +257,23 @@ export const menuSectionsSlice = createSlice({
         state.sectionsIsError = true
         state.sectionsMessage = action.payload
       })
-
+      /// deleteMenuSection
+      .addCase(deleteMenuSection.pending, (state) => {
+        state.sectionsIsLoading = true
+      })
+      .addCase(deleteMenuSection.fulfilled, (state, action) => {
+        state.sectionsIsLoading = false
+        state.sectionsIsSuccess = true
+        state.sections = state.sections.filter(
+          (section) => section._id !== action.payload.id
+        )
+      })
+      .addCase(deleteMenuSection.rejected, (state, action) => {
+        state.sectionsIsLoading = false
+        state.sectionsIsError = true
+        state.sectionsMessage = action.payload
+      })
+      /// GROUPS //////////////////////////////////////////////////////////////
       /// createSectionGroup
       .addCase(createSectionGroup.pending, (state) => {
         state.sectionsIsLoading = true
@@ -285,6 +327,7 @@ export const menuSectionsSlice = createSlice({
         state.sectionsIsError = true
         state.sectionsMessage = action.payload
       })
+      /// INGREDIENTS /////////////////////////////////////////////////////////
       /// createIngredient
       .addCase(createIngredient.pending, (state) => {
         state.sectionsIsLoading = true
