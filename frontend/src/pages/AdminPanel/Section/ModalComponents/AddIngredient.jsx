@@ -45,26 +45,26 @@ function AddIngredient(props) {
   const addIngredient = (e) => {
     e.preventDefault()
 
-    if (name === '' || fileData === null || category === '') {
-      if (price <= 0) {
-        toast.error("Price can't be 0")
-      } else {
-        toast.error("Fill all fields except optional")
-      }
-    } else {
-      const ingredientData = new FormData();
-      ingredientData.append('sectionId', sectionId);
-      ingredientData.append('groupId', groupId);
-      ingredientData.append('name', name);
-      ingredientData.append('price', parseFloat(price));
-      ingredientData.append('category', category);
-      ingredientData.append('description', description);
-      ingredientData.append('images', file[0]);
-      // console.log([...ingredientData.entries()])
-      dispatch(createIngredient(ingredientData))
-      closeModal()
-    }
 
+    if (price <= 0) {
+      toast.error("Price can't be 0")
+    } else {
+      if (name === '' || fileData === null || category === '') {
+        toast.error("Fill all fields except optional")
+      } else {
+        const ingredientData = new FormData();
+        ingredientData.append('sectionId', sectionId);
+        ingredientData.append('groupId', groupId);
+        ingredientData.append('name', name);
+        ingredientData.append('price', parseFloat(price));
+        ingredientData.append('category', category);
+        ingredientData.append('description', description);
+        ingredientData.append('images', file[0]);
+        // console.log([...ingredientData.entries()])
+        dispatch(createIngredient(ingredientData))
+        closeModal()
+      }
+    }
   }
 
 
