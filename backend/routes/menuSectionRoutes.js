@@ -4,7 +4,6 @@ const upload = require('../middleware/filesMiddleware');
 const {
   getMenuSections,
   createMenuSection,
-  getMenuSection,
   editMenuSection,
   deleteMenuSection
 } = require('../controllers/menuSectionController')
@@ -23,7 +22,7 @@ const { admin } = require('../middleware/adminMiddleware')
 
 /// Sections
 router.route('/').get(getMenuSections).post(protect, admin, createMenuSection)
-router.route('/:id').get(protect, admin, getMenuSection).delete(protect, admin, deleteMenuSection).put(protect, admin, editMenuSection)
+router.route('/:id').delete(protect, admin, deleteMenuSection).put(protect, admin, editMenuSection)
 /// Groups
 router.route('/:id/groups').post(protect, admin, createGroup)
 router.route('/:id/groups/:groupId').delete(protect, admin, deleteGroup).put(protect, admin, editGroup)

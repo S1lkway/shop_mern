@@ -57,18 +57,37 @@ const editMenuSection = asyncHandler(async (req, res) => {
   }
 })
 
-//* desc GET One Menu Section
-//* route GET /api/menu_sections/:id
-//* access Private
-const getMenuSection = asyncHandler(async (req, res) => {
-
-})
-
 //* desc DELETE Menu Section
 //* route POST /api/menu_sections/:id
 //* access Private
 const deleteMenuSection = asyncHandler(async (req, res) => {
+  try {
+    const menuSection = await MenuSection.findById(req.params.id)
+    if (!menuSection) {
+      res.status(400)
+      throw new Error('Menu section is not found')
+    }
 
+    /// Delete files attached to group
+    menuSection.extraIngredientTypes?.forEach((group) => {
+      group.ingredients?.forEach((ingredient) => {
+        const imagePath = path.join(__dirname, '../uploads/menuUploads', ingredient.image?.filename)
+
+        if (fs.existsSync(imagePath)) {
+          fs.unlinkSync(imagePath)
+        }
+      })
+    })
+
+
+    ///Delete section from MongoDB
+    await menuSection.deleteOne()
+
+    res.status(200).json(menuSection)
+  } catch (error) {
+    res.status(404)
+    throw new Error(error)
+  }
 })
 
 
@@ -76,7 +95,6 @@ const deleteMenuSection = asyncHandler(async (req, res) => {
 module.exports = {
   getMenuSections,
   createMenuSection,
-  getMenuSection,
   editMenuSection,
   deleteMenuSection,
 }

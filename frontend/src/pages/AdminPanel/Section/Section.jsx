@@ -88,7 +88,7 @@ function Section() {
         </div>
         <button
           onClick={() => { deleteSection(section._id) }}
-          title='Add new group'
+          title='Delete section'
           className='defaultFormButton'>
           <DeleteOutlinedIcon />
         </button>
