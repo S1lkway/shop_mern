@@ -8,7 +8,7 @@ import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
 
 function GroupList(props) {
   const section = props.section
-  const [pickedGroup, setPickedGroup] = useState(0)
+  const [pickedGroup, setPickedGroup] = useState(false)
   // console.log(pickedGroup)
 
 

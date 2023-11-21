@@ -58,7 +58,9 @@ function GroupButton(props) {
       'groupId': groupId,
     }
     dispatch(deleteSectionGroup(groupData))
-    setPickedGroup(0)
+    setPickedGroup(false)
+    setModalIsOpen(false)
+
   }
 
   const onChange = (e) => {
