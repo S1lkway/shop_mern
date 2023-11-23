@@ -39,7 +39,6 @@ const deleteMenuSection = async (sectionId, token) => {
     },
   }
   const URL = API_URL + '/' + sectionId
-  console.log(URL)
   const response = await axios.delete(URL, config)
   return response.data
 }

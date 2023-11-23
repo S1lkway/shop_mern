@@ -65,7 +65,6 @@ function AdminPanel() {
   }
 
   const deleteListSection = (sectionId) => {
-    console.log('Delete section ' + sectionId)
     closeModal()
     dispatch(deleteMenuSection(sectionId))
   }
