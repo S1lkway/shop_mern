@@ -265,7 +265,7 @@ export const menuSectionsSlice = createSlice({
         state.sectionsIsLoading = false
         state.sectionsIsSuccess = true
         state.sections = state.sections.filter(
-          (section) => section._id !== action.payload.id
+          (section) => section._id !== action.payload._id
         )
       })
       .addCase(deleteMenuSection.rejected, (state, action) => {

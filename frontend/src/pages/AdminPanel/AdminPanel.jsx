@@ -2,6 +2,9 @@ import { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import { toast } from 'react-toastify'
+import ReactModal from 'react-modal';
+//-Components
+import ConfirmModal from '../../components/ConfirmModal';
 
 //-MUI icons
 import LibraryAddOutlinedIcon from '@mui/icons-material/LibraryAddOutlined';
@@ -13,21 +16,29 @@ import { getMenuSections, createMenuSection, resetMenuSections, deleteMenuSectio
 
 
 function AdminPanel() {
+  //*CONSTS
   const dispatch = useDispatch()
   const navigate = useNavigate()
   const { sections, sectionsIsLoading, sectionsIsSuccess, sectionsIsError, sectionsMessage } = useSelector(
     (state) => state.menuSections
   )
-
   const [formData, setFormData] = useState({
     name: '',
     description: '',
   })
-
   const { name, description } = formData
 
+  //* MODAL
+  const [modalIsOpen, setModalIsOpen] = useState(false);
+  ///MODAL
+  const openModal = () => {
+    setModalIsOpen(true);
+  };
+  const closeModal = () => {
+    setModalIsOpen(false);
+  };
 
-
+  //*ACTIONS
   useEffect(() => {
     dispatch(getMenuSections())
     // eslint-disable-next-line
@@ -55,6 +66,7 @@ function AdminPanel() {
 
   const deleteListSection = (sectionId) => {
     console.log('Delete section ' + sectionId)
+    closeModal()
     dispatch(deleteMenuSection(sectionId))
   }
 
@@ -145,11 +157,21 @@ function AdminPanel() {
               <div>{section.name}</div>
             </div>
             <div title='Delete section' >
-              <DeleteOutlinedIcon className='listDeleteIcon' onClick={() => deleteListSection(section._id)} />
+              <DeleteOutlinedIcon
+                className='listDeleteIcon'
+                onClick={openModal} />
             </div>
+            <ReactModal
+              isOpen={modalIsOpen}
+              onRequestClose={closeModal}
+              className='confirmModal'
+              overlayClassName="userOverlay" >
+              <ConfirmModal closeModal={closeModal} handleFunction={() => deleteListSection(section._id)} />
+            </ReactModal>
           </div>
         ))}
       </div>
+
     </div>
   )
 }
