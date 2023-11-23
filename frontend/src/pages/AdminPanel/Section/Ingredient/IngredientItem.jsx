@@ -11,6 +11,7 @@ import { deleteIngredient } from '../../../../features/sections/sectionSlice';
 
 function IngredientItem(props) {
   const dispatch = useDispatch()
+  const basePath = '/uploads/menuUploads/'
   const ingredient = props.ingredient
   const [showProperties, setShowProperties] = useState(false)
   const formPropertiesClass = showProperties === true ? 'ingredientForm' : 'ingredientForm displayNone'
@@ -74,7 +75,13 @@ function IngredientItem(props) {
             onClick={() => setShowProperties(!showProperties)}
             className='defaultFormButton ingredientButton'
             title="Open Ingredient's properties">
-            {ingredient.name}
+            <span>{ingredient.name}</span>
+            <img
+              key={ingredient._id}
+              src={basePath + ingredient.image.filename}
+              alt={`File "${ingredient.image.originalname}" wasn't found`}
+              className='ingredientListImage'
+            />
           </button>
         </div>
         <div className="ingredientHeaderRight">

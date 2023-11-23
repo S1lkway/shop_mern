@@ -862,11 +862,17 @@ input[type="file"]::-webkit-file-upload-button:hover {
                 flex-grow: 1;
 
                 .ingredientButton {
-                  text-align: left;
                   width: 100%;
                   margin: 0.5rem;
-                  padding: 0 1rem;
+                  padding: 0 0 0 1rem;
                   border-radius: 0;
+                  display: flex;
+                  justify-content: space-between;
+                  align-items: center;
+
+                  >img {
+                    max-height: 100%;
+                  }
                 }
               }
 

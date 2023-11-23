@@ -3,14 +3,16 @@ import { useSelector, useDispatch } from 'react-redux'
 import { useParams, useNavigate } from 'react-router-dom'
 // import ReactModal from 'react-modal';
 import { toast } from 'react-toastify'
+import ReactModal from 'react-modal';
 //-Components
 import GroupList from './Groups/GroupList'
+import ConfirmModal from '../../../components/ConfirmModal';
 //-MUI icons
 import KeyboardReturnOutlinedIcon from '@mui/icons-material/KeyboardReturnOutlined';
 import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
 import DeleteOutlinedIcon from '@mui/icons-material/DeleteOutlined';
 //-Redux
-import { editMenuSection, resetMenuSections } from '../../../features/sections/sectionSlice';
+import { editMenuSection, resetMenuSections, deleteMenuSection } from '../../../features/sections/sectionSlice';
 
 
 function Section() {
@@ -29,10 +31,17 @@ function Section() {
 
   const { name, description, activeInMenu } = formData
 
+  //* MODAL
+  const [modalIsOpen, setModalIsOpen] = useState(false);
+  ///MODAL
+  const openModal = () => {
+    setModalIsOpen(true);
+  };
+  const closeModal = () => {
+    setModalIsOpen(false);
+  };
+
   //* ACTIONS *******************************************
-  const deleteSection = (sectionId) => {
-    console.log('Delete section ' + sectionId)
-  }
 
   /// Form actions
   useEffect(() => {
@@ -47,6 +56,12 @@ function Section() {
     dispatch(resetMenuSections())
     // eslint-disable-next-line
   }, [sections, sectionsIsError, sectionsIsSuccess, sectionsMessage, dispatch])
+
+  const deleteListSection = (sectionId) => {
+    closeModal()
+    dispatch(deleteMenuSection(sectionId))
+    navigate('/admin_panel')
+  }
 
   const onChange = (e) => {
     setFormData((prevState) => ({
@@ -87,7 +102,7 @@ function Section() {
           <h2><i>Section "{section?.name}"</i></h2>
         </div>
         <button
-          onClick={() => { deleteSection(section._id) }}
+          onClick={openModal}
           title='Delete section'
           className='defaultFormButton'>
           <DeleteOutlinedIcon />
@@ -163,6 +178,13 @@ function Section() {
         {/* GROUP LIST ******************************************/}
         <GroupList section={section} />
       </div>
+      <ReactModal
+        isOpen={modalIsOpen}
+        onRequestClose={closeModal}
+        className='confirmModal'
+        overlayClassName="userOverlay" >
+        <ConfirmModal closeModal={closeModal} handleFunction={() => deleteListSection(sectionId)} />
+      </ReactModal>
     </div>
   )
 }
