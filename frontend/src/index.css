@@ -546,43 +546,41 @@ input[type="file"]::-webkit-file-upload-button:hover {
 /** ****************************** */
 .menuSectionsContainer {
   display: flex;
+  flex-direction: column;
   gap: 2rem;
-  margin-top: 2rem;
+  margin-top: 1rem;
 
   .createForm {
-    order: 2;
-    min-width: 400px;
     background-color: #e4b90e;
     border-radius: 1rem;
-    /* margin-top: 2rem; */
 
-    .createFormTitle {
+    .createSectionFormTitle {
       background-color: black;
       color: white;
-      text-align: center;
-      font-weight: 600;
-      font-size: 1.4rem;
-      padding: 10px;
+      padding: 0.3rem 1rem;
       border-radius: 1rem 1rem 0 0;
-    }
 
-    >h3 {
-      margin-left: 1.5rem;
+      >h3 {
+        margin: 0;
+      }
     }
 
     .defaultForm {
+      display: flex;
+      align-items: flex-end;
+
       .defaultFormGroup {
         margin: 1rem;
+        flex-grow: 1;
+      }
 
-        .defaultFormButton {
-          width: 40%;
-        }
+      .createSectionButton {
+        max-width: 10%;
       }
     }
   }
 
   .menuSectionsList {
-    order: 1;
     flex-grow: 1;
     display: flex;
     flex-direction: column;
@@ -597,7 +595,7 @@ input[type="file"]::-webkit-file-upload-button:hover {
       padding-inline-end: 1.5rem;
       margin-bottom: 1rem;
       width: 100%;
-      max-width: 600px;
+      max-width: 800px;
       height: 3rem;
       display: flex;
       justify-content: space-between;
@@ -1062,28 +1060,28 @@ input[type="file"]::-webkit-file-upload-button:hover {
   /** ****************************** */
   .menuSectionsContainer {
     display: flex;
-    flex-direction: column;
     gap: 2rem;
 
     .createForm {
-      order: 1;
-      width: 100%;
-      min-width: 300px;
-
       .defaultForm {
-        .defaultFormGroup {
-          margin: 1rem;
+        padding: 0.5rem 1rem;
+        flex-direction: column;
+        align-items: center;
 
-          .defaultFormButton {
-            width: 100%;
-          }
+        .defaultFormGroup {
+          width: 100%;
+          margin: 0.5rem;
+        }
+
+        .createSectionButton {
+          align-self: flex-start;
+          min-width: 100%;
+          margin-left: 0;
         }
       }
     }
 
     .menuSectionsList {
-      order: 2;
-
       >h2 {
         margin: 1rem 0 2rem 0;
       }
@@ -1098,8 +1096,6 @@ input[type="file"]::-webkit-file-upload-button:hover {
   /** ****************************** */
   /** ****************************** */
   .sectionEditContainer {
-    /* .sectionEditHeader {} */
-
     .sectionEditZone {
       flex-direction: column;
 

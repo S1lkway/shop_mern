@@ -7,7 +7,7 @@ import ReactModal from 'react-modal';
 import ConfirmModal from '../../components/ConfirmModal';
 
 //-MUI icons
-import LibraryAddOutlinedIcon from '@mui/icons-material/LibraryAddOutlined';
+import AddToQueueOutlinedIcon from '@mui/icons-material/AddToQueueOutlined';
 import DvrOutlinedIcon from '@mui/icons-material/DvrOutlined';
 import TurnedInIcon from '@mui/icons-material/TurnedIn';
 import DeleteOutlinedIcon from '@mui/icons-material/DeleteOutlined';
@@ -94,10 +94,12 @@ function AdminPanel() {
   return (
     <div className='menuSectionsContainer'>
       <div className='createForm'>
-        <div className='createFormTitle'>
-          <LibraryAddOutlinedIcon />
-          <span> Create new</span>
+        <div className='createSectionFormTitle'>
+          <h3>
+            <i><AddToQueueOutlinedIcon /> Create new Section</i>
+          </h3>
         </div>
+
         <form
           className="defaultForm"
           onSubmit={onSubmit}>
@@ -120,19 +122,18 @@ function AdminPanel() {
             <label htmlFor="description" className="defaultFormLabel">
               Description <i>(optional)</i>
             </label>
-            <textarea
-              className='defaultFormTextArea'
+            <input
+              className='defaultFormInput'
               autoComplete="on"
-              type="textarea"
+              type="text"
               id='description'
               value={description}
               name='description'
               placeholder='Description of Menu Section'
-              rows="3"
               onChange={onChange}
             />
           </div>
-          <div className="defaultFormGroup">
+          <div className="defaultFormGroup createSectionButton">
             <button
               className='defaultFormButton'
               type='submit' >
