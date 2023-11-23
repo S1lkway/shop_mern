@@ -14,6 +14,8 @@ function IngredientItem(props) {
   const basePath = '/uploads/menuUploads/'
   const ingredient = props.ingredient
   const [showProperties, setShowProperties] = useState(false)
+  const [fileData, setFileData] = useState(null);
+  const [newImageUrl, setNewImageUrl] = useState(null)
   const formPropertiesClass = showProperties === true ? 'ingredientForm' : 'ingredientForm displayNone'
 
   const [formData, setFormData] = useState({
@@ -23,6 +25,8 @@ function IngredientItem(props) {
     category: ingredient.category,
   })
   const { name, price, description, category } = formData
+  const file = fileData
+
   ///MODAL
   const [modalIsOpen, setModalIsOpen] = useState(false);
 
@@ -46,10 +50,20 @@ function IngredientItem(props) {
 
 
   const onChange = (e) => {
-    setFormData((prevState) => ({
-      ...prevState,
-      [e.target.name]: e.target.value,
-    }));
+    if (e.target.name === 'file' && e.target.files.length > 0) {
+      const selectedFile = Array.from(e.target.files).filter(
+        (file) => file.type.startsWith('image/')
+      )
+      const imageUrl = URL.createObjectURL(e.target.files[0]);
+      //Url to show new image
+      setNewImageUrl(imageUrl);
+      setFileData(selectedFile);
+    } else {
+      setFormData((prevState) => ({
+        ...prevState,
+        [e.target.name]: e.target.value,
+      }));
+    }
   }
 
   const editIngredient = (e) => {
@@ -63,6 +77,7 @@ function IngredientItem(props) {
       ingredientData.append('price', parseFloat(price));
       ingredientData.append('category', category);
       ingredientData.append('description', description);
+      ingredientData.append('images', file[0]);
       console.log([...ingredientData.entries()])
     }
   }
@@ -143,6 +158,31 @@ function IngredientItem(props) {
               <option value="Spicy">Spicy</option>
               <option value="Veggies">Veggies</option>
             </select>
+          </div>
+
+          <div className="defaultFormGroup newImageFormGroup">
+            <div className='addFile'>
+              <label htmlFor="name" className="defaultFormLabel">
+                Image
+              </label>
+              <input
+                type="file"
+                className="defaultFormFileUpload"
+                id="file"
+                name="file"
+                multiple={false}
+                onChange={onChange}
+                accept='image/*' />
+            </div>
+            {newImageUrl && (
+              <div className='newImageDiv'>
+                <img
+                  className='newImage'
+                  src={newImageUrl}
+                  alt={`File "${newImageUrl}" wasn't found`}
+                />
+              </div>
+            )}
           </div>
 
           <div className="defaultFormGroup">

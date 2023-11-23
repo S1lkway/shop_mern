@@ -871,6 +871,7 @@ input[type="file"]::-webkit-file-upload-button:hover {
                   align-items: center;
 
                   >img {
+                    padding: 3px;
                     max-height: 100%;
                   }
                 }
@@ -898,6 +899,35 @@ input[type="file"]::-webkit-file-upload-button:hover {
 
                 .defaultFormGroup {
                   margin: 0 0 1rem 0;
+                }
+
+                .newImageFormGroup {
+                  margin: 2.5rem 0;
+                  height: 4rem;
+                  display: flex;
+                  flex-direction: row;
+                  justify-content: space-between;
+                  align-items: center;
+                  /* border-bottom: 1px solid rgb(201, 201, 201); */
+
+                  .addFile {
+                    display: flex;
+                    flex-direction: column;
+
+                    .defaultFormLabel {
+                      margin: 0 0 0.5rem 1.5rem;
+                      font-size: 1rem;
+                      font-weight: 600;
+                    }
+                  }
+
+                  .newImageDiv {
+                    .newImage {
+                      height: 4rem;
+                      border-radius: 1rem;
+                    }
+
+                  }
                 }
               }
             }
