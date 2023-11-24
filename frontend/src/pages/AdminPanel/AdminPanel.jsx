@@ -30,8 +30,10 @@ function AdminPanel() {
 
   //* MODAL
   const [modalIsOpen, setModalIsOpen] = useState(false);
+  const [deleteSectionId, setDeleteSectionId] = useState('');
   ///MODAL
-  const openModal = () => {
+  const openModal = (sectionId) => {
+    setDeleteSectionId(sectionId)
     setModalIsOpen(true);
   };
   const closeModal = () => {
@@ -65,8 +67,8 @@ function AdminPanel() {
   }
 
   const deleteListSection = (sectionId) => {
-    closeModal()
     dispatch(deleteMenuSection(sectionId))
+    closeModal()
   }
 
 
@@ -159,19 +161,18 @@ function AdminPanel() {
             <div title='Delete section' >
               <DeleteOutlinedIcon
                 className='listDeleteIcon'
-                onClick={openModal} />
+                onClick={() => openModal(section._id)} />
             </div>
-            <ReactModal
-              isOpen={modalIsOpen}
-              onRequestClose={closeModal}
-              className='confirmModal'
-              overlayClassName="userOverlay" >
-              <ConfirmModal closeModal={closeModal} handleFunction={() => deleteListSection(section._id)} />
-            </ReactModal>
           </div>
         ))}
       </div>
-
+      <ReactModal
+        isOpen={modalIsOpen}
+        onRequestClose={closeModal}
+        className='confirmModal'
+        overlayClassName="userOverlay" >
+        <ConfirmModal closeModal={closeModal} handleFunction={() => deleteListSection(deleteSectionId)} />
+      </ReactModal>
     </div>
   )
 }

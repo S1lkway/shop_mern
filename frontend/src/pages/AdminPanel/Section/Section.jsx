@@ -24,9 +24,9 @@ function Section() {
   const section = sections.find(section => section._id === sectionId);
   const [mainParChanged, setMainParChanged] = useState(false)
   const [formData, setFormData] = useState({
-    name: section.name,
-    description: section.description || '',
-    activeInMenu: section.activeInMenu,
+    name: section?.name,
+    description: section?.description || '',
+    activeInMenu: section?.activeInMenu,
   })
 
   const { name, description, activeInMenu } = formData
