@@ -900,13 +900,14 @@ input[type="file"]::-webkit-file-upload-button:hover {
                 }
 
                 .newImageFormGroup {
-                  margin: 2.5rem 0;
-                  height: 4rem;
+                  margin: 1rem 0;
+                  height: 6rem;
                   display: flex;
                   flex-direction: row;
                   justify-content: space-between;
                   align-items: center;
-                  /* border-bottom: 1px solid rgb(201, 201, 201); */
+                  border-top: 1px solid white;
+                  border-bottom: 1px solid white;
 
                   .addFile {
                     display: flex;
@@ -920,11 +921,34 @@ input[type="file"]::-webkit-file-upload-button:hover {
                   }
 
                   .newImageDiv {
+                    position: relative;
+                    display: flex;
+                    align-items: center;
+
                     .newImage {
-                      height: 4rem;
-                      border-radius: 1rem;
+                      border-radius: 0.5rem;
                     }
 
+                    .removeNewImageFromForm {
+                      position: absolute;
+                      top: 0;
+                      right: 0;
+                      cursor: pointer;
+                      padding: 5px;
+                      color: white;
+
+                      >h4 {
+                        margin: 0;
+
+                        >svg {
+                          font-size: 1rem;
+                        }
+                      }
+
+                      :hover {
+                        color: rgb(201, 201, 201);
+                      }
+                    }
                   }
                 }
               }
@@ -969,7 +993,6 @@ input[type="file"]::-webkit-file-upload-button:hover {
         flex-direction: row;
         justify-content: space-between;
         align-items: center;
-        /* border-bottom: 1px solid rgb(201, 201, 201); */
 
         .addFile {
           display: flex;
@@ -983,14 +1006,15 @@ input[type="file"]::-webkit-file-upload-button:hover {
         }
 
         .newImageDiv {
+          display: flex;
+          align-items: center;
+
           .newImage {
             height: 4rem;
             border-radius: 1rem;
           }
-
         }
       }
-
     }
   }
 }
@@ -1173,4 +1197,21 @@ input[type="file"]::-webkit-file-upload-button:hover {
   /** ADMIN PANEL                    */
   /** ****************************** */
   /** ****************************** */
+  .ingredientItem {
+    .ingredientForm {
+      .defaultForm {
+        .newImageFormGroup {
+          height: 100% !important;
+          flex-direction: column !important;
+          align-items: flex-start !important;
+          padding: 1rem 0;
+
+          .newImageDiv {
+            margin: 1rem 0 0 0;
+          }
+        }
+      }
+    }
+  }
+
 }

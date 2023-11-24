@@ -6,18 +6,17 @@ import ReactModal from 'react-modal';
 import ConfirmModal from '../../../../components/ConfirmModal';
 //-MUI icons
 import DeleteOutlinedIcon from '@mui/icons-material/DeleteOutlined';
+import CloseIcon from '@mui/icons-material/Close';
 //- Redux
 import { deleteIngredient } from '../../../../features/sections/sectionSlice';
 
 function IngredientItem(props) {
+  //*CONSTS
   const dispatch = useDispatch()
   const basePath = '/uploads/menuUploads/'
   const ingredient = props.ingredient
   const [showProperties, setShowProperties] = useState(false)
-  const [fileData, setFileData] = useState(null);
-  const [newImageUrl, setNewImageUrl] = useState(null)
   const formPropertiesClass = showProperties === true ? 'ingredientForm' : 'ingredientForm displayNone'
-
   const [formData, setFormData] = useState({
     name: ingredient.name,
     price: ingredient.price,
@@ -25,12 +24,15 @@ function IngredientItem(props) {
     category: ingredient.category,
   })
   const { name, price, description, category } = formData
+  /// New file consts
+  const [fileData, setFileData] = useState(null);
+  const [newImageUrl, setNewImageUrl] = useState(null)
   const file = fileData
 
-  ///MODAL
-  const [modalIsOpen, setModalIsOpen] = useState(false);
 
   //* MODAL
+  const [modalIsOpen, setModalIsOpen] = useState(false);
+  /// Modal actions
   const openModal = () => {
     setModalIsOpen(true);
   };
@@ -38,7 +40,13 @@ function IngredientItem(props) {
     setModalIsOpen(false);
   };
 
-  ///ACTIONS
+  //* ACTIONS
+  const removeNewImage = () => {
+    setFileData(null)
+    setNewImageUrl(null)
+    document.getElementById('file').value = '';
+  }
+
   const removeIngredient = (ingredientId) => {
     const ingredientData = {
       'sectionId': props.section._id,
@@ -47,7 +55,6 @@ function IngredientItem(props) {
     }
     dispatch(deleteIngredient(ingredientData))
   }
-
 
   const onChange = (e) => {
     if (e.target.name === 'file' && e.target.files.length > 0) {
@@ -77,7 +84,9 @@ function IngredientItem(props) {
       ingredientData.append('price', parseFloat(price));
       ingredientData.append('category', category);
       ingredientData.append('description', description);
-      ingredientData.append('images', file[0]);
+      if (file) {
+        ingredientData.append('images', file[0]);
+      }
       console.log([...ingredientData.entries()])
     }
   }
@@ -163,7 +172,7 @@ function IngredientItem(props) {
           <div className="defaultFormGroup newImageFormGroup">
             <div className='addFile'>
               <label htmlFor="name" className="defaultFormLabel">
-                Image
+                New Image <i>(save to change)</i>
               </label>
               <input
                 type="file"
@@ -181,6 +190,14 @@ function IngredientItem(props) {
                   src={newImageUrl}
                   alt={`File "${newImageUrl}" wasn't found`}
                 />
+                <div
+                  onClick={() => removeNewImage()}
+                  className="removeNewImageFromForm"
+                  title="Remove image">
+                  <h4>
+                    <CloseIcon />
+                  </h4>
+                </div>
               </div>
             )}
           </div>
