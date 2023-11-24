@@ -14,6 +14,7 @@ const {
 } = require('../controllers/groupController')
 const {
   createIngredient,
+  editIngredient,
   deleteIngredient
 } = require('../controllers/ingredientController')
 
@@ -28,7 +29,6 @@ router.route('/:id/groups').post(protect, admin, createGroup)
 router.route('/:id/groups/:groupId').delete(protect, admin, deleteGroup).put(protect, admin, editGroup)
 // /// Ingredients
 router.route('/:id/groups/:groupId/ingredients').post(protect, admin, upload.array('images', 1), createIngredient)
-router.route('/:id/groups/:groupId/ingredients/:ingredientId').delete(protect, admin, deleteIngredient)
-// .put(protect, admin, upload.array('images', 1), editIngredient)
+router.route('/:id/groups/:groupId/ingredients/:ingredientId').delete(protect, admin, deleteIngredient).put(protect, admin, upload.array('images', 1), editIngredient)
 
 module.exports = router

@@ -60,6 +60,9 @@ const createIngredient = asyncHandler(async (req, res) => {
 //* route POST /api/menu_sections/:id/groups/:groupId/ingredients/:ingredientId
 //* access Private (x-www-form-urlencoded)
 const editIngredient = asyncHandler(async (req, res) => {
+  const file = req.files[0] || null
+  const groupId = req.params.groupId
+  const ingredientId = req.params.ingredientId
 
   try {
     const menuSection = await MenuSection.findById(req.params.id)
@@ -73,6 +76,30 @@ const editIngredient = asyncHandler(async (req, res) => {
       res.status(400)
       throw new Error("Section doesn't have that group")
     }
+
+    const ingredientIndex = menuSection.extraIngredientTypes[groupIndex].ingredients?.findIndex((ingredient) => ingredient._id.toString() === ingredientId)
+    if (ingredientIndex === -1) {
+      res.status(400)
+      throw new Error("Group doesn't have that ingredient")
+    }
+
+    ///Update Ingredient data
+    menuSection.extraIngredientTypes[groupIndex].ingredients[ingredientIndex].name = req.body.name
+    menuSection.extraIngredientTypes[groupIndex].ingredients[ingredientIndex].price = req.body.price
+    menuSection.extraIngredientTypes[groupIndex].ingredients[ingredientIndex].description = (req.body.description && req.body.description.length > 0) ? req.body.description : null
+    menuSection.extraIngredientTypes[groupIndex].ingredients[ingredientIndex].category = req.body.category
+    if (file !== null) {
+      /// Delete files attached to ingredient
+      const imagePath = path.join(__dirname, '../uploads/menuUploads', menuSection.extraIngredientTypes[groupIndex].ingredients[ingredientIndex].image.filename)
+      // console.log(imagePath)
+      if (fs.existsSync(imagePath)) {
+        fs.unlinkSync(imagePath)
+      }
+      /// Add new file data to MongoDB
+      menuSection.extraIngredientTypes[groupIndex].ingredients[ingredientIndex].image = file
+    }
+
+    await menuSection.save();
 
     res.status(200).json(menuSection)
   } catch (error) {
