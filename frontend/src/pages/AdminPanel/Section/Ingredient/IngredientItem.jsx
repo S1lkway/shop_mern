@@ -76,8 +76,8 @@ function IngredientItem(props) {
   const changeIngredient = (e) => {
     e.preventDefault()
 
-    if (price <= 0) {
-      toast.error("Price must be more than 0")
+    if (name === '' || category === '') {
+      toast.error("Name and category can't be empty")
     } else {
       const ingredientData = new FormData();
       ingredientData.append('sectionId', props.section._id);
