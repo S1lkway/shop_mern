@@ -90,9 +90,10 @@ function IngredientItem(props) {
       if (file) {
         ingredientData.append('images', file[0]);
       }
-      console.log(ingredientData.get('images'));
-      console.log([...ingredientData.entries()])
+      // console.log(ingredientData.get('images'));
+      // console.log([...ingredientData.entries()])
       dispatch(editIngredient(ingredientData))
+      removeNewImage()
     }
   }
 
