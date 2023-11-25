@@ -174,6 +174,25 @@ export const createIngredient = createAsyncThunk(
   }
 )
 
+//* EDIT INGREDIENT
+export const editIngredient = createAsyncThunk(
+  'menu_sections/ingredients/edit',
+  async (ingredientData, thunkAPI) => {
+    try {
+      const token = thunkAPI.getState().auth.user.token;
+      return await ingredientService.editIngredient(ingredientData, token);
+    } catch (error) {
+      const message =
+        (error.response &&
+          error.response.data &&
+          error.response.data.message) ||
+        error.message ||
+        error.toString()
+      return thunkAPI.rejectWithValue(message)
+    }
+  }
+)
+
 //* DELETE INGREDIENT
 export const deleteIngredient = createAsyncThunk(
   'menu_sections/ingredients/delete',
@@ -341,6 +360,23 @@ export const menuSectionsSlice = createSlice({
         }
       })
       .addCase(createIngredient.rejected, (state, action) => {
+        state.sectionsIsLoading = false
+        state.sectionsIsError = true
+        state.sectionsMessage = action.payload
+      })
+      /// editIngredient
+      .addCase(editIngredient.pending, (state) => {
+        state.sectionsIsLoading = true
+      })
+      .addCase(editIngredient.fulfilled, (state, action) => {
+        state.sectionsIsLoading = false
+        state.sectionsIsSuccess = true
+        const index = state.sections.findIndex((section) => section._id === action.payload._id)
+        if (index !== -1) {
+          state.sections[index] = action.payload
+        }
+      })
+      .addCase(editIngredient.rejected, (state, action) => {
         state.sectionsIsLoading = false
         state.sectionsIsError = true
         state.sectionsMessage = action.payload

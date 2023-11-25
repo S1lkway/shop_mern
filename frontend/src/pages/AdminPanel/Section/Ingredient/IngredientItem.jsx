@@ -8,7 +8,7 @@ import ConfirmModal from '../../../../components/ConfirmModal';
 import DeleteOutlinedIcon from '@mui/icons-material/DeleteOutlined';
 import CloseIcon from '@mui/icons-material/Close';
 //- Redux
-import { deleteIngredient } from '../../../../features/sections/sectionSlice';
+import { deleteIngredient, editIngredient } from '../../../../features/sections/sectionSlice';
 
 function IngredientItem(props) {
   //*CONSTS
@@ -73,13 +73,16 @@ function IngredientItem(props) {
     }
   }
 
-  const editIngredient = (e) => {
+  const changeIngredient = (e) => {
     e.preventDefault()
 
     if (price <= 0) {
       toast.error("Price must be more than 0")
     } else {
       const ingredientData = new FormData();
+      ingredientData.append('sectionId', props.section._id);
+      ingredientData.append('groupId', props.group._id);
+      ingredientData.append('ingredientId', ingredient._id);
       ingredientData.append('name', name);
       ingredientData.append('price', parseFloat(price));
       ingredientData.append('category', category);
@@ -87,7 +90,9 @@ function IngredientItem(props) {
       if (file) {
         ingredientData.append('images', file[0]);
       }
+      console.log(ingredientData.get('images'));
       console.log([...ingredientData.entries()])
+      dispatch(editIngredient(ingredientData))
     }
   }
 
@@ -119,7 +124,7 @@ function IngredientItem(props) {
       </div>
       <div className={formPropertiesClass}>
         <form
-          onSubmit={editIngredient}
+          onSubmit={changeIngredient}
           className="defaultForm">
           <div className="defaultFormGroup">
             <label htmlFor="name" className="defaultFormLabel">

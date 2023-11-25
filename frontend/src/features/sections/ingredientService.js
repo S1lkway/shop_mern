@@ -24,7 +24,7 @@ const editIngredient = async (ingredientData, token) => {
       Authorization: `Bearer ${token}`,
     },
   }
-  const URL = API_URL_START + ingredientData.sectionId + '/groups/' + ingredientData.groupId
+  const URL = API_URL_START + ingredientData.get('sectionId') + '/groups/' + ingredientData.get('groupId') + '/ingredients/' + ingredientData.get('ingredientId')
   const response = await axios.put(URL, ingredientData, config)
   return response.data
 }
