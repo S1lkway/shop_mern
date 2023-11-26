@@ -151,7 +151,7 @@ function AddIngredient(props) {
               className='defaultFormSelect'
               required>
               <option value="Standart">Standart</option>
-              <option value="Spicy">Spicy</option>
+              <option value="Meats">Meats</option>
               <option value="Veggies">Veggies</option>
             </select>
           </div>
