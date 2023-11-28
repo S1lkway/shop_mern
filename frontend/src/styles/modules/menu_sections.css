@@ -1,0 +1,562 @@
+/* MENU SECTIONS */
+/** MENU SECTIONS                  */
+/** ****************************** */
+/** ****************************** */
+.menuSectionsContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin-top: 1rem;
+
+  .createForm {
+    background-color: #e4b90e;
+    border-radius: 1rem;
+
+    .createSectionFormTitle {
+      background-color: black;
+      color: white;
+      padding: 0.3rem 1rem;
+      border-radius: 1rem 1rem 0 0;
+
+      >h3 {
+        margin: 0;
+      }
+    }
+
+    .defaultForm {
+      display: flex;
+      align-items: flex-end;
+
+      .defaultFormGroup {
+        margin: 1rem;
+        flex-grow: 1;
+      }
+
+      .createSectionButton {
+        max-width: 10%;
+      }
+    }
+  }
+
+  .menuSectionsList {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+
+    >h2 {
+      margin: 1rem 0 1.5rem 1.5rem !important;
+    }
+
+    .sectionsListButton {
+      text-align: left;
+      padding-inline-start: 1.5rem;
+      padding-inline-end: 1.5rem;
+      margin-bottom: 1rem;
+      width: 100%;
+      max-width: 800px;
+      height: 3rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      .sectionMainButton {
+        display: flex;
+        align-items: center;
+        flex-grow: 1;
+
+        >div {
+          >svg {
+            margin-right: 10px;
+          }
+        }
+      }
+
+      .listDeleteIcon {
+        display: none;
+      }
+
+      .listDeleteIcon:hover {
+        color: rgb(201, 201, 201);
+        transform: scale(1.15);
+      }
+    }
+
+    .sectionsListButton:hover {
+      .listDeleteIcon {
+        display: block;
+      }
+    }
+  }
+}
+
+/** SECTION EDIT                   */
+/** ****************************** */
+/** ****************************** */
+.sectionEditContainer {
+
+  .sectionEditHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #e4b90e;
+    border-radius: 1rem;
+    padding: 0.7rem 1rem;
+
+    .sectionEditTitle {
+      display: flex;
+      align-items: center;
+      background-color: black;
+      padding: 0.2rem 1rem;
+      border-radius: 1rem;
+      color: white;
+
+      >h2 {
+        margin: 0;
+      }
+
+      .comeBackButton {
+        margin-right: 1rem;
+        font-size: 2rem;
+
+        :hover {
+          cursor: pointer;
+          color: rgb(201, 201, 201);
+        }
+      }
+    }
+
+    .defaultFormButton {
+      padding: 0.4rem 1rem;
+    }
+  }
+
+  .sectionEditZone {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+
+    >div {
+      width: 50%;
+      border: 1px solid rgb(201, 201, 201);
+      border-radius: 1rem;
+      padding: 0.5rem;
+    }
+
+    .sectionEditMainParametrs {
+      order: 2;
+
+      .editMainParametersHeader {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+
+        >h3 {
+          margin-left: 1.5rem;
+        }
+      }
+
+      .defaultForm {
+        .defaultFormGroup {
+          .defaultFormButton {
+            max-width: 10rem;
+          }
+        }
+      }
+    }
+
+    /** GROUP EDIT                     */
+    /** ****************************** */
+    /** ****************************** */
+    .editSectionIngridientGroupsList {
+      order: 1;
+
+      .ingridientGroupsListHeader {
+
+        >h3 {
+          margin-left: 1.5rem;
+        }
+
+        .addGroupForm {
+          display: flex;
+          align-items: flex-end;
+          padding-bottom: 1.5rem;
+          border-bottom: 1px solid rgb(201, 201, 201);
+
+          .defaultFormGroup {
+
+            .defaultFormInput {
+              margin-right: 1rem;
+            }
+
+            .defaultFormButton {
+              padding: 0.5rem 1rem;
+            }
+          }
+        }
+      }
+
+      .ingridientGroupsList {
+        margin-top: 1.5rem;
+
+        .noGroupsInList {
+          margin: 3rem 1.5rem;
+          color: rgb(201, 201, 201);
+
+          >h3 {
+            text-decoration: underline;
+          }
+        }
+
+        .groupListItem {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          background-color: #e4b90e;
+          padding: 0.5rem;
+          border-radius: 1rem;
+          margin-bottom: 0.5rem;
+
+          .groupListLeft {
+            flex-grow: 1;
+            margin-right: 2rem;
+
+            .leftForm {
+              .defaultForm {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+
+                .leftFormInput {
+                  width: 100px;
+                  flex-grow: 1;
+                }
+
+                .defaultFormGroup {
+                  margin: 0;
+
+                  .defaultFormButton {
+                    display: flex;
+                    align-items: center;
+                    padding: 0 0.5rem;
+                    margin-left: 0.5rem;
+                  }
+                }
+              }
+            }
+
+            .leftNameButton {
+              display: flex;
+
+              .groupNameButton {
+                flex-grow: 1;
+                text-align: left;
+                border-radius: 1rem;
+                padding-left: 1rem;
+                margin-right: 0.5rem;
+              }
+            }
+          }
+
+          .groupListRight {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            .defaultFormButton {
+              padding: 0 0.5rem;
+              display: flex;
+              align-items: center;
+              margin-left: 0.5rem;
+            }
+          }
+        }
+
+        /** INGREDIENTS LIST               */
+        /** ****************************** */
+        /** ****************************** */
+        .groupIngridientsList {
+          margin: 1.5rem 0;
+          border-top: 1px solid rgb(201, 201, 201);
+
+          >h3 {
+            margin: 1.5rem 0 1.5rem 0.5rem;
+            color: rgb(201, 201, 201);
+            text-decoration: underline;
+          }
+
+          .ingredientsListHeader {
+            margin: 1.5rem 0.5rem;
+          }
+
+          .newIngredient {
+            margin-left: 0.5rem;
+
+            .defaultFormButton {
+              display: flex;
+              align-items: center;
+              padding: 0.5rem 1rem;
+              border-radius: 0;
+              height: 2rem;
+
+              >svg {
+                margin-right: 0.5rem;
+              }
+            }
+          }
+
+          .ingredientItem {
+            margin-top: 1rem;
+            background-color: #e4b90e;
+
+            .ingredientHeader {
+              display: flex;
+              justify-content: space-between;
+
+              .ingredientHeaderLeft {
+                flex-grow: 1;
+
+                .ingredientButton {
+                  width: 100%;
+                  margin: 0.5rem;
+                  padding: 0 0 0 1rem;
+                  border-radius: 0;
+                  display: flex;
+                  justify-content: space-between;
+                  align-items: center;
+
+                  >img {
+                    padding: 3px;
+                    max-height: 100%;
+                  }
+                }
+              }
+
+              .ingredientHeaderRight {
+                display: flex;
+                align-items: center;
+                margin: 0 0.5rem;
+
+                .defaultFormButton {
+                  border-radius: 0;
+                  padding: 0 0.5rem;
+                  display: flex;
+                  align-items: center;
+                  margin-left: 0.5rem;
+                }
+              }
+            }
+
+            .ingredientForm {
+              .defaultForm {
+                margin: 0;
+                padding: 1rem;
+
+                .defaultFormGroup {
+                  margin: 0 0 1rem 0;
+                }
+
+                .newImageFormGroup {
+                  margin: 1rem 0;
+                  height: 6rem;
+                  display: flex;
+                  flex-direction: row;
+                  justify-content: space-between;
+                  align-items: center;
+                  border-top: 1px solid white;
+                  border-bottom: 1px solid white;
+
+                  .addFile {
+                    display: flex;
+                    flex-direction: column;
+
+                    .defaultFormLabel {
+                      margin: 0 0 0.5rem 1.5rem;
+                      font-size: 1rem;
+                      font-weight: 600;
+                    }
+                  }
+
+                  .newImageDiv {
+                    position: relative;
+                    display: flex;
+                    align-items: center;
+
+                    .newImage {
+                      border-radius: 0.5rem;
+                    }
+
+                    .removeNewImageFromForm {
+                      position: absolute;
+                      top: 0;
+                      right: 0;
+                      cursor: pointer;
+                      padding: 5px;
+                      color: white;
+
+                      >h4 {
+                        margin: 0;
+
+                        >svg {
+                          font-size: 1rem;
+                        }
+                      }
+
+                      :hover {
+                        color: rgb(201, 201, 201);
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+/** INGREDIENTS MODAL               */
+/** ****************************** */
+/** ****************************** */
+.addIngredient {
+
+  .addIngredientHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .addIngredientTitle {
+      margin-left: 1.5rem;
+    }
+
+    .addIngredientCloseModal {
+      cursor: pointer;
+
+      :hover {
+        color: rgb(201, 201, 201);
+      }
+    }
+  }
+
+  .ingredientForm {
+    .defaultForm {
+
+      .newImageFormGroup {
+        margin: 2.5rem 0;
+        height: 4rem;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+
+        .addFile {
+          display: flex;
+          flex-direction: column;
+
+          .defaultFormLabel {
+            margin: 0 0 0.5rem 1.5rem;
+            font-size: 1rem;
+            font-weight: 600;
+          }
+        }
+
+        .newImageDiv {
+          display: flex;
+          align-items: center;
+
+          .newImage {
+            height: 4rem;
+            border-radius: 1rem;
+          }
+        }
+      }
+    }
+  }
+}
+
+/** @media (max-width: 800px)      ////////////////////////////////////*/
+/** ///////////////////////////////////////////////////////////////////*/
+/** ///////////////////////////////////////////////////////////////////*/
+/** MENU SECTIONS                  */
+/** ****************************** */
+/** ****************************** */
+.menuSectionsContainer {
+  display: flex;
+  gap: 2rem;
+
+  .createForm {
+    .defaultForm {
+      padding: 0.5rem 1rem;
+      flex-direction: column;
+      align-items: center;
+
+      .defaultFormGroup {
+        width: 100%;
+        margin: 0.5rem;
+      }
+
+      .createSectionButton {
+        align-self: flex-start;
+        min-width: 100%;
+        margin-left: 0;
+      }
+    }
+  }
+
+  .menuSectionsList {
+    >h2 {
+      margin: 1rem 0 2rem 0;
+    }
+
+    .sectionsListButton {
+      max-width: 100%;
+    }
+  }
+}
+
+/** SECTION EDIT                   */
+/** ****************************** */
+/** ****************************** */
+.sectionEditContainer {
+  .sectionEditZone {
+    flex-direction: column;
+
+    >div {
+      width: 100%;
+    }
+
+    .sectionEditMainParametrs {
+      order: 1;
+    }
+
+    .editSectionIngridientGroupsList {
+      order: 2;
+    }
+  }
+}
+
+/** @media (max-width: 600px)      ////////////////////////////////////*/
+/** ///////////////////////////////////////////////////////////////////*/
+/** ///////////////////////////////////////////////////////////////////*/
+
+/** INGREDIENTS LIST               */
+/** ****************************** */
+/** ****************************** */
+.ingredientItem {
+  .ingredientForm {
+    .defaultForm {
+      .newImageFormGroup {
+        height: 100% !important;
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        padding: 1rem 0;
+
+        .newImageDiv {
+          margin: 1rem 0 0 0;
+        }
+      }
+    }
+  }
+}

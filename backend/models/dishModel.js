@@ -28,9 +28,11 @@ const sizeSchema = mongoose.Schema({
   price: {
     type: Number,
     required: true,
+    default: 0,
   },
   description: {
     type: String,
+    default: '',
   },
 });
 
@@ -68,7 +70,8 @@ const dishSchema = mongoose.Schema({
     type: String,
   },
   Popular: {
-    type: Boolean,
+    type: Number,
+    default: 0,
   },
 },
   {

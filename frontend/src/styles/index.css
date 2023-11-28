@@ -1,0 +1,500 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+/** BASIC TAGS                     */
+/** ****************************** */
+/** ****************************** */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0 20px;
+  font-family: Roboto, arial, sans-serif;
+  font-size: 1.1rem;
+}
+
+a {
+  color: rgb(var(--colour-text-and-icon-1, 17, 17, 17));
+  text-decoration: none;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  margin: 1.25rem 0;
+  font-weight: 700;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  margin: 1rem auto;
+  max-width: 1400px;
+}
+
+/** HELP DEFAULT CLASSES           */
+/** ****************************** */
+/** ****************************** */
+.pickedLink {
+  text-decoration: underline;
+}
+
+.pickedButton {
+  background-color: rgb(35, 35, 35) !important;
+}
+
+.displayNone {
+  display: none;
+}
+
+.between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.flex_end {
+  justify-content: flex-end;
+}
+
+.flex_column {
+  display: flex;
+  flex-direction: column;
+}
+
+.flex_row {
+  display: flex;
+  align-items: center;
+}
+
+/** DEFAULT LIST                   */
+/** ****************************** */
+/** ****************************** */
+.defaultList {
+  >li {
+    margin: 0 0 2.5rem 1.5rem;
+  }
+
+  >li span:hover {
+    text-decoration: underline;
+  }
+}
+
+/** HEADER                         */
+/** ****************************** */
+/** ****************************** */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .left_part {
+    flex-grow: 1;
+
+    .logo {
+      margin-right: 15px;
+
+      >a {
+        .header_logo {
+          padding-top: 5px;
+          width: 70px;
+        }
+      }
+    }
+
+    .search_bar {
+      margin-right: 15px;
+      flex-grow: 1;
+      max-width: 350px;
+
+      >form {
+        width: 100%;
+        text-align: center;
+
+        >input {
+          width: 100%;
+          height: 2.5rem;
+          padding: 0.1rem;
+          padding-inline-start: 3.25rem;
+          padding-inline-end: 3.25rem;
+          font-size: 1rem;
+          background-color: rgb(243, 243, 243);
+          border: 1px solid rgb(243, 243, 243);
+          border-radius: 50em;
+        }
+      }
+    }
+  }
+
+  .headerLinks {
+    >div {
+      padding: 10px;
+
+      :hover {
+        color: rgb(201, 201, 201);
+      }
+    }
+  }
+}
+
+/** NAVBAR                         */
+/** ****************************** */
+/** ****************************** */
+.navbar {
+  border-bottom: 1px solid #e6e6e6;
+
+  .navigationLinks {
+    >a {
+      margin-right: 15px;
+    }
+
+    >div {
+      margin-left: 15px;
+    }
+
+    >a,
+    div {
+      text-decoration: none;
+
+      :hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+/** REACT-MODAL WINDOWS            */
+/** ****************************** */
+/** ****************************** */
+/*/// MAIN BASIC CLASSES */
+.confirmModal {
+  position: fixed;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #fff;
+  padding: 2rem;
+  border-radius: 1rem;
+
+  .confirmDiv {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 20rem;
+
+    .confirmModalButtons {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      margin-top: 2rem;
+
+
+      .defaultFormGroup {
+        .defaultFormButton {
+          width: 5rem;
+        }
+      }
+    }
+  }
+}
+
+.userOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(223, 223, 223, 0.412);
+}
+
+/*/// Right Side MODAL */
+/* Animation */
+@keyframes slideIn {
+  from {
+    right: -600px;
+  }
+
+  to {
+    right: 0;
+  }
+}
+
+@keyframes slideOut {
+  from {
+    right: 0;
+  }
+
+  to {
+    right: -600px;
+  }
+}
+
+.modalOpened {
+  animation: slideIn 0.25s forwards;
+}
+
+.modalClosed {
+  animation: slideOut 0.25s forwards;
+}
+
+/*/// Main classes of right side MODAL */
+.userModal {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  max-width: 600px;
+  height: 100%;
+  background: #fff;
+  border: 1px solid rgba(212, 212, 212, 0.604);
+  border-radius: 10px 0 0 10px;
+  outline: none;
+  padding: 30px;
+  text-align: left;
+  overflow-y: auto;
+}
+
+/*/// User Login/Register/Profile MODAL */
+.userModalContainer {
+  .userModalHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .modalTitles,
+    .userModalClose {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-left: 1.5rem;
+
+      .pickedBody {
+        text-decoration: underline;
+      }
+
+      .userModalTitle {
+        margin: 0 7px 0 0;
+      }
+
+      .userModalTitleButton {
+        >svg {
+          margin-top: 3px;
+        }
+      }
+    }
+
+    .userModalTitleButton:hover {
+      cursor: pointer;
+      text-decoration: underline;
+
+      >svg {
+        color: rgb(201, 201, 201);
+      }
+    }
+  }
+
+  .userModalBody {
+    margin-top: 3rem;
+  }
+}
+
+/** USERMODAL FORM                 */
+/** ****************************** */
+/** ****************************** */
+/* Title */
+.userModalFormTitle {
+  width: 70%;
+}
+
+/* Input */
+.userModalFormInput {
+  width: 70%;
+}
+
+/* Button */
+.userModalFormButton {
+  margin-top: 1rem;
+  width: 40%;
+}
+
+/** USERMODAL PROFILE              */
+/** ****************************** */
+/** ****************************** */
+.userModalProfile {
+  .membershipTitle {
+    border-top: 1px solid rgba(0, 125, 193, 0.782);
+    border-bottom: 1px solid rgba(0, 125, 193, 0.782);
+    margin-bottom: 2.5rem;
+    margin-left: 0;
+    padding: 1.5rem;
+
+    >a {
+      color: rgba(0, 125, 193, 0.782);
+
+      >span {
+        font-weight: 600;
+        font-size: 22px;
+      }
+    }
+  }
+
+  >button {
+    margin-top: 2rem;
+  }
+}
+
+/** ADMIN PANEL                    */
+/** ****************************** */
+/** ****************************** */
+.adminPanelContainer {
+  .adminPanelHeader {
+    display: flex;
+    /* justify-content: space-around; */
+    background-color: #e4b90e;
+
+
+    .adminPanelHeaderLink {
+      background-color: black;
+      color: white;
+      margin: 0.3rem 0 0.3rem 0.5rem;
+      padding: 0.2rem 0.5rem;
+      border: 1px solid white;
+      border-radius: 0.5rem;
+
+      >h3 {
+        margin: 0;
+      }
+
+      :hover {
+        text-decoration: underline;
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+
+
+/** MENU PAGE                      */
+/** ****************************** */
+/** ****************************** */
+/* navbarMenu */
+.navbarMenu {
+  background-color: #e4b90e;
+  padding: 1rem 1rem 0 1rem;
+  border-radius: 1rem;
+  margin-bottom: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+
+  >a {
+    background-color: black;
+    border: 2px solid white;
+    border-radius: 1rem;
+    padding: 0.5rem 1.5rem;
+    margin-bottom: 1rem;
+
+    .navbarMenuLink {
+      display: flex;
+      color: #e6e6e6;
+
+      >h3 {
+        margin: 0 0 0 5px;
+      }
+    }
+  }
+
+  >a:hover {
+    background-color: white;
+    border: 2px solid black;
+
+    >div {
+      color: black;
+    }
+  }
+}
+
+/** @media (max-width: 800px)      ////////////////////////////////////*/
+/** ///////////////////////////////////////////////////////////////////*/
+/** ///////////////////////////////////////////////////////////////////*/
+@media (max-width: 800px) {
+
+  /** MENU PAGE                      */
+  /** ****************************** */
+  /** ****************************** */
+  /* Navbar of Menu page */
+  .navbarMenu {
+    >a {
+      padding: 0.5rem 0.7rem;
+
+      .navbarMenuLink {
+        >h3 {
+          display: none;
+        }
+      }
+    }
+  }
+}
+
+/** @media (max-width: 600px)      ////////////////////////////////////*/
+/** ///////////////////////////////////////////////////////////////////*/
+/** ///////////////////////////////////////////////////////////////////*/
+@media (max-width: 600px) {
+  #search {
+    padding-inline-start: 1rem;
+    padding-inline-end: 1rem;
+  }
+
+  .hideMedia600 {
+    display: none;
+  }
+
+  /*/// Main classes of right side MODAL */
+  .userModal {
+    padding: 30px 10px;
+  }
+
+  /** USERMODAL FORM                 */
+  /** ****************************** */
+  /** ****************************** */
+  .userModalForm {
+    .userModalFormTitle {
+      width: 100% !important;
+    }
+
+    .userModalFormGroup {
+
+      /* Input */
+      .userModalFormInput {
+        width: 100% !important;
+      }
+
+      /* Button */
+      .userModalFormButton {
+        width: 100% !important;
+      }
+    }
+  }
+
+  /** HEADER                         */
+  /** ****************************** */
+  /** ****************************** */
+  .header_logo {
+    width: 50px !important;
+  }
+
+  /** NAVBAR                         */
+  /** ****************************** */
+  /** ****************************** */
+  .navigationLinks {
+    >div :hover {
+      color: rgb(201, 201, 201);
+    }
+  }
+}

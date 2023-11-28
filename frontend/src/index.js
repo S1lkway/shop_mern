@@ -1,8 +1,12 @@
 import React from 'react';
 import { createRoot } from 'react-dom/client';
-import './index.css';
-import App from './App';
 import Modal from 'react-modal';
+//-CSS
+import './styles/index.css';
+import './styles/modules/default_form.css';
+import './styles/modules/dishes.css';
+import './styles/modules/menu_sections.css'
+import App from './App';
 //-Redux main components
 import { Provider } from 'react-redux';
 import { store } from './app/store';

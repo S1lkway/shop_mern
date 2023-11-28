@@ -1,0 +1,201 @@
+/* DEFAULT FORM */
+/** DEFAULT FORM                   */
+/** ****************************** */
+/** ****************************** */
+.defaultForm {
+  width: 100%;
+
+  >h5 {
+    margin: 0.7rem 1.5rem 1.5rem 1.5rem;
+    color: rgba(0, 125, 193, 0.782);
+  }
+
+  >h5>span:hover {
+    cursor: pointer;
+    text-decoration: underline;
+    color: rgb(0, 125, 193);
+  }
+
+  .defaultFormTitle {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    >h2 {
+      margin-left: 1.5rem;
+      text-decoration: underline;
+    }
+
+    >svg:hover {
+      cursor: pointer;
+      color: rgb(201, 201, 201);
+    }
+  }
+
+  .defaultFormGroup {
+    display: flex;
+    flex-direction: column;
+    margin-top: 1.8rem;
+
+    /* Label */
+    >label {
+      margin: 0 0 0.5rem 1.5rem;
+      font-size: 1rem;
+      font-weight: 600;
+    }
+  }
+}
+
+/* Input */
+.defaultFormInput {
+  margin-left: 0;
+  height: 2.5rem;
+  padding: 0.1rem;
+  padding-inline-start: 1.5rem;
+  padding-inline-end: 1.5rem;
+  font-size: 1rem;
+  background-color: rgb(243, 243, 243);
+  border: 1px solid rgb(243, 243, 243);
+  border-radius: 64px;
+}
+
+/* Select */
+.defaultFormSelect {
+  height: 2.5rem;
+  padding: 0;
+  padding-inline-start: 1.3rem;
+  padding-inline-end: 1.5rem;
+  font-size: 1rem;
+  background-color: rgb(243, 243, 243);
+  border: 1px solid rgb(243, 243, 243);
+  border-radius: 64px;
+}
+
+/* FileUpload */
+input[type="file"]::-webkit-file-upload-button {
+  /* margin-left: 1.5rem; */
+  height: 2.3rem;
+  padding: 0.1rem;
+  padding-inline-start: 1.5rem;
+  padding-inline-end: 1.5rem;
+  font-size: 1rem;
+  background-color: rgb(243, 243, 243);
+  border: 1px solid rgb(201, 201, 201);
+  border-radius: 64px;
+  margin-right: 0.5rem;
+}
+
+
+input[type="file"]::-webkit-file-upload-button:hover {
+  cursor: pointer;
+  background-color: rgb(226, 226, 226);
+}
+
+
+/* TextArea */
+.defaultFormTextArea {
+  padding: 0.3rem 0.1rem;
+  padding-inline-start: 1.5rem;
+  padding-inline-end: 1.5rem;
+  font-size: 1rem;
+  background-color: rgb(243, 243, 243);
+  border: 1px solid rgb(243, 243, 243);
+  border-radius: 1rem;
+  min-width: 100%;
+  max-width: 100%;
+}
+
+/* Button */
+.defaultFormButton {
+  height: 2.5rem;
+  padding: 0.1rem;
+  font-size: 1rem;
+  border: 1px solid hsl(0, 0%, 0%);
+  border-radius: 64px;
+  background-color: hsl(0, 0%, 0%);
+  font-weight: 600;
+  color: white;
+}
+
+.defaultFormButton:active {
+  border: 1px solid white;
+}
+
+.defaultFormButton:hover {
+  cursor: pointer;
+  background-color: rgb(35, 35, 35);
+  text-decoration: underline;
+}
+
+.defaultFormToggle {
+  margin-right: 0.5rem;
+
+  .toggle {
+    cursor: pointer;
+    display: inline-block;
+  }
+
+  .toggle-switch {
+    display: inline-block;
+    background: #ccc;
+    border-radius: 16px;
+    width: 58px;
+    height: 32px;
+    position: relative;
+    vertical-align: middle;
+    transition: background 0.25s;
+  }
+
+  .toggle-switch:before,
+  .toggle-switch:after {
+    content: "";
+  }
+
+  .toggle-switch:before {
+    display: block;
+    background: linear-gradient(to bottom, #fff 0%, #eee 100%);
+    border-radius: 50%;
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.25);
+    width: 24px;
+    height: 24px;
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    transition: left 0.25s;
+  }
+
+  .toggle:hover .toggle-switch:before {
+    background: linear-gradient(to bottom, #fff 0%, #fff 100%);
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.5);
+  }
+
+  .toggle-checkbox:checked+.toggle-switch {
+    background: #56c080;
+  }
+
+  .toggle-checkbox:checked+.toggle-switch:before {
+    left: 30px;
+  }
+
+  .toggle-checkbox {
+    position: absolute;
+    visibility: hidden;
+  }
+
+  .toggle-label {
+    margin-left: 5px;
+    position: relative;
+    margin-right: 0.5rem;
+    font-weight: 600;
+    font-size: 1rem;
+  }
+}
+
+/** @media (max-width: 800px)      ////////////////////////////////////*/
+/** ///////////////////////////////////////////////////////////////////*/
+/** ///////////////////////////////////////////////////////////////////*/
+
+
+/** @media (max-width: 600px)      ////////////////////////////////////*/
+/** ///////////////////////////////////////////////////////////////////*/
+/** ///////////////////////////////////////////////////////////////////*/
