@@ -544,6 +544,26 @@ input[type="file"]::-webkit-file-upload-button:hover {
 /** ADMIN PANEL(menu sections)     */
 /** ****************************** */
 /** ****************************** */
+.adminPanelContainer {
+  .adminPanelHeader {
+    display: flex;
+    margin-left: 1rem;
+
+    .adminPanelHeaderLink {
+      margin-right: 1.5rem;
+
+      >h2 {
+        margin: 1rem 0 0.5rem 0;
+      }
+
+      :hover {
+        text-decoration: underline;
+        cursor: pointer;
+      }
+    }
+  }
+}
+
 .menuSectionsContainer {
   display: flex;
   flex-direction: column;
@@ -586,7 +606,7 @@ input[type="file"]::-webkit-file-upload-button:hover {
     flex-direction: column;
 
     >h2 {
-      margin: 0 0 3rem 0;
+      margin: 1rem 0 2rem 1.5rem !important;
     }
 
     .sectionsListButton {
@@ -674,7 +694,6 @@ input[type="file"]::-webkit-file-upload-button:hover {
 
   .sectionEditZone {
     display: flex;
-    /* justify-content: space-between; */
     gap: 1rem;
     margin-top: 1rem;
 
