@@ -145,7 +145,7 @@ function SectionList() {
       </div>
 
       <div className='menuSectionsList'>
-        <h2><i><DvrOutlinedIcon /> Sections list</i></h2>
+        <h2><i><DvrOutlinedIcon /> Section list</i></h2>
         {sections?.map((section) => (
           <div key={section._id} className='defaultFormButton sectionsListButton'>
             <div
