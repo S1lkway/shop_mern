@@ -355,7 +355,6 @@ ul {
 .adminPanelContainer {
   .adminPanelHeader {
     display: flex;
-    /* justify-content: space-around; */
     background-color: #e4b90e;
 
 
@@ -363,7 +362,7 @@ ul {
       background-color: black;
       color: white;
       margin: 0.3rem 0 0.3rem 0.5rem;
-      padding: 0.2rem 0.5rem;
+      padding: 0.3rem 0.5rem;
       border: 1px solid white;
       border-radius: 0.5rem;
 
@@ -378,8 +377,6 @@ ul {
     }
   }
 }
-
-
 
 /** MENU PAGE                      */
 /** ****************************** */
