@@ -34,7 +34,7 @@ function IngredientList(props) {
         (
           <>
             <div className='ingredientsListHeader'>
-              <h3>Additional ingredients for "{group.name}":</h3>
+              <h3>"{group.name}" additional ingredients:</h3>
             </div>
             <div className="newIngredient">
               <button
@@ -53,10 +53,12 @@ function IngredientList(props) {
         (
           <>
             {pickedGroup === false ? (
-              <h3>Pick group to see additional ingredients</h3>
+              <h3><i>Pick group to see additional ingredients</i></h3>
             ) : (
               <>
-                <h3>Group "{group?.name}" doesn't have additional ingredients</h3>
+                <div className='noIngredientsGroup'>
+                  <h3>Group "{group?.name}" doesn't have additional ingredients</h3>
+                </div>
                 <div className="newIngredient">
                   <button
                     onClick={openModal}
