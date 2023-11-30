@@ -5,7 +5,7 @@ import Dishes from './Dishes'
 
 
 function AdminPanel() {
-  const [pickedLink, setPickedLink] = useState('SectionList')
+  const [pickedLink, setPickedLink] = useState('Dishes')
 
   const adminPanelPages = {
     SectionList: <SectionList />,
