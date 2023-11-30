@@ -7,34 +7,43 @@
     justify-content: space-between;
     align-items: center;
     background-color: #e4b90e;
-    border-radius: 1rem;
-    padding: 0.7rem 1rem;
+    color: white;
 
-    .sectionEditTitle {
+    .comeBackButton {
       display: flex;
       align-items: center;
+      height: 2.5rem;
       background-color: black;
-      padding: 0.2rem 1rem;
-      border-radius: 1rem;
-      color: white;
+      border: 1px solid white;
 
-      >h2 {
-        margin: 0;
+      >svg {
+        margin: 0 1rem;
       }
 
-      .comeBackButton {
-        margin-right: 1rem;
-        font-size: 2rem;
+      :hover {
+        cursor: pointer;
+        color: rgb(201, 201, 201);
+      }
+    }
 
-        :hover {
-          cursor: pointer;
-          color: rgb(201, 201, 201);
-        }
+    .sectionName {
+      display: flex;
+      align-items: center;
+      height: 2.5rem;
+      background-color: black;
+      border: 1px solid white;
+
+      >h2 {
+        margin: 0 5rem;
       }
     }
 
     .defaultFormButton {
-      padding: 0.4rem 1rem;
+      display: flex;
+      align-items: center;
+      padding: 0 0.5rem;
+      border-radius: 0;
+      border: 1px solid white;
     }
   }
 
@@ -92,6 +101,22 @@
   /** ****************************** */
   /** ****************************** */
   .sectionEditContainer {
+    .sectionEditHeader {
+
+      /* .comeBackButton {
+        >svg {}
+        :hover {}
+      } */
+      .sectionName {
+
+        >h2 {
+          margin: 0 1rem;
+        }
+      }
+
+      /* .defaultFormButton {} */
+    }
+
     .sectionEditZone {
       flex-direction: column;
 

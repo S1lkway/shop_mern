@@ -90,16 +90,20 @@ function Section() {
 
   return (
     <div className='sectionEditContainer'>
-
       <div className='sectionEditHeader'>
         <div className='sectionEditTitle'>
-          <span
+          <div
             onClick={() => navigate('/admin_panel')}
             className='comeBackButton'
             title='Return to sections page'>
             <KeyboardReturnOutlinedIcon />
-          </span>
-          <h2><i>Section "{section?.name}"</i></h2>
+          </div>
+
+        </div>
+        <div className='sectionName'>
+          <h2>
+            <i>Section "{section?.name}"</i>
+          </h2>
         </div>
         <button
           onClick={openModal}
