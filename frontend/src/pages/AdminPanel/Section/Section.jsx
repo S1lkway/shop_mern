@@ -153,15 +153,14 @@ function Section() {
               <label htmlFor="description" className="defaultFormLabel">
                 Description <i>(optional)</i>
               </label>
-              <textarea
-                className='defaultFormTextArea'
+              <input
+                className='defaultFormInput'
                 autoComplete="on"
-                type="textarea"
+                type="text"
                 id='description'
                 value={description}
                 name='description'
                 placeholder='Description of Menu Section'
-                rows="3"
                 onChange={onChange}
               />
             </div>

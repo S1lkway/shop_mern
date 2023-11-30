@@ -1,0 +1,120 @@
+/** SECTION EDIT                   */
+/** ****************************** */
+/** ****************************** */
+.sectionEditContainer {
+  .sectionEditHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #e4b90e;
+    border-radius: 1rem;
+    padding: 0.7rem 1rem;
+
+    .sectionEditTitle {
+      display: flex;
+      align-items: center;
+      background-color: black;
+      padding: 0.2rem 1rem;
+      border-radius: 1rem;
+      color: white;
+
+      >h2 {
+        margin: 0;
+      }
+
+      .comeBackButton {
+        margin-right: 1rem;
+        font-size: 2rem;
+
+        :hover {
+          cursor: pointer;
+          color: rgb(201, 201, 201);
+        }
+      }
+    }
+
+    .defaultFormButton {
+      padding: 0.4rem 1rem;
+    }
+  }
+
+  .sectionEditZone {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 1rem;
+
+    >div {
+      border: 1px solid rgb(201, 201, 201);
+      border-radius: 1rem;
+      padding: 0 0.5rem;
+    }
+
+    .sectionEditMainParametrs {
+      .editMainParametersHeader {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 1px solid rgb(201, 201, 201);
+
+        >h3 {
+          margin: 0.6rem 1.5rem;
+        }
+      }
+
+      .defaultForm {
+        display: flex;
+        flex-direction: row !important;
+        align-items: flex-end;
+        margin-bottom: 1rem;
+
+        .defaultFormGroup {
+          flex-grow: 1;
+
+          .defaultFormInput {
+            margin-right: 1rem;
+          }
+
+          /* .defaultFormButton {
+          } */
+        }
+      }
+    }
+  }
+}
+
+/** @media (max-width: 800px)      ////////////////////////////////////*/
+/** ///////////////////////////////////////////////////////////////////*/
+/** ///////////////////////////////////////////////////////////////////*/
+@media (max-width: 800px) {
+
+  /** SECTION EDIT                   */
+  /** ****************************** */
+  /** ****************************** */
+  .sectionEditContainer {
+    .sectionEditZone {
+      flex-direction: column;
+
+      .sectionEditMainParametrs {
+        .defaultForm {
+          display: flex;
+          flex-direction: column !important;
+          align-items: flex-start;
+
+          .defaultFormGroup {
+            width: 100%;
+
+            .defaultFormInput {
+              margin-right: 0;
+            }
+
+            .defaultFormButton {
+              max-width: 100%;
+              margin-left: 0;
+            }
+          }
+        }
+      }
+    }
+  }
+}

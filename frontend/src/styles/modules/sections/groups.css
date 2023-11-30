@@ -1,0 +1,110 @@
+/** GROUP EDIT                     */
+/** ****************************** */
+/** ****************************** */
+.editSectionIngridientGroupsList {
+  .ingridientGroupsListHeader {
+    >h3 {
+      margin: 0.5rem 1rem;
+    }
+
+    .addGroupForm {
+      display: flex;
+      align-items: flex-end;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid rgb(201, 201, 201);
+      border-top: 1px solid rgb(201, 201, 201);
+
+      .defaultFormGroup {
+        .defaultFormInput {
+          margin-right: 1rem;
+        }
+
+        .defaultFormButton {
+          padding: 0.5rem 1rem;
+        }
+      }
+    }
+  }
+
+  .ingridientGroupsList {
+    margin-top: 1.5rem;
+
+    .noGroupsInList {
+      margin: 3rem 1.5rem;
+      color: rgb(201, 201, 201);
+
+      >h3 {
+        text-decoration: underline;
+      }
+    }
+
+    .groupListItem {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #e4b90e;
+      padding: 0.5rem;
+      border-radius: 1rem;
+      margin-bottom: 0.5rem;
+
+      .groupListLeft {
+        flex-grow: 1;
+        margin-right: 2rem;
+
+        .leftForm {
+          .defaultForm {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            .leftFormInput {
+              width: 100px;
+              flex-grow: 1;
+            }
+
+            .defaultFormGroup {
+              margin: 0;
+
+              .defaultFormButton {
+                display: flex;
+                align-items: center;
+                padding: 0 0.5rem;
+                margin-left: 0.5rem;
+              }
+            }
+          }
+        }
+
+        .leftNameButton {
+          display: flex;
+
+          .groupNameButton {
+            flex-grow: 1;
+            text-align: left;
+            border-radius: 1rem;
+            padding-left: 1rem;
+            margin-right: 0.5rem;
+          }
+        }
+      }
+
+      .groupListRight {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .defaultFormButton {
+          padding: 0 0.5rem;
+          display: flex;
+          align-items: center;
+          margin-left: 0.5rem;
+        }
+      }
+    }
+  }
+}
+
+/** @media (max-width: 800px)      ////////////////////////////////////*/
+/** ///////////////////////////////////////////////////////////////////*/
+/** ///////////////////////////////////////////////////////////////////*/
+@media (max-width: 800px) {}

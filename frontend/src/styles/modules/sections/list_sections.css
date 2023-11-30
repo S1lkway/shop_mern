@@ -1,0 +1,134 @@
+/* MENU SECTIONS */
+/** MENU SECTIONS                  */
+/** ****************************** */
+/** ****************************** */
+.menuSectionsContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin-top: 1rem;
+
+  .createForm {
+    background-color: #e4b90e;
+    border-radius: 1rem;
+
+    .createSectionFormTitle {
+      background-color: black;
+      color: white;
+      padding: 0.3rem 1rem;
+      border-radius: 1rem 1rem 0 0;
+
+      >h3 {
+        margin: 0;
+      }
+    }
+
+    .defaultForm {
+      display: flex;
+      align-items: flex-end;
+
+      .defaultFormGroup {
+        margin: 1rem;
+        flex-grow: 1;
+      }
+
+      .createSectionButton {
+        max-width: 10%;
+      }
+    }
+  }
+
+  .menuSectionsList {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+
+    >h2 {
+      margin: 1rem 0 1.5rem 1.5rem !important;
+    }
+
+    .sectionsListButton {
+      text-align: left;
+      padding-inline-start: 1.5rem;
+      padding-inline-end: 1.5rem;
+      margin-bottom: 1rem;
+      width: 100%;
+      max-width: 800px;
+      height: 3rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      .sectionMainButton {
+        display: flex;
+        align-items: center;
+        flex-grow: 1;
+
+        >div {
+          >svg {
+            margin-right: 10px;
+          }
+        }
+      }
+
+      .listDeleteIcon {
+        display: none;
+      }
+
+      .listDeleteIcon:hover {
+        color: rgb(201, 201, 201);
+        transform: scale(1.15);
+      }
+    }
+
+    .sectionsListButton:hover {
+      .listDeleteIcon {
+        display: block;
+      }
+    }
+  }
+}
+
+/** @media (max-width: 800px)      ////////////////////////////////////*/
+/** ///////////////////////////////////////////////////////////////////*/
+/** ///////////////////////////////////////////////////////////////////*/
+/** MENU SECTIONS                  */
+/** ****************************** */
+/** ****************************** */
+.menuSectionsContainer {
+  display: flex;
+  gap: 2rem;
+
+  .createForm {
+    .defaultForm {
+      padding: 0.5rem 1rem;
+      flex-direction: column;
+      align-items: center;
+
+      .defaultFormGroup {
+        width: 100%;
+        margin: 0.5rem;
+      }
+
+      .createSectionButton {
+        align-self: flex-start;
+        min-width: 100%;
+        margin-left: 0;
+      }
+    }
+  }
+
+  .menuSectionsList {
+    >h2 {
+      margin: 1rem 0 2rem 0;
+    }
+
+    .sectionsListButton {
+      max-width: 100%;
+    }
+  }
+}
+
+/** @media (max-width: 600px)      ////////////////////////////////////*/
+/** ///////////////////////////////////////////////////////////////////*/
+/** ///////////////////////////////////////////////////////////////////*/

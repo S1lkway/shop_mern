@@ -5,7 +5,7 @@ import Dishes from './Dishes'
 
 
 function AdminPanel() {
-  const [pickedLink, setPickedLink] = useState('Dishes')
+  const [pickedLink, setPickedLink] = useState('SectionList')
 
   const adminPanelPages = {
     SectionList: <SectionList />,
@@ -19,13 +19,13 @@ function AdminPanel() {
           onClick={() => setPickedLink('Dishes')}
           className={pickedLink === 'Dishes' ? ('adminPanelHeaderLink pickedLink') : ('adminPanelHeaderLink')}
           title='Dishes'>
-          <h3>Dishes</h3>
+          <h4>Dishes</h4>
         </div>
         <div
           onClick={() => setPickedLink('SectionList')}
           className={pickedLink === 'SectionList' ? ('adminPanelHeaderLink pickedLink') : ('adminPanelHeaderLink')}
           title='Sections'>
-          <h3>Sections</h3>
+          <h4>Sections</h4>
         </div>
       </div>
       {adminPanelPages[pickedLink]}
