@@ -1,11 +1,9 @@
-/* MENU SECTIONS */
 /** MENU SECTIONS                  */
 /** ****************************** */
 /** ****************************** */
 .menuSectionsContainer {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
   margin-top: 1rem;
 
   .createForm {
@@ -39,30 +37,26 @@
   }
 
   .menuSectionsList {
-    flex-grow: 1;
     display: flex;
     flex-direction: column;
 
     >h2 {
-      margin: 1rem 0 1.5rem 1.5rem !important;
+      margin: 2rem 0 1rem 1.5rem;
     }
 
-    .sectionsListButton {
-      text-align: left;
-      padding-inline-start: 1.5rem;
-      padding-inline-end: 1.5rem;
-      margin-bottom: 1rem;
-      width: 100%;
-      max-width: 800px;
-      height: 3rem;
+    .sectionListItem {
       display: flex;
-      justify-content: space-between;
-      align-items: center;
+      gap: 0.5rem;
 
-      .sectionMainButton {
+      .sectionsListButton {
+        text-align: left;
+        padding-inline-start: 1.5rem;
+        padding-inline-end: 1.5rem;
+        margin-bottom: 1rem;
+        width: 100%;
+        height: 3rem;
         display: flex;
         align-items: center;
-        flex-grow: 1;
 
         >div {
           >svg {
@@ -71,19 +65,12 @@
         }
       }
 
-      .listDeleteIcon {
-        display: none;
-      }
-
-      .listDeleteIcon:hover {
-        color: rgb(201, 201, 201);
-        transform: scale(1.15);
-      }
-    }
-
-    .sectionsListButton:hover {
-      .listDeleteIcon {
-        display: block;
+      .deleteListButton {
+        display: flex;
+        align-items: center;
+        height: 3rem;
+        padding-inline-start: 1rem;
+        padding-inline-end: 1rem;
       }
     }
   }
@@ -92,39 +79,35 @@
 /** @media (max-width: 800px)      ////////////////////////////////////*/
 /** ///////////////////////////////////////////////////////////////////*/
 /** ///////////////////////////////////////////////////////////////////*/
-/** MENU SECTIONS                  */
-/** ****************************** */
-/** ****************************** */
-.menuSectionsContainer {
-  display: flex;
-  gap: 2rem;
+@media (max-width: 800px) {
 
-  .createForm {
-    .defaultForm {
-      padding: 0.5rem 1rem;
-      flex-direction: column;
-      align-items: center;
+  /** MENU SECTIONS                  */
+  /** ****************************** */
+  /** ****************************** */
+  .menuSectionsContainer {
+    .createForm {
+      .defaultForm {
+        padding: 0.5rem 1rem;
+        flex-direction: column;
+        align-items: center;
 
-      .defaultFormGroup {
-        width: 100%;
-        margin: 0.5rem;
-      }
+        .defaultFormGroup {
+          width: 100%;
+          margin: 0.5rem;
+        }
 
-      .createSectionButton {
-        align-self: flex-start;
-        min-width: 100%;
-        margin-left: 0;
+        .createSectionButton {
+          align-self: flex-start;
+          min-width: 100%;
+          margin-left: 0;
+        }
       }
     }
-  }
 
-  .menuSectionsList {
-    >h2 {
-      margin: 1rem 0 2rem 0;
-    }
-
-    .sectionsListButton {
-      max-width: 100%;
+    .menuSectionsList {
+      >h2 {
+        margin-bottom: 0.5rem;
+      }
     }
   }
 }
@@ -132,3 +115,4 @@
 /** @media (max-width: 600px)      ////////////////////////////////////*/
 /** ///////////////////////////////////////////////////////////////////*/
 /** ///////////////////////////////////////////////////////////////////*/
+@media (max-width: 600px) {}

@@ -97,7 +97,7 @@ function SectionList() {
       <div className='createForm'>
         <div className='createSectionFormTitle'>
           <h3>
-            <i><AddToQueueOutlinedIcon /> Create new Section</i>
+            <i><AddToQueueOutlinedIcon /> Create Section</i>
           </h3>
         </div>
 
@@ -147,17 +147,23 @@ function SectionList() {
       <div className='menuSectionsList'>
         <h2><i><DvrOutlinedIcon /> Section list</i></h2>
         {sections?.map((section) => (
-          <div key={section._id} className='defaultFormButton sectionsListButton'>
+          <div
+            className='sectionListItem'
+            key={section._id}>
             <div
               title='Click to edit section'
-              className='sectionMainButton'
+              className='defaultFormButton sectionsListButton'
               onClick={() => goToEditSection(section._id)}>
               <div title='It shows activity of section in menu. If green, users can see it in'>
                 <TurnedInIcon style={{ color: section.activeInMenu ? 'green' : 'red' }} />
               </div>
               <div>{section.name}</div>
+
+
             </div>
-            <div title='Delete section' >
+            <div
+              className='defaultFormButton deleteListButton'
+              title='Delete section'>
               <DeleteOutlinedIcon
                 className='listDeleteIcon'
                 onClick={() => openModal(section._id)} />
