@@ -57,10 +57,10 @@ const dishSchema = mongoose.Schema({
   },
   description: {
     type: String,
-    required: [true, 'Please add a description of dish']
   },
   sizes: {
     type: [sizeSchema],
+    default: [sizeSchema],
     required: [true, 'Please add minimum one size of dish'],
   },
   additionOptions: {
