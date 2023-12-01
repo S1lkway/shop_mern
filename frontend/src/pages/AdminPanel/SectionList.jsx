@@ -12,15 +12,13 @@ import DvrOutlinedIcon from '@mui/icons-material/DvrOutlined';
 import TurnedInIcon from '@mui/icons-material/TurnedIn';
 import DeleteOutlinedIcon from '@mui/icons-material/DeleteOutlined';
 //-Redux
-import { getMenuSections, createMenuSection, resetMenuSections, deleteMenuSection } from '../../features/sections/sectionSlice'
+import { createMenuSection, resetMenuSections, deleteMenuSection } from '../../features/sections/sectionSlice'
 
 function SectionList() {
   //*CONSTS
   const dispatch = useDispatch()
   const navigate = useNavigate()
-  const { sections, sectionsIsLoading, sectionsIsSuccess, sectionsIsError, sectionsMessage } = useSelector(
-    (state) => state.menuSections
-  )
+  const { sections, sectionsIsLoading, sectionsIsSuccess, sectionsIsError, sectionsMessage } = useSelector((state) => state.menuSections)
   const [formData, setFormData] = useState({
     name: '',
     description: '',
@@ -40,11 +38,6 @@ function SectionList() {
   };
 
   //*ACTIONS
-  useEffect(() => {
-    dispatch(getMenuSections())
-    // eslint-disable-next-line
-  }, [])
-
   useEffect(() => {
     if (sectionsIsError) {
       toast.error(sectionsMessage)

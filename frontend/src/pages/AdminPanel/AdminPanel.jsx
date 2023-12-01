@@ -1,11 +1,21 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
+import { useDispatch } from 'react-redux'
 //-Components
 import SectionList from "./SectionList"
 import Dishes from './Dishes'
+//-Redux
+import { getMenuSections } from '../../features/sections/sectionSlice'
 
 
 function AdminPanel() {
+  const dispatch = useDispatch()
   const [pickedLink, setPickedLink] = useState('Dishes')
+
+  //*ACTIONS
+  useEffect(() => {
+    dispatch(getMenuSections())
+    // eslint-disable-next-line
+  }, [])
 
   const adminPanelPages = {
     SectionList: <SectionList />,
