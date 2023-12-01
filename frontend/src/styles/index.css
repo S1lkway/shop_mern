@@ -73,6 +73,13 @@ ul {
   align-items: center;
 }
 
+.hoverUnderline {
+  :hover {
+    cursor: pointer;
+    text-decoration: underline;
+  }
+}
+
 /** DEFAULT LIST                   */
 /** ****************************** */
 /** ****************************** */

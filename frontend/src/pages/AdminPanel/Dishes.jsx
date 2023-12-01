@@ -15,13 +15,13 @@ function Dishes() {
       <div className="dishesHeader">
         <div
           onClick={() => setPickedLink('CreateDish')}
-          className={pickedLink === 'CreateDish' ? ('dishesLink pickedLink') : ('dishesLink')}
+          className={pickedLink === 'CreateDish' ? ('dishesLink pickedLink hoverUnderline') : ('dishesLink hoverUnderline')}
           title='Dishes'>
           <h3><i>Create Dish</i></h3>
         </div>
         <div
           onClick={() => setPickedLink('DishList')}
-          className={pickedLink === 'DishList' ? ('dishesLink pickedLink') : ('dishesLink')}
+          className={pickedLink === 'DishList' ? ('dishesLink hoverUnderline pickedLink') : ('dishesLink hoverUnderline')}
           title='Sections'>
           <h3><i>Dish List</i></h3>
         </div>
