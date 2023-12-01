@@ -35,7 +35,7 @@ function CreateDish() {
             id='name'
             // value={name || ''}
             // onChange={onChange}
-            placeholder='Enter name for ingredient'
+            placeholder='Enter name for dish'
             required />
         </div>
 
@@ -91,7 +91,7 @@ function CreateDish() {
             name='description'
             // value={description || ''}
             // onChange={onChange}
-            placeholder='Description for ingredient'
+            placeholder='Description for dish'
             rows="3" />
         </div>
 

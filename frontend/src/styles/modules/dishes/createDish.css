@@ -1,0 +1,79 @@
+.createDishContainer {
+  border: 1px solid rgb(201, 201, 201);
+  border-radius: 1rem;
+  padding: 0.5rem;
+
+  .createDishTitle {
+    margin-left: 1.5rem;
+  }
+
+  .defaultForm {
+    margin-top: 2rem;
+
+    .defaultFormGroup {
+      margin-top: 1rem;
+    }
+  }
+
+  .newImageFormGroup {
+    margin: 1rem 0;
+    height: 6rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid white;
+    border-bottom: 1px solid white;
+
+    .addFile {
+      display: flex;
+      flex-direction: column;
+
+      .defaultFormLabel {
+        margin: 0 0 0.5rem 1.5rem;
+        font-size: 1rem;
+        font-weight: 600;
+      }
+    }
+
+    .newImageDiv {
+      position: relative;
+      display: flex;
+      align-items: center;
+
+      .newImage {
+        border-radius: 0.5rem;
+      }
+
+      .removeNewImageFromForm {
+        position: absolute;
+        top: 0;
+        right: 0;
+        cursor: pointer;
+        padding: 5px;
+        color: white;
+
+        >h4 {
+          margin: 0;
+
+          >svg {
+            font-size: 1rem;
+          }
+        }
+
+        :hover {
+          color: rgb(201, 201, 201);
+        }
+      }
+    }
+  }
+}
+
+/** @media (max-width: 800px)      ////////////////////////////////////*/
+/** ///////////////////////////////////////////////////////////////////*/
+/** ///////////////////////////////////////////////////////////////////*/
+
+
+/** @media (max-width: 600px)      ////////////////////////////////////*/
+/** ///////////////////////////////////////////////////////////////////*/
+/** ///////////////////////////////////////////////////////////////////*/

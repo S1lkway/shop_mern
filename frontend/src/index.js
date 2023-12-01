@@ -4,12 +4,15 @@ import Modal from 'react-modal';
 //-CSS
 import './styles/index.css';
 import './styles/modules/default_form.css';
+// Dishes
 import './styles/modules/dishes/dishes.css';
+import './styles/modules/dishes/createDish.css';
+import './styles/modules/dishes/dishList.css';
+// Sections
 import './styles/modules/sections/list_sections.css'
 import './styles/modules/sections/edit_section.css'
 import './styles/modules/sections/groups.css'
 import './styles/modules/sections/ingredients.css'
-// import './styles/modules/menu_sections.css'
 import App from './App';
 //-Redux main components
 import { Provider } from 'react-redux';

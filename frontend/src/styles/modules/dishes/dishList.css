@@ -1,19 +1,4 @@
-/* DISHES  */
-/** MAIN                           */
-/** ****************************** */
-/** ****************************** */
-.dishesContainer {
-  .dishesHeader {
-    display: flex;
-    justify-content: center;
-
-    .dishesLink {
-      >h3 {
-        margin-right: 1.5rem;
-      }
-    }
-  }
-}
+/* .dishListContainer {} */
 
 /** @media (max-width: 800px)      ////////////////////////////////////*/
 /** ///////////////////////////////////////////////////////////////////*/
