@@ -66,6 +66,7 @@ function CreateDish() {
           </label>
           <select
             name="section"
+            id="section"
             value={section || ''}
             onChange={onChange}
             className='defaultFormSelect'
@@ -87,6 +88,7 @@ function CreateDish() {
             id='name'
             value={name || ''}
             onChange={onChange}
+            autoComplete='off'
             placeholder='Enter name for dish'
             required />
         </div>
