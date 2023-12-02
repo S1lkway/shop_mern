@@ -13,6 +13,13 @@
     .defaultFormGroup {
       margin-top: 1.5rem;
     }
+
+    .defaultFormSelect {
+      >option {
+        font-size: 18px;
+        background-color: #e4b90e;
+      }
+    }
   }
 
   .newImageFormGroup {
