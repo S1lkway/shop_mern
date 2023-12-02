@@ -2,6 +2,8 @@ import { useState } from 'react'
 import { useSelector } from 'react-redux'
 // import { useNavigate } from 'react-router-dom'
 import { toast } from 'react-toastify'
+//-MUI components
+import CloseIcon from '@mui/icons-material/Close';
 
 function CreateDish() {
   //* CONSTS *******************************************
@@ -19,7 +21,13 @@ function CreateDish() {
   const { section, name, description } = formData
   const file = fileData
 
-  ///ACTIONS
+  //* ACTIONS
+  const removeNewImage = () => {
+    setFileData(null)
+    setNewImageUrl(null)
+    document.getElementById('file').value = '';
+  }
+
   const onChange = (e) => {
     if (e.target.name === 'file' && e.target.files.length > 0) {
       const selectedFile = Array.from(e.target.files).filter(
@@ -88,7 +96,7 @@ function CreateDish() {
             id='name'
             value={name || ''}
             onChange={onChange}
-            autoComplete='off'
+            autoComplete='on'
             placeholder='Enter name for dish'
             required />
         </div>
@@ -115,6 +123,14 @@ function CreateDish() {
                 src={newImageUrl}
                 alt={`File "${newImageUrl}" wasn't found`}
               />
+              <div
+                onClick={() => removeNewImage()}
+                className="removeNewImageFromForm"
+                title="Remove image">
+                <h4>
+                  <CloseIcon />
+                </h4>
+              </div>
             </div>
           )}
         </div>
