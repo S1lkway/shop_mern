@@ -70,6 +70,9 @@ function CreateDish() {
         <h2>Main parameters</h2>
 
       </div>
+
+
+
       <form
         onSubmit={createNewDish}
         className="defaultForm">
