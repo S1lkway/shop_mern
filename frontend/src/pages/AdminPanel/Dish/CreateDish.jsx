@@ -61,21 +61,9 @@ function CreateDish() {
   }
 
 
-
-
-
-
-
-
-
   return (
 
     <div className='createDishContainer'>
-
-
-
-
-
 
 
 
