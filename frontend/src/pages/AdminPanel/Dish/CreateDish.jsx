@@ -58,6 +58,12 @@ function CreateDish() {
       dishData.append('images', file[0]);
       console.log([...dishData.entries()])
     }
+
+
+
+
+
+
   }
 
 
