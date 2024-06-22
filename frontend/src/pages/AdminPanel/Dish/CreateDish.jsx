@@ -57,6 +57,7 @@ function CreateDish() {
       dishData.append('description', description);
       dishData.append('images', file[0]);
       console.log([...dishData.entries()])
+
     }
   }
 
@@ -68,8 +69,6 @@ function CreateDish() {
       <div className='createDishTitle'>
 
         <h2>Main parameters</h2>
-
-
       </div>
 
       <form
