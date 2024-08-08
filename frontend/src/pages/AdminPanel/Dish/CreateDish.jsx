@@ -70,8 +70,6 @@ function CreateDish() {
 
       </div>
 
-
-
       <form
 
         onSubmit={createNewDish}
