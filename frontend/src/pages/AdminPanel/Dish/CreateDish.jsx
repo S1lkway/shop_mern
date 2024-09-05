@@ -65,20 +65,15 @@ function CreateDish() {
       <div className='createDishTitle'>
         <h2>Main parameters</h2>
 
-
       </div>
       <form
         onSubmit={createNewDish}
         className="defaultForm">
         <div className="defaultFormGroup">
 
-
-
           <label htmlFor="section" className="defaultFormLabel">
             Section
           </label>
-
-
 
           <select
             name="section"
