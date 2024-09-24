@@ -65,8 +65,6 @@ function CreateDish() {
 
       <div className='createDishTitle'>
         <h2>Main parameters</h2>
-
-
       </div>
       <form
         onSubmit={createNewDish}
@@ -77,6 +75,8 @@ function CreateDish() {
           <label htmlFor="section" className="defaultFormLabel">
             Section
           </label>
+
+
           <select
             name="section"
             id="section"
