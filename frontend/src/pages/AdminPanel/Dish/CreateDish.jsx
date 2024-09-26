@@ -72,7 +72,6 @@ function CreateDish() {
 
 
 
-
         <div className="defaultFormGroup">
 
           <label htmlFor="section" className="defaultFormLabel">
