@@ -36,6 +36,9 @@ function CreateDish() {
       const selectedFile = Array.from(e.target.files).filter(
         (file) => file.type.startsWith('image/')
       )
+
+
+
       const imageUrl = URL.createObjectURL(e.target.files[0]);
       //Url to show new image
       setNewImageUrl(imageUrl);
