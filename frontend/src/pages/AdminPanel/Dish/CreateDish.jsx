@@ -21,11 +21,6 @@ function CreateDish() {
   const { section, name, description } = formData
   const file = fileData
 
-
-
-
-
-  
   //* ACTIONS
   const removeNewImage = () => {
     setFileData(null)
