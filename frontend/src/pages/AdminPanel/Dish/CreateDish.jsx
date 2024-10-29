@@ -27,6 +27,11 @@ function CreateDish() {
     setNewImageUrl(null)
     document.getElementById('file').value = '';
   }
+
+
+
+
+
   const onChange = (e) => {
     if (e.target.name === 'file' && e.target.files.length > 0) {
       const selectedFile = Array.from(e.target.files).filter(
