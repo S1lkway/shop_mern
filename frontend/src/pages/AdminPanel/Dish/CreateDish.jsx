@@ -39,10 +39,6 @@ function CreateDish() {
       )
 
 
-
-
-
-
       const imageUrl = URL.createObjectURL(e.target.files[0]);
       //Url to show new image
       setNewImageUrl(imageUrl);
@@ -69,6 +65,9 @@ function CreateDish() {
       console.log([...dishData.entries()])
     }
   }
+
+
+
 
   return (
     <div className='createDishContainer'>
