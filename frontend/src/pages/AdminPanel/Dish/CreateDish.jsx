@@ -49,12 +49,10 @@ function CreateDish() {
         [e.target.name]: e.target.value,
       }));
     }
-
   }
 
   const createNewDish = (e) => {
     e.preventDefault()
-
     if (section === '' || name === '' || fileData === null) {
       toast.error("Fill all fields except optional")
     } else {
@@ -71,7 +69,6 @@ function CreateDish() {
     <div className='createDishContainer'>
       <div className='createDishTitle'>
         <h2>Main parameters</h2>
-
       </div>
       <form
         onSubmit={createNewDish}
