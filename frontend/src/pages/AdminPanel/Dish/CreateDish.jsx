@@ -49,6 +49,7 @@ function CreateDish() {
         [e.target.name]: e.target.value,
       }));
     }
+
   }
 
   const createNewDish = (e) => {
@@ -64,11 +65,6 @@ function CreateDish() {
       console.log([...dishData.entries()])
     }
   }
-
-
-
-
-
 
   return (
     <div className='createDishContainer'>
