@@ -51,8 +51,6 @@ function CreateDish() {
     }
   }
 
-
-
   const createNewDish = (e) => {
     e.preventDefault()
     if (section === '' || name === '' || fileData === null) {
@@ -66,6 +64,8 @@ function CreateDish() {
       console.log([...dishData.entries()])
     }
   }
+
+
 
   return (
     <div className='createDishContainer'>
