@@ -51,6 +51,8 @@ function CreateDish() {
     }
   }
 
+
+
   const createNewDish = (e) => {
     e.preventDefault()
     if (section === '' || name === '' || fileData === null) {
@@ -63,9 +65,6 @@ function CreateDish() {
       dishData.append('images', file[0]);
       console.log([...dishData.entries()])
     }
-
-
-
   }
 
   return (
