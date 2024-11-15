@@ -49,6 +49,8 @@ function CreateDish() {
         [e.target.name]: e.target.value,
       }));
     }
+
+
   }
 
   const createNewDish = (e) => {
@@ -63,10 +65,6 @@ function CreateDish() {
       dishData.append('images', file[0]);
       console.log([...dishData.entries()])
     }
-
-
-
-
   }
 
   return (
